@@ -108,6 +108,11 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 				+ signe + ", nom=" + nom + ", type=" + type + "]";
 	}
 
+	@Override
+	public void attaquer() {
+
+	}
+
 	public Sopramon() 
 	{
 		super("UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN");
@@ -117,19 +122,22 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 		this.niveau = 0;
 		this.argent = 0d;
 		this.capacite = new Capacite();
-		this.id = 0;
+		this.id = -1;
 	}
-
-	public Sopramon(String nom, String prenom, String username, String password) {
-		super(nom, prenom, username, password);
+	
+	
+	public Sopramon(String nomUtilisateur, String prenom, String username, String password, Date dateNaissance){
+		super(nomUtilisateur, prenom, username, password);
+		this.dateNaissance = dateNaissance;
 		this.nom = "unknown";
-		this.dateNaissance = Date.valueOf(LocalDate.now());
 		this.experience = 0;
 		this.niveau = 0;
 		this.argent = 0d;
 		this.capacite = new Capacite();
 		this.id = 0;
+		this.signe = new Signe(dateNaissance);
 	}
+
 
 //	@Override
 //	public void attaquerBoss(Sopramon sop, Boss boss, Combat combat) {
