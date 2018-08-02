@@ -9,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+<<<<<<< Updated upstream
 import javax.persistence.OneToMany;
+=======
+>>>>>>> Stashed changes
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -37,9 +40,15 @@ public class Item {
 	@NotEmpty
 	private double prix;
 	
+<<<<<<< Updated upstream
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="ITE_CAPACITE_ID")
 	private Capacite capacite = new Capacite();
+=======
+	@OneToOne
+	@JoinColumn(name="ITE_CAPACITE_ID")
+	private Capacite capacite;
+>>>>>>> Stashed changes
 
 	@OneToMany(mappedBy="item")
 	private List<Achat> achats;
