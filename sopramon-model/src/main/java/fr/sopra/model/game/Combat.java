@@ -37,7 +37,7 @@ public class Combat {
 	private Sopramon sopramon1;
 	
 	@ManyToOne 
-	@JoinColumn(name="COM_SOPRAMON_ID")
+	@JoinColumn(name="COM_SOPRAMON2_ID")
 	private Sopramon sopramon2;
 	
 	@ManyToOne 
@@ -45,7 +45,7 @@ public class Combat {
 	private Boss boss;
 	
 	@OneToMany(mappedBy="combat")
-	private List<Achat> coups;
+	private List<Coup> coups;
 
 	public int getId() {
 		return id;
@@ -85,6 +85,13 @@ public class Combat {
 
 	public void setBoss(Boss boss) {
 		this.boss = boss;
+	}
+	public List<Coup> getCoups() {
+		return coups;
+	}
+
+	public void setCoups(List<Coup> coups) {
+		this.coups = coups;
 	}
 
 	public Combat(Sopramon sopramon1, Boss boss) {

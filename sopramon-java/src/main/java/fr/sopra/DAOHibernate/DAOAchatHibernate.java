@@ -5,7 +5,7 @@ import java.util.List;
 import fr.sopra.DAO.IDAOAchat;
 import fr.sopra.model.game.Achat;
 
-public class DAOHibernateAchat extends DAOHibernate implements IDAOAchat {
+public class DAOAchatHibernate extends DAOHibernate implements IDAOAchat {
 
 	@Override
 	public List<Achat> findAll() {

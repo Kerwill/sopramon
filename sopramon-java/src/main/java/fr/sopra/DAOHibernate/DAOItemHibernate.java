@@ -5,7 +5,7 @@ import java.util.List;
 import fr.sopra.DAO.IDAOItem;
 import fr.sopra.model.game.Item;
 
-public class DAOHibernateItem extends DAOHibernate implements IDAOItem {
+public class DAOItemHibernate extends DAOHibernate implements IDAOItem {
 
 	@Override
 	public List<Item> findAll() {

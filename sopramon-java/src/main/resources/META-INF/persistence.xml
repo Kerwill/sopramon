@@ -11,6 +11,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
     <class>fr.sopra.model.game.Combat</class>
     <class>fr.sopra.model.game.Item</class>
     <class>fr.sopra.model.game.Sopramon</class>
+    <class>fr.sopra.model.game.Coup</class>
     <class>fr.sopra.model.Administrateur</class>
     <class>fr.sopra.model.Utilisateur</class>
     <properties>

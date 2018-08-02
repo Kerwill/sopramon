@@ -7,7 +7,7 @@ import javax.persistence.Query;
 import fr.sopra.DAO.IDAOBoss;
 import fr.sopra.model.game.Boss;
 
-public class DAOHibernateBoss extends DAOHibernate implements IDAOBoss {
+public class DAOBossHibernate extends DAOHibernate implements IDAOBoss {
 
 	@Override
 	public List<Boss> findAll() {
