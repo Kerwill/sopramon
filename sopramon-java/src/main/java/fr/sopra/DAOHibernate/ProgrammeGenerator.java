@@ -29,7 +29,7 @@ public class ProgrammeGenerator {
 			
 			
 			
-			public static void addSopramon( @Size(max = 30) @NotEmpty String nomUtil, @Size(max = 30) @NotEmpty String prenomUtil,
+			public static Sopramon addSopramon( @Size(max = 30) @NotEmpty String nomUtil, @Size(max = 30) @NotEmpty String prenomUtil,
 					@Size(max = 30) @NotEmpty String username, @Size(max = 30) @NotEmpty String password,  @NotEmpty Date dateNaissance, 
 					@NotEmpty @Size(max = 30) String nom) {
 				
@@ -45,6 +45,8 @@ public class ProgrammeGenerator {
 				mySopramon.setNiveau(1);
 				mySopramon.setArgent(100.00d);
 				mySopramon.setNom(nom);
+				
+				return mySopramon;
 
 
 		

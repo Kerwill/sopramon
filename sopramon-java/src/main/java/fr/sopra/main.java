@@ -16,6 +16,7 @@ import fr.sopra.DAO.IDAOBoss;
 import fr.sopra.DAO.IDAOCombat;
 import fr.sopra.DAO.IDAOCoup;
 import fr.sopra.DAO.IDAOSopramon;
+import fr.sopra.DAOHibernate.DAOSopramonHibernate;
 import fr.sopra.DAOHibernate.ProgrammeGenerator;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;
@@ -28,8 +29,8 @@ public class main {
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("---------------------------------MENU---------------------------------------\n"
-				+ "1 : CrÃ©er un compte\n" + "2 : Se connecter\n" + "3 : Obtenir la liste de tous les Sopramon \n"
-				+ "4 : DÃ©marrer un duel avec un Boss\n\n" + "Quel est votre choix ?\n");
+				+ "1 : Créer un compte\n" + "2 : Se connecter\n" + "3 : Obtenir la liste de tous les Sopramon \n"
+				+ "4 : Démarrer un duel avec un Boss\n\n" + "Quel est votre choix ?\n");
 		int choix = 4;
 
 		DAOSopramonSQL daoSopra = new DAOSopramonSQL();
@@ -90,10 +91,6 @@ do {
 			System.out.println("Entrez le nom de votre Sopramon");
 			nomSopra = keyboard.next();
 
-			 System.out.println("Veuillez saisir votre mois de naissance");
-			 moisNaissance = keyboard.nextInt();
-			 System.out.println("Veuillez saisir votre annee de naissance");
-			 anneeNaissance = keyboard.nextInt();
 			 System.out.println("Veuillez saisir votre jour de naissance");
 			 jourNaissance = keyboard.nextInt();
 			 System.out.println("Veuillez saisir votre mois de naissance");
@@ -101,8 +98,10 @@ do {
 			 System.out.println("Veuillez saisir votre annee de naissance");
 			 anneeNaissance = keyboard.nextInt();
 
-			 ProgrammeGenerator.addSopramon(nomUtil, prenomUtil, username, motDePasse, new Date(anneeNaissance,moisNaissance,jourNaissance), nomSopra);
-
+			Sopramon nouveauSopra = ProgrammeGenerator.addSopramon(nomUtil, prenomUtil, username, motDePasse, new Date(anneeNaissance,moisNaissance,jourNaissance), nomSopra);
+			DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
+			daoSopramon.save(nouveauSopra);
+			
 			break;
 
 		case 4:
@@ -143,4 +142,5 @@ do {
 while (choix != 0 || choix != 1 || choix != 2 || choix != 3);
 	
 	}
+	
 }
