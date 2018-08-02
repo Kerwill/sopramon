@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,16 +38,16 @@ public class Coup {
 	@NotEmpty
 	private int persistance;
 	
-	@OneToOne 
-	@JoinColumn(name="SOP_SOPRAMON_ID")
+	@ManyToOne 
+	@JoinColumn(name="COU_SOPRAMON_ID")
 	private Sopramon sopramon;
 	
-	@OneToOne 
-	@JoinColumn(name="BOS_BOSS_ID")
+	@ManyToOne 
+	@JoinColumn(name="COU_BOSS_ID")
 	private Boss boss;
 	
-	@OneToOne 
-	@JoinColumn(name="COM_ID")
+	@ManyToOne 
+	@JoinColumn(name="COU_COMBAT_ID")
 	private Combat combat;
 
 	public int getId() {
