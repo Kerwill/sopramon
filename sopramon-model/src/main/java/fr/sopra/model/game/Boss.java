@@ -1,5 +1,6 @@
 package fr.sopra.model.game;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -26,22 +27,22 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 	@Column(name = "BOS_NOM", length = 50, nullable = false)
 	@NotEmpty
 	@Size(max = 50)
-	private String nom;
+	private String nom = "Unknown";
 	
 	@Column(name = "BOS_NIVEAU", nullable = false)
 	@Positive
 	@NotEmpty
-	private int niveau;
+	private int niveau = 1;
 	
-	@OneToOne
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "BOS_CAPACITE")
 	@NotEmpty
-	private Capacite capacite;
+	private Capacite capacite = new Capacite();
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "BOS_SIGNE")
 	@NotEmpty
-	private Signe signe;
+	private Signe signe = Signe.UNKNOWN;
 
 	public int getId() {
 		return id;
@@ -83,16 +84,7 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 		this.signe = signe;
 	}
 
-	
 
-	public Boss() {
-		super();
-		this.id = 0;
-		this.nom = "UNKNOWN";
-		this.niveau = 0;
-		this.capacite = new Capacite();
-		this.signe = new Signe();
-	}
 
 	@Override
 	public String toString() {
@@ -100,17 +92,17 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 				+ "]";
 	}
 
-	@Override
-	public void attaquerBoss(Sopramon entity, Boss entity2, Combat combat) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void attaquerSopramon(Sopramon entity, Sopramon entity2, Combat combat) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void attaquerBoss(Sopramon entity, Boss entity2, Combat combat) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void attaquerSopramon(Sopramon entity, Sopramon entity2, Combat combat) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	
 	
 }

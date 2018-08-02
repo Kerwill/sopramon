@@ -1,5 +1,7 @@
 package fr.sopra.model.game;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -60,7 +62,7 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@Size(max = 30)
 	private String nom;
 	
-	@OneToOne
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "SOP_CAPACITE_ID")
 	private Capacite capacite;
 	
@@ -177,19 +179,11 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 		this.argent = 0d;
 		this.capacite = new Capacite();
 		this.type = type.UNKNOWN;
-	}
-	
-	
-	public Sopramon(String nomUtilisateur, String prenom, String username, String password, Date dateNaissance){
-		super(nomUtilisateur, prenom, username, password);
-		this.dateNaissance = dateNaissance;
-		this.nom = "unknown";
-		this.experience = 0;
-		this.niveau = 0;
-		this.argent = 0d;
-		this.capacite = new Capacite();
 		this.signe = signe.UNKNOWN;
 	}
+	
+	
+
 
 
 //	@Override

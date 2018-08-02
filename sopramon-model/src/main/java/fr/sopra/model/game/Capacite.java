@@ -21,27 +21,27 @@ public class Capacite {
 	@Column(name = "CAP_PV", nullable = true)
 	@PositiveOrZero
 	@NotEmpty
-	private int pointsDeVie;
+	private int pointsDeVie = 0;
 	
 	@Column(name = "CAP_ATTAQUE", nullable = true)
 	@PositiveOrZero
 	@NotEmpty
-	private int attaque;
+	private int attaque = 0;
 	
 	@Column(name = "CAP_DEFENSE", nullable = true)
 	@PositiveOrZero
 	@NotEmpty
-	private int defense;
+	private int defense = 0;
 	
 	@Column(name = "CAP_ESQUIVE", nullable = true)
 	@PositiveOrZero
 	@NotEmpty
-	private int esquive;
+	private int esquive = 0;
 	
 	@Column(name = "CAP_VITESSE", nullable = true)
 	@PositiveOrZero
 	@NotEmpty
-	private int vitesse;
+	private int vitesse = 0;
 
 	public int getId() {
 		return id;
@@ -97,14 +97,5 @@ public class Capacite {
 				+ ", esquive=" + esquive + ", vitesse=" + vitesse + "]";
 	}
 
-	public Capacite() {
-		super();
-		this.id = 0;
-		this.pointsDeVie = 0;
-		this.attaque = 0;
-		this.defense = 0;
-		this.esquive = 0;
-		this.vitesse = 0;
-	}
 
 }
