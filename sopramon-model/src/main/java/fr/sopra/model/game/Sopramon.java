@@ -108,11 +108,6 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 				+ signe + ", nom=" + nom + ", type=" + type + "]";
 	}
 
-	@Override
-	public void attaquer() {
-
-	}
-
 	public Sopramon() 
 	{
 		super("UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN");

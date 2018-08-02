@@ -92,9 +92,9 @@ do {
 			 System.out.println("Veuillez saisir votre annee de naissance");
 			 anneeNaissance = keyboard.nextInt();
 			
-			 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-			 Date dateNaissance = formatter.parse(jourNaissance + "/" + moisNaissance +
-			 "/" + anneeNaissance);
+//			 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//			 Date dateNaissance = formatter.parse(jourNaissance + "/" + moisNaissance +
+//			 "/" + anneeNaissance);
 
 			Sopramon mySopramon1 = new Sopramon(nom, prenom, username, motDePasse, null);
 			daoSopra.save(mySopramon1);
