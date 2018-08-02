@@ -1,6 +1,5 @@
-package fr.sopra.DAOHibernate;
+package fr.sopra.DAO;
 
-import fr.sopra.DAO.IDAO;
 import fr.sopra.model.game.Sopramon;
 
 public interface IDAOSopramon extends IDAO<Sopramon> {

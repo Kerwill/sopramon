@@ -3,6 +3,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import fr.sopra.DAO.IDAOSopramon;
 import fr.sopra.model.game.Sopramon;
 
 public class DAOSopramonHibernate extends DAOHibernate implements IDAOSopramon{
