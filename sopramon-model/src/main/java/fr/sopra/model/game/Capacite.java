@@ -1,11 +1,46 @@
 package fr.sopra.model.game;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.PositiveOrZero;
+
+@Entity
+@Table(name = "capacite")
 public class Capacite {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "CAP_ID")
 	private int id;
+	
+	@Column(name = "CAP_PV", nullable = true)
+	@PositiveOrZero
+	@NotEmpty
 	private int pointsDeVie;
+	
+	@Column(name = "CAP_ATTAQUE", nullable = true)
+	@PositiveOrZero
+	@NotEmpty
 	private int attaque;
+	
+	@Column(name = "CAP_DEFENSE", nullable = true)
+	@PositiveOrZero
+	@NotEmpty
 	private int defense;
+	
+	@Column(name = "CAP_ESQUIVE", nullable = true)
+	@PositiveOrZero
+	@NotEmpty
 	private int esquive;
+	
+	@Column(name = "CAP_VITESSE", nullable = true)
+	@PositiveOrZero
+	@NotEmpty
 	private int vitesse;
 
 	public int getId() {

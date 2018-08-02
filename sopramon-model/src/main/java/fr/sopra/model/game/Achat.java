@@ -2,11 +2,46 @@ package fr.sopra.model.game;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+
+@Entity
+@Table(name = "achat")
 public class Achat {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ACH_ID")
 	private int id;
+
+	@Column(name = "ACH_PRIX", nullable = false)
+	@Positive
+	@NotEmpty
 	private double prix;
+
+	@Column(name = "ACH_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotEmpty
 	private Date date;
+
+	@ManyToOne
+	@JoinColumn(name = "ACH_ITEM_ID")
+	@NotEmpty
 	private Item item;
+	
+	@ManyToOne
+	@JoinColumn(name = "ACH_SOPRAMON_ID")
+	@NotEmpty
 	private Sopramon sopramon;
 
 	public int getId() {

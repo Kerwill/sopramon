@@ -3,13 +3,47 @@ package fr.sopra.model.game;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+
+@Entity
+@Table(name = "combat")
 public class Combat {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="COM_ID")
 	private int id;
+	
 	// private Arene arene;
 	// private Type type;
+	
+	@Column(name="COM_TOUR", nullable=false)
+	@Positive 
+	@NotEmpty
 	private int tour;
+	
+	@ManyToOne 
+	@JoinColumn(name="SOP_SOPRAMON_ID")
 	private Sopramon sopramon1;
+	
+	@ManyToOne 
+	@JoinColumn(name="SOP_SOPRAMON2_ID")
 	private Sopramon sopramon2;
+	
+	@ManyToOne 
+	@JoinColumn(name="BOS_BOSS_ID")
 	private Boss boss;
 
 	public int getId() {
