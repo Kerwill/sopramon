@@ -20,22 +20,17 @@ public class DAOBossSQL extends DAOSQL implements IDAOBoss {
 		try {
 			Statement myStatement = getConnection().createStatement();
 
-			ResultSet myResult = myStatement.executeQuery("SELECT SIG_NOM, BOS_ID, BOS_NOM, BOS_NIVEAU LEFT JOIN FROM boss ON BOS_SIGNE_ID = SIG_ID");
+			ResultSet myResult = myStatement.executeQuery("BOS_ID, BOS_NOM, BOS_NIVEAU");
 
 			List<Boss> mesBosss = new ArrayList<Boss>();
 
 			while (myResult.next()) {
-
-				Signe mySigne = new Signe();
-				
-				mySigne.setNom(myResult.getString("SIG_NOM"));
 				
 				Boss myBoss = new Boss();
 				
 				myBoss.setId(myResult.getInt("BOS_ID"));
 				myBoss.setNom(myResult.getString("BOS_NOM"));
 				myBoss.setNiveau(myResult.getInt("BOS_NIVEAU"));
-				myBoss.setSigne(mySigne);
 
 				mesBosss.add(myBoss);
 
@@ -57,7 +52,7 @@ public class DAOBossSQL extends DAOSQL implements IDAOBoss {
 			Boss myBoss = new Boss();
 
 			PreparedStatement myStatement = this.getConnection()
-					.prepareStatement("SELECT SIG_NOM, BOS_ID, BOS_NOM, BOS_NIVEAU FROM boss LEFT JOIN signe ON BOS_SIGNE_ID = SIG_ID WHERE BOS_ID = ?");
+					.prepareStatement("BOS_ID, BOS_NOM, BOS_NIVEAU");
 
 			myStatement.setInt(1, id);
 
@@ -67,14 +62,12 @@ public class DAOBossSQL extends DAOSQL implements IDAOBoss {
 
 			if (myResult.next()) {
 				
-				Signe mySigne = new Signe();
 				Capacite myCapacity = new Capacite();
 				
-				mySigne.setNom(myResult.getString("SIG_NOM"));
+;
 				myBoss.setId(myResult.getInt("BOS_ID"));
 				myBoss.setNom(myResult.getString("BOS_NOM"));
 				myBoss.setNiveau(myResult.getInt("BOS_NIVEAU"));
-				myBoss.setSigne(mySigne);
 				myBoss.setCapacite(myCapacity);
 
 			}
@@ -93,19 +86,18 @@ public class DAOBossSQL extends DAOSQL implements IDAOBoss {
 			PreparedStatement myStatement = null;
 			if (entity.getId() == 0) {
 				myStatement = this.getConnection()
-						.prepareStatement("INSERT INTO Boss (BOS_NOM, BOS_NIVEAU, BOS_SIGNE_ID) VALUES (?, ?, ?)");
+						.prepareStatement("INSERT INTO Boss (BOS_NOM, BOS_NIVEAU) VALUES (?, ?)");
 			}
 
 			else {
 				myStatement = this.getConnection().prepareStatement(
-						"UPDATE Boss SET (BOS_NOM = ?, BOS_NIVEAU = ?, BOS_SIGNE_ID = ? WHERE BOS_ID = ?");
+						"UPDATE Boss SET (BOS_NOM = ?, BOS_NIVEAU = ? WHERE BOS_ID = ?");
 
 				myStatement.setInt(4, entity.getId());
 
 			}
 			myStatement.setString(1, entity.getNom());
 			myStatement.setInt(2, entity.getNiveau());
-			myStatement.setInt(3, entity.getSigne().getId());
 
 			myStatement.execute();
 
@@ -138,7 +130,7 @@ public class DAOBossSQL extends DAOSQL implements IDAOBoss {
 			Boss myBoss = new Boss();
 
 			PreparedStatement myStatement = this.getConnection()
-					.prepareStatement("SELECT SIG_NOM, BOS_ID, BOS_NOM, BOS_NIVEAU LEFT JOIN FROM boss ON BOS_SIGNE_ID = SIG_ID WHERE BOS_NOM = ? LIMIT 0,1");
+					.prepareStatement("BOS_ID, BOS_NOM, BOS_NIVEAU WHERE BOS_NOM = ? LIMIT 0,1");
 
 			myStatement.setString(1, nom);
 
@@ -148,14 +140,9 @@ public class DAOBossSQL extends DAOSQL implements IDAOBoss {
 
 			if (myResult.next()) {
 				
-				Signe mySigne = new Signe();
-				
-				mySigne.setNom(myResult.getString("SIG_NOM"));
-
 				myBoss.setId(myResult.getInt("BOS_ID"));
 				myBoss.setNom(myResult.getString("BOS_NOM"));
 				myBoss.setNiveau(myResult.getInt("BOS_NIVEAU"));
-				myBoss.setSigne(mySigne);
 
 			}
 			return myBoss;
