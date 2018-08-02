@@ -38,17 +38,17 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 	private int niveau = 1;
 	
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinColumn(name = "BOS_CAPACITE")
+	@JoinColumn(name = "BOS_CAPACITE_ID")
 	@NotEmpty
 	private Capacite capacite = new Capacite();
 	
 	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "BOS_SIGNE")
+	@Column(name = "BOS_SIGNE_ID")
 	@NotEmpty
 	private Signe signe = Signe.UNKNOWN;
 	
 	@OneToMany(mappedBy="boss")
-	private List<Achat> coups;
+	private List<Coup> coups;
 
 	public int getId() {
 		return id;

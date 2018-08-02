@@ -29,8 +29,8 @@ public class main {
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("---------------------------------MENU---------------------------------------\n"
-				+ "1 : Créer un compte\n" + "2 : Se connecter\n" + "3 : Obtenir la liste de tous les Sopramon \n"
-				+ "4 : Démarrer un duel avec un Boss\n\n" + "Quel est votre choix ?\n");
+				+ "1 : CrÃ©er un compte\n" + "2 : Se connecter\n" + "3 : Obtenir la liste de tous les Sopramon \n"
+				+ "4 : DÃ©marrer un duel avec un Boss\n\n" + "Quel est votre choix ?\n");
 		int choix = 4;
 
 		DAOSopramonSQL daoSopra = new DAOSopramonSQL();
@@ -75,8 +75,8 @@ do {
 
 		case 1:
 
-			System.out.println("-----Création du compte----");
-			System.out.println("Saisir votre prénom");
+			System.out.println("-----CrÃ©ation du compte----");
+			System.out.println("Saisir votre prÃ©nom");
 			prenomUtil = keyboard.next();
 
 			System.out.println("Saisir votre nom :");
@@ -101,6 +101,9 @@ do {
 			Sopramon nouveauSopra = ProgrammeGenerator.addSopramon(nomUtil, prenomUtil, username, motDePasse, new Date(anneeNaissance,moisNaissance,jourNaissance), nomSopra);
 			DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
 			daoSopramon.save(nouveauSopra);
+			
+			System.out.println(nouveauSopra.toString());
+			
 			
 			break;
 
