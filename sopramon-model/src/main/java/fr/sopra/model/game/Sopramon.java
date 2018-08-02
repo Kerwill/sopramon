@@ -88,6 +88,8 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@OneToMany(mappedBy="sopramon")
 	private List<Achat> achats;
 
+	@OneToMany(mappedBy="sopramon")
+	private List<Coup> coups;
 		
 	public int getId() {
 		return id;
