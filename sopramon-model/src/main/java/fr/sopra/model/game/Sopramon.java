@@ -1,25 +1,85 @@
 package fr.sopra.model.game;
-
-import java.sql.Date;
-import java.time.LocalDate;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 //import fr.sopra.DAOCapaciteSQL;
 //import fr.sopra.DAO.DAOCoupSQL;
 //import fr.sopra.DAO.DAOSopramonSQL;
 import fr.sopra.model.Utilisateur;
 
+@Entity
+@Table(name = "sopramon")
+
 public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss, Combat> {
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "SOP_ID")
 	private int id;
+	
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "SOP_DATE")
+	@NotEmpty
 	private Date dateNaissance;
+	
+	
+	@Column(name = "SOP_EXPERIENCE")
+	@PositiveOrZero
+	@NotEmpty
 	private int experience;
+	
+	@Column(name = "SOP_NIVEAU", nullable = false)
+	@Positive
+	@NotEmpty
 	private int niveau;
+	
+	@Column(name = "SOP_ARGENT")
+	@NotEmpty
+	@PositiveOrZero
 	private double argent;
-	private Capacite capacite;
-	private Utilisateur utilisateur;
-	private Signe signe;
+	
+	@Column(name = "SOP_NOM", length=30, nullable = false)
+	@NotEmpty
+	@Size(max = 30)
 	private String nom;
+	
+	@OneToOne
+	@JoinColumn(name = "SOP_CAPACITE_ID")
+	private Capacite capacite;
+	
+	@OneToOne
+	@JoinColumn(name = "SOP_UTILISATEUR_ID")
+	private Utilisateur utilisateur;
+	
+	
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "SOP_SIGNE")
+	@NotEmpty
+	private Signe signe;
+	
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "SOP_TYPE")
+	@NotEmpty
 	private Type type;
 
+		
 	public int getId() {
 		return id;
 	}
@@ -60,6 +120,14 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 		this.argent = argent;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
 	public Capacite getCapacite() {
 		return capacite;
 	}
@@ -84,14 +152,6 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 		this.signe = signe;
 	}
 
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
 	public Type getType() {
 		return type;
 	}
@@ -100,7 +160,6 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 		this.type = type;
 	}
 
-		
 	@Override
 	public String toString() {
 		return "Sopramon [id=" + id + ", dateNaissance=" + dateNaissance + ", experience=" + experience + ", niveau="
@@ -112,12 +171,12 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	{
 		super("UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN");
 		this.nom = "unknown";
-		this.dateNaissance = Date.valueOf(LocalDate.now());
+		this.dateNaissance = new Date();
 		this.experience = 0;
 		this.niveau = 0;
 		this.argent = 0d;
 		this.capacite = new Capacite();
-		this.id = -1;
+		this.type = type.UNKNOWN;
 	}
 	
 	
@@ -129,8 +188,7 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 		this.niveau = 0;
 		this.argent = 0d;
 		this.capacite = new Capacite();
-		this.id = 0;
-		this.signe = new Signe(dateNaissance);
+		this.signe = signe.UNKNOWN;
 	}
 
 
@@ -153,18 +211,20 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 //	daoCoup.save(coup);
 //	}
 
-	@Override
-	public void attaquerSopramon(Sopramon sop, Sopramon sop2, Combat combat) {
-		// TODO Auto-generated method stub
-		
-	}
-
-@Override
-public void attaquerBoss(Sopramon entity, Boss entity2, Combat combat) {
-	// TODO Auto-generated method stub
+//	@Override
+//	public void attaquerSopramon(Sopramon sop, Sopramon sop2, Combat combat) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//@Override
+//public void attaquerBoss(Sopramon entity, Boss entity2, Combat combat) {
+//	// TODO Auto-generated method stub
 	
+//}
+
+
 }
 
 
 
-}
