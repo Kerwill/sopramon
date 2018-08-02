@@ -1,5 +1,7 @@
 package fr.sopra.model.game;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -17,6 +20,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
+
 
 //import fr.sopra.DAOCapaciteSQL;
 //import fr.sopra.DAO.DAOCoupSQL;
@@ -79,6 +83,10 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@Column(name = "SOP_TYPE")
 	@NotEmpty
 	private Type type = Type.UNKNOWN;
+	
+	
+	@OneToMany(mappedBy="sopramon")
+	private List<Achat> achats;
 
 		
 	public int getId() {
