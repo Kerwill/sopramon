@@ -34,13 +34,6 @@ import fr.sopra.model.Utilisateur;
 
 public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss, Combat> {
 	
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "SOP_ID")
-	private int id;
-	
-	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "SOP_DATE")
 	@NotEmpty
@@ -166,6 +159,8 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 				+ niveau + ", argent=" + argent + ", capacite=" + capacite.toString() + ", signe="
 				+ signe + ", nom=" + nom + ", type=" + type + "]";
 	}
+
+
 
 
 
