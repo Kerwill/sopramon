@@ -35,15 +35,15 @@ public class Combat {
 	private int tour;
 	
 	@ManyToOne 
-	@JoinColumn(name="SOP_SOPRAMON_ID")
+	@JoinColumn(name="COM_SOPRAMON_ID")
 	private Sopramon sopramon1;
 	
 	@ManyToOne 
-	@JoinColumn(name="SOP_SOPRAMON2_ID")
+	@JoinColumn(name="COM_SOPRAMON_ID")
 	private Sopramon sopramon2;
 	
 	@ManyToOne 
-	@JoinColumn(name="BOS_BOSS_ID")
+	@JoinColumn(name="COM_BOSS_ID")
 	private Boss boss;
 
 	public int getId() {
