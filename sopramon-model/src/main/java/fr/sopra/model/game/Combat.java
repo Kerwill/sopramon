@@ -37,7 +37,7 @@ public class Combat {
 	private Sopramon sopramon1;
 	
 	@ManyToOne 
-	@JoinColumn(name="COM_SOPRAMON_ID")
+	@JoinColumn(name="COM_SOPRAMON2_ID")
 	private Sopramon sopramon2;
 	
 	@ManyToOne 

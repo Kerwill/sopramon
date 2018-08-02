@@ -29,9 +29,8 @@ public class ProgrammeGenerator {
 			
 			
 			public static void addSopramon( @Size(max = 30) @NotEmpty String nomUtil, @Size(max = 30) @NotEmpty String prenomUtil,
-					@Size(max = 30) @NotEmpty String username, @Size(max = 30) @NotEmpty String password,  @NotEmpty Date dateNaissance, @PositiveOrZero @NotEmpty int experience,
-					@Positive @NotEmpty int niveau, @NotEmpty @PositiveOrZero double argent,
-					@NotEmpty @Size(max = 30) String nom, Capacite capacite, @NotEmpty Signe signe, @NotEmpty Type type) {
+					@Size(max = 30) @NotEmpty String username, @Size(max = 30) @NotEmpty String password,  @NotEmpty Date dateNaissance, 
+					@NotEmpty @Size(max = 30) String nom) {
 				
 				DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
 				Sopramon mySopramon = new Sopramon();
@@ -41,13 +40,12 @@ public class ProgrammeGenerator {
 				mySopramon.setUsername(username);
 				mySopramon.setPassword(password);
 				mySopramon.setDateNaissance(dateNaissance);
-				mySopramon.setExperience(experience);
-				mySopramon.setNiveau(niveau);
-				mySopramon.setArgent(argent);
+				mySopramon.setExperience(0);
+				mySopramon.setNiveau(1);
+				mySopramon.setArgent(100.00d);
 				mySopramon.setNom(nom);
-				mySopramon.setCapacite(capacite);
-				mySopramon.setSigne(signe);
-				mySopramon.setType(type);
+
+
 		
 			}
 			
