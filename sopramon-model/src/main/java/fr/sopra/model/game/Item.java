@@ -1,16 +1,22 @@
 package fr.sopra.model.game;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+
+import fr.sopra.model.game.Achat;
 
 @Entity
 @Table(name="item")
@@ -31,10 +37,12 @@ public class Item {
 	@NotEmpty
 	private double prix;
 	
-	@OneToOne
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name="ITE_CAPACITE_ID")
-	private Capacite capacite;
+	private Capacite capacite = new Capacite();
 
+	@OneToMany(mappedBy="item") //liste des achats pour 1 item
+	private List<Achat> achats;
 	
 	public int getId() {
 		return id;
@@ -45,7 +53,7 @@ public class Item {
 	}
 
 	public String getNom() {
-		return nom;
+		return nom; 
 	}
 
 	public void setNom(String nom) {
