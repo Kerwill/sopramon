@@ -126,7 +126,7 @@ do {
 				
 				System.out.println(nouveauCombat.toString());
 				
-				sopra.attaquerBoss(sopra, nouveauBoss, nouveauCombat);
+//				sopra.attaquerBoss(sopra, nouveauBoss, nouveauCombat);
 
 //
 //			} else {
