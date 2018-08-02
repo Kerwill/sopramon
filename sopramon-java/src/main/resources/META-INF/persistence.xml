@@ -5,17 +5,15 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="SopramonPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    <class>fr.formation.model.game.Achat</class>
-    <class>fr.formation.model.game.Arene</class>
-    <class>fr.formation.model.game.Boss</class>
-    <class>fr.formation.model.game.Capacite</class>
-    <class>fr.formation.model.game.Combat</class>
-    <class>fr.formation.model.game.Item</class>
-    <class>fr.formation.model.game.Sopramon</class>
-    <class>fr.formation.model.game.Type</class>
-    <class>fr.formation.model.game.Signe</class>
-    <class>fr.formation.model.Administrateur</class>
-    <class>fr.formation.model.Utilisateur</class>
+    <class>fr.sopra.model.game.Achat</class>
+    <class>fr.sopra.model.game.Boss</class>
+    <class>fr.sopra.model.game.Capacite</class>
+    <class>fr.sopra.model.game.Combat</class>
+    <class>fr.sopra.model.game.Item</class>
+    <class>fr.sopra.model.game.Sopramon</class>
+    <class>fr.sopra.model.game.Signe</class>
+    <class>fr.sopra.model.Administrateur</class>
+    <class>fr.sopra.model.Utilisateur</class>
     <properties>
       <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/sopramon" />
       <property name="hibernate.connection.driver" value="com.mysql.jdbc.Driver" />
