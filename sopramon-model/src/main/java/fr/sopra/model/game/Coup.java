@@ -1,6 +1,6 @@
 package fr.sopra.model.game;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 
 @Entity
 @Table(name = "coup")
@@ -28,13 +29,13 @@ public class Coup {
 	@Column(name="COU_DATE")
 	private Date date;
 	
-	@Column(name="COU_DEGATS", nullable=false)
-	@Positive 
+	@Column(name="COU_DEGATS")
+	@PositiveOrZero
 	@NotEmpty
 	private int degats;
 	
-	@Column(name="COU_PERSISTANCE", nullable=false)
-	@Positive 
+	@Column(name="COU_PERSISTANCE")
+	@PositiveOrZero
 	@NotEmpty
 	private int persistance;
 	
