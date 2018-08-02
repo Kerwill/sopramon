@@ -80,7 +80,10 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 
 	@OneToMany(mappedBy="sopramon")
 	private List<Coup> coups;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> master
 
 	public Date getDateNaissance(){
 		return dateNaissance;

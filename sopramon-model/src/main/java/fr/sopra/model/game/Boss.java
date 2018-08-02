@@ -48,7 +48,7 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 	private Signe signe = Signe.UNKNOWN;
 	
 	@OneToMany(mappedBy="boss")
-	private List<Achat> coups;
+	private List<Coup> coups;
 
 	public int getId() {
 		return id;
