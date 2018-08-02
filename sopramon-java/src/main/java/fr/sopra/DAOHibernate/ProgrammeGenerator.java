@@ -1,5 +1,6 @@
 package fr.sopra.DAOHibernate;
 
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.List;
 
@@ -51,4 +52,68 @@ public class ProgrammeGenerator {
 		
 			}
 			
+<<<<<<< Updated upstream
+=======
+			
+			
+			public static void addFournisseur(String nom, String prenom, String societe) {
+				IDAOFournisseur daoFournisseur = new DAOFournisseurHibernate();
+				Fournisseur myFournisseur = new Fournisseur();
+				
+				myFournisseur.setNom(nom);
+				myFournisseur.setPrenom(prenom);
+				myFournisseur.setSociete(societe);
+				
+				daoFournisseur.save(myFournisseur);
+			}
+			
+			
+			
+			public static void addProduit(String nom, float prix, int gammeId) {
+				IDAOProduit daoProduit = new DAOProduitHibernate();
+				Produit myProduit = new Produit();
+				Gamme myGamme = new Gamme();
+				
+				myGamme.setId(gammeId);
+				
+				myProduit.setNom(nom);
+				myProduit.setPrix(prix);
+				myProduit.setGamme(myGamme);
+				
+				daoProduit.save(myProduit);
+			}
+			
+			
+			
+			public static void addAchat(int clientId, int produitId) {
+				IDAOClient daoClient = new DAOClientHibernate();
+				IDAOProduit daoProduit = new DAOProduitHibernate();
+				IDAOAchat daoAchat = new DAOAchatHibernate();
+
+				Client myClient = daoClient.findById(clientId);
+				Produit myProduit = daoProduit.findById(produitId);
+				Achat myAchat = new Achat();
+				
+				myAchat.setDate(new Date());
+				myAchat.setClient(myClient);
+				myAchat.setProduit(myProduit);
+				myAchat.setQuantite(1);
+				myAchat.setPrix(myProduit.getPrix());
+				
+				daoAchat.save(myAchat);
+			}
+		}
+
+}
+
+=======
+public class ProgrammeGenerator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+>>>>>>> parent of e4f2293... addBoss
+>>>>>>> Stashed changes
 }
