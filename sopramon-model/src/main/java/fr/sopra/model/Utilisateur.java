@@ -33,7 +33,7 @@ public class Utilisateur {
 	@Column(name = "UTI_PASSWORD", length = 30, nullable = false)
 	@Size(max=30)
 	@NotEmpty
-	private String password = "Unknown";
+	private String password = "Unknown"; 
 	
 	public int getId() {
 		return id;

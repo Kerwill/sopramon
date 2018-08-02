@@ -41,7 +41,7 @@ public class Item {
 	@JoinColumn(name="ITE_CAPACITE_ID")
 	private Capacite capacite = new Capacite();
 
-	@OneToMany(mappedBy="item") //liste des achats pour 1 item
+	@OneToMany(mappedBy="item")
 	private List<Achat> achats;
 	
 	public int getId() {
