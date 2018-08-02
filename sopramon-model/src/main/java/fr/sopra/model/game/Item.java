@@ -1,11 +1,41 @@
 package fr.sopra.model.game;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name="item")
 public class Item {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ITE_ID")
 	private int id;
+	
+	@Column(name="ITE_NOM", length=50, nullable=false)
+	@NotEmpty
+	@Size(max=50)
 	private String nom;
+	
+	@Column(name="ITE_PRIX", nullable=false)
+	@Positive 
+	@NotEmpty
 	private double prix;
+	
+	@ManyToOne
+	@JoinColumn(name="ITE_ID")
 	private Capacite capacite;
 
+	
 	public int getId() {
 		return id;
 	}

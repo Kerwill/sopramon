@@ -2,13 +2,52 @@ package fr.sopra.model.game;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+
+@Entity
+@Table(name = "coup")
 public class Coup {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="COU_ID")
 	private int id;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="COU_DATE")
 	private Date date;
+	
+	@Column(name="COU_DEGATS", nullable=false)
+	@Positive 
+	@NotEmpty
 	private int degats;
+	
+	@Column(name="COU_PERSISTANCE", nullable=false)
+	@Positive 
+	@NotEmpty
 	private int persistance;
+	
+	@OneToOne 
+	@JoinColumn(name="SOP_SOPRAMON_ID")
 	private Sopramon sopramon;
+	
+	@OneToOne 
+	@JoinColumn(name="BOS_BOSS_ID")
 	private Boss boss;
+	
+	@OneToOne 
+	@JoinColumn(name="COM_ID")
 	private Combat combat;
 
 	public int getId() {
