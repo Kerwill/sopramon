@@ -1,15 +1,11 @@
-package fr.sopra.DAO;
+package fr.sopra.DAOHibernate;
 
-import java.util.List;
-
+import fr.sopra.DAO.IDAO;
 import fr.sopra.model.game.Sopramon;
 
 public interface IDAOSopramon extends IDAO<Sopramon> {
 
 	public Sopramon findByNom(String nom);
 
-	List<Sopramon> findAllWithCapacity();
-	
-	public Sopramon seConnecter(String nom, String password);
 
 }

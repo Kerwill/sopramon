@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,6 +30,7 @@ import fr.sopra.model.Utilisateur;
 
 @Entity
 @Table(name = "sopramon")
+@PrimaryKeyJoinColumn(name="SOP_ID", referencedColumnName="UTI_ID")
 
 public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss, Combat> {
 	
@@ -68,11 +70,6 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "SOP_CAPACITE_ID")
 	private Capacite capacite = new Capacite();
-	
-	@OneToOne
-	@JoinColumn(name = "SOP_UTILISATEUR_ID")
-	private Utilisateur utilisateur = new Utilisateur();
-	
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "SOP_SIGNE")
@@ -147,14 +144,6 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 		this.capacite = capacite;
 	}
 
-	public Utilisateur getUtilisateur() {
-		return utilisateur;
-	}
-
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
-	}
-
 	public Signe getSigne() {
 		return signe;
 	}
@@ -174,12 +163,10 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@Override
 	public String toString() {
 		return "Sopramon [id=" + id + ", dateNaissance=" + dateNaissance + ", experience=" + experience + ", niveau="
-				+ niveau + ", argent=" + argent + ", capacite=" + capacite.toString() + ", utilisateur=" + utilisateur + ", signe="
+				+ niveau + ", argent=" + argent + ", capacite=" + capacite.toString() + ", signe="
 				+ signe + ", nom=" + nom + ", type=" + type + "]";
 	}
 
-	
-	
 
 
 

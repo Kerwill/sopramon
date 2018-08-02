@@ -15,7 +15,7 @@ import fr.sopra.DAO.DAOSopramonSQL;
 import fr.sopra.DAO.IDAOBoss;
 import fr.sopra.DAO.IDAOCombat;
 import fr.sopra.DAO.IDAOCoup;
-import fr.sopra.DAO.IDAOSopramon;
+import fr.sopra.DAOHibernate.IDAOSopramon;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;
 import fr.sopra.model.game.Sopramon;
