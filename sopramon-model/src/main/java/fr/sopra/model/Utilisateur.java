@@ -26,12 +26,12 @@ public class Utilisateur {
 	@Column(name = "UTI_NOM", length = 30, nullable = false)
 	@Size(max=30)
 	@NotEmpty
-	private String nom = "Unknown";
+	private String nomUtil = "Unknown";
 	
 	@Column(name = "UTI_PRENOM", length = 30, nullable = false)
 	@Size(max=30)
 	@NotEmpty
-	private String prenom = "Unknown";
+	private String prenomUtil = "Unknown";
 	
 	@Column(name = "UTI_USERNAME", length = 30,  nullable = false)
 	@Size(max=30)
@@ -49,17 +49,17 @@ public class Utilisateur {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNom() {
-		return nom;
+	public String getNomUtil() {
+		return nomUtil;
 	}
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomUtil(String nom) {
+		this.nomUtil = nom;
 	}
-	public String getPrenom() {
-		return prenom;
+	public String getPrenomUtil() {
+		return prenomUtil;
 	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public void setPrenomUtil(String prenom) {
+		this.prenomUtil = prenom;
 	}
 	public String getUsername() {
 		return username;
@@ -73,7 +73,11 @@ public class Utilisateur {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 
+
+	
+	
 //	public Utilisateur() {
 //		
 //	}

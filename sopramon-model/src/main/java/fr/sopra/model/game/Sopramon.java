@@ -156,6 +156,8 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 
 
 
+
+
 //	@Override
 //	public void attaquerBoss(Sopramon sop, Boss boss, Combat combat) {
 //		
