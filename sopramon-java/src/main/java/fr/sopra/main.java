@@ -16,6 +16,7 @@ import fr.sopra.DAO.IDAOBoss;
 import fr.sopra.DAO.IDAOCombat;
 import fr.sopra.DAO.IDAOCoup;
 import fr.sopra.DAO.IDAOSopramon;
+import fr.sopra.DAOHibernate.ProgrammeGenerator;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;
 import fr.sopra.model.game.Sopramon;
@@ -33,16 +34,21 @@ public class main {
 
 		DAOSopramonSQL daoSopra = new DAOSopramonSQL();
 
-		String prenom;
-		String nom;
-		String motDePasse;
-		String username;
+		
+		
 
 		int jourNaissance;
 		int moisNaissance;
 		int anneeNaissance;
 do {
 		choix = keyboard.nextInt();
+		
+		String nomUtil;
+		String prenomUtil;
+		String nom;
+		String motDePasse;
+		String username;
+		String nomSopra;
 		
 		switch (choix) {
 		
@@ -68,18 +74,21 @@ do {
 
 		case 1:
 
-			System.out.println("-----CrÃ©ation du compte----");
-			System.out.println("Saisir votre prÃ©nom");
-			prenom = keyboard.next();
+			System.out.println("-----Création du compte----");
+			System.out.println("Saisir votre prénom");
+			prenomUtil = keyboard.next();
 
 			System.out.println("Saisir votre nom :");
-			nom = keyboard.next();
+			nomUtil = keyboard.next();
 
 			System.out.println("Saisir votre mot de passe :");
 			motDePasse = keyboard.next();
 
 			System.out.println("Entrez votre nom d'utilisateur");
 			username = keyboard.next();
+			
+			System.out.println("Entrez le nom de votre Sopramon");
+			nomSopra = keyboard.next();
 
 			 System.out.println("Veuillez saisir votre mois de naissance");
 			 moisNaissance = keyboard.nextInt();
@@ -91,14 +100,8 @@ do {
 			 moisNaissance = keyboard.nextInt();
 			 System.out.println("Veuillez saisir votre annee de naissance");
 			 anneeNaissance = keyboard.nextInt();
-			
-//			 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//			 Date dateNaissance = formatter.parse(jourNaissance + "/" + moisNaissance +
-//			 "/" + anneeNaissance);
 
-			Sopramon mySopramon1 = new Sopramon(nom, prenom, username, motDePasse, null);
-			daoSopra.save(mySopramon1);
-			System.out.println(mySopramon1.toString());
+			 ProgrammeGenerator.addSopramon(nomUtil, prenomUtil, username, motDePasse, new Date(anneeNaissance,moisNaissance,jourNaissance), nomSopra);
 
 			break;
 
@@ -123,7 +126,7 @@ do {
 				
 				System.out.println(nouveauCombat.toString());
 				
-				sopra.attaquerBoss(sopra, nouveauBoss, nouveauCombat);
+//				sopra.attaquerBoss(sopra, nouveauBoss, nouveauCombat);
 
 //
 //			} else {

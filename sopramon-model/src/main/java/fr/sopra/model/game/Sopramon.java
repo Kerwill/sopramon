@@ -7,9 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -81,7 +79,8 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@OneToMany(mappedBy="sopramon")
 	private List<Coup> coups;
 
-	public Date getDateNaissance() {
+
+	public Date getDateNaissance(){
 		return dateNaissance;
 	}
 
