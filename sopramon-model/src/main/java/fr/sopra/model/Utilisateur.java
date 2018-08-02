@@ -1,16 +1,51 @@
 package fr.sopra.model;
 
-public abstract class Utilisateur {
-	private String nomUtilisateur;
-	private String prenom;
-	private String username;
-	private String password;
-	private int idUtilisateur;
-	public String getNomUtilisateur() {
-		return nomUtilisateur;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+public class Utilisateur {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "UTI_ID")
+	private int id;
+	
+	
+	@Column(name = "UTI_NOM", length = 30, nullable = false)
+	@Size(max=30)
+	@NotEmpty
+	private String nom = "Unknown";
+	
+	@Column(name = "UTI_PRENOM", length = 30, nullable = false)
+	@Size(max=30)
+	@NotEmpty
+	private String prenom = "Unknown";
+	
+	@Column(name = "UTI_USERNAME", length = 30,  nullable = false)
+	@Size(max=30)
+	@NotEmpty
+	private String username = "Unknown";
+	
+	@Column(name = "UTI_PASSWORD", length = 30, nullable = false)
+	@Size(max=30)
+	@NotEmpty
+	private String password = "Unknown";
+	
+	public int getId() {
+		return id;
 	}
-	public void setNomUtilisateur(String nomUtilisateur) {
-		this.nomUtilisateur = nomUtilisateur;
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 	public String getPrenom() {
 		return prenom;
@@ -30,20 +65,19 @@ public abstract class Utilisateur {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getIdUtilisateur() {
-		return idUtilisateur;
-	}
-	public void setIdUtilisateur(int id) {
-		this.idUtilisateur = id;
-	}
-	public Utilisateur(String nomUtilisateur, String prenom, String username, String password) {
-		super();
-		this.nomUtilisateur = nomUtilisateur;
-		this.prenom = prenom;
-		this.username = username;
-		this.password = password;
-		this.idUtilisateur = 0;
-	}
+
+//	public Utilisateur() {
+//		
+//	}
+//	
+//	public Utilisateur(String nomUtilisateur, String prenom, String username, String password) {
+//		super();
+//		this.nomUtilisateur = nomUtilisateur;
+//		this.prenom = prenom;
+//		this.username = username;
+//		this.password = password;
+//		this.idUtilisateur = 0;
+//	}
 	
 
 	

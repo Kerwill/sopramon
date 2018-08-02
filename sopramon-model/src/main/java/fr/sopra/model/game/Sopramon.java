@@ -1,6 +1,5 @@
 package fr.sopra.model.game;
 import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,47 +38,47 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@Temporal(TemporalType.DATE)
 	@Column(name = "SOP_DATE")
 	@NotEmpty
-	private Date dateNaissance;
+	private Date dateNaissance = new Date();
 	
 	
 	@Column(name = "SOP_EXPERIENCE")
 	@PositiveOrZero
 	@NotEmpty
-	private int experience;
+	private int experience = 0;
 	
 	@Column(name = "SOP_NIVEAU", nullable = false)
 	@Positive
 	@NotEmpty
-	private int niveau;
+	private int niveau = 1;
 	
 	@Column(name = "SOP_ARGENT")
 	@NotEmpty
 	@PositiveOrZero
-	private double argent;
+	private double argent = 0.00d;
 	
 	@Column(name = "SOP_NOM", length=30, nullable = false)
 	@NotEmpty
 	@Size(max = 30)
-	private String nom;
+	private String nom = "Unknown";
 	
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "SOP_CAPACITE_ID")
-	private Capacite capacite;
+	private Capacite capacite = new Capacite();
 	
 	@OneToOne
 	@JoinColumn(name = "SOP_UTILISATEUR_ID")
-	private Utilisateur utilisateur;
+	private Utilisateur utilisateur = new Utilisateur();
 	
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "SOP_SIGNE")
 	@NotEmpty
-	private Signe signe;
+	private Signe signe = Signe.UNKNOWN;
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "SOP_TYPE")
 	@NotEmpty
-	private Type type;
+	private Type type = Type.UNKNOWN;
 
 		
 	public int getId() {
@@ -169,20 +168,9 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 				+ signe + ", nom=" + nom + ", type=" + type + "]";
 	}
 
-	public Sopramon() 
-	{
-		super("UNKNOWN", "UNKNOWN", "UNKNOWN", "UNKNOWN");
-		this.nom = "unknown";
-		this.dateNaissance = new Date();
-		this.experience = 0;
-		this.niveau = 0;
-		this.argent = 0d;
-		this.capacite = new Capacite();
-		this.type = type.UNKNOWN;
-		this.signe = signe.UNKNOWN;
-	}
 	
 	
+
 
 
 
