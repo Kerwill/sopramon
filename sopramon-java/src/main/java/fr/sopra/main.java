@@ -8,6 +8,7 @@ import java.util.Scanner;
 import fr.sopra.DAO.DAOBossSQL;
 import fr.sopra.DAO.DAOCombatSQL;
 import fr.sopra.DAO.DAOSopramonSQL;
+import fr.sopra.DAOHibernate.DAOSopramonHibernate;
 import fr.sopra.DAOHibernate.ProgrammeGenerator;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;
@@ -22,48 +23,25 @@ public class main {
 		System.out.println("---------------------------------MENU---------------------------------------\n"
 				+ "1 : Créer un compte\n" + "2 : Se connecter\n" + "3 : Obtenir la liste de tous les Sopramon \n"
 				+ "4 : Démarrer un duel avec un Boss\n\n" + "Quel est votre choix ?\n");
-		int choix = 4;
 
-		DAOSopramonSQL daoSopra = new DAOSopramonSQL();
 
-		
-		
-
-		int jourNaissance;
-		int moisNaissance;
-		int anneeNaissance;
 do {
-		choix = keyboard.nextInt();
-		
+		int choix = keyboard.nextInt();
 		String nomUtil;
 		String prenomUtil;
 		String nom;
 		String motDePasse;
 		String username;
 		String nomSopra;
+		int jourNaissance;
+		int moisNaissance;
+		int anneeNaissance;
+		
+		DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
+		
 		
 		switch (choix) {
 		
-
-		case 3:
-			List<Sopramon> list = daoSopra.findAllWithCapacity();
-			for (Sopramon p : list)
-				System.out.println(p.toString());
-
-			break;
-
-		case 2:
-			System.out.println("Entrez votre nom d'utilisateur");
-			username = keyboard.next();
-			System.out.println("Entrez votre mot de passe");
-			motDePasse = keyboard.next();
-
-			Sopramon mySopramon = daoSopra.seConnecter(username, motDePasse);
-			System.out.println("Connection avec votre Sopramon :");
-			System.out.println(mySopramon.toString());
-
-			break;
-
 		case 1:
 
 			System.out.println("-----Création du compte----");
@@ -100,6 +78,37 @@ do {
 			
 			
 			break;
+			
+		case 2:
+			System.out.println("Entrez votre nom d'utilisateur");
+			username = keyboard.next();
+			System.out.println("Entrez votre mot de passe");
+			motDePasse = keyboard.next();
+
+			Sopramon mySopramon = daoSopramon.seConnecter(username, motDePasse);
+			
+			if (mySopramon.getId() !=0 ) {
+			System.out.println("Connection avec votre Sopramon :");
+			System.out.println(mySopramon.toString());
+			}
+			else
+				System.out.println("Echec de connection - veuillez saisir un mot de passe valide");
+
+			break;
+			
+			
+			
+
+		case 3:
+			List<Sopramon> list = daoSopra.findAllWithCapacity();
+			for (Sopramon p : list)
+				System.out.println(p.toString());
+
+			break;
+
+
+
+		
 
 		case 4:
 
