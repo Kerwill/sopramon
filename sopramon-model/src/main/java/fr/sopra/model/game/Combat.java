@@ -93,13 +93,40 @@ public class Combat {
 	public void setCoups(List<Coup> coups) {
 		this.coups = coups;
 	}
-
-	public Combat(Sopramon sopramon1, Boss boss) {
-		super();
-		this.sopramon1 = sopramon1;
-		this.sopramon2 = new Sopramon();
-		this.boss = boss;
+	
+	public void setAttaquant1(ICombattant attaquant) {
+		if (attaquant instanceof Boss)
+		{
+			this.boss = (Boss)attaquant;
+		}
+		else  {
+				this.sopramon1 = (Sopramon) attaquant;
+		}
 	}
+
+	public ICombattant getAttaquant1() {
+		if (this.getBoss() == null) {
+		
+			return this.sopramon1;
+		}
+		else  {
+				return this.boss;
+		}
+	}
+
+	public void setAttaquant2(ICombattant attaquant) {
+		this.sopramon2 = (Sopramon) attaquant;
+		}
+
+	public ICombattant getAttaquant2() {	
+			return this.sopramon2;
+	}		
+					
+	public Combat(ICombattant attaquant1, ICombattant attaquant2) {
+		this.setAttaquant1(attaquant1);
+		this.setAttaquant2(attaquant2);
+	}
+
 
 	public Combat() {
 	}
