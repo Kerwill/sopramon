@@ -6,4 +6,6 @@ public interface IDAOItem extends IDAO<Item>{
 
 	void deleteByNom(String nom);
 
+	Item findByNom(String nom);
+
 }
