@@ -10,6 +10,7 @@ import fr.sopra.DAO.DAOCombatSQL;
 import fr.sopra.DAO.DAOSopramonSQL;
 import fr.sopra.DAOHibernate.DAOBossHibernate;
 import fr.sopra.DAOHibernate.DAOCombatHibernate;
+import fr.sopra.DAOHibernate.DAOItemHibernate;
 import fr.sopra.DAOHibernate.DAOSopramonHibernate;
 import fr.sopra.DAOHibernate.ProgrammeGenerator;
 import fr.sopra.model.game.Boss;
@@ -19,6 +20,9 @@ import fr.sopra.model.game.Sopramon;
 public class main {
 
 	public static void main(String[] args) throws ParseException {
+		
+		ProgrammeGenerator.modifyItem("Cofee"); 
+		
 
 		Scanner keyboard = new Scanner(System.in);
 
@@ -89,7 +93,7 @@ public class main {
 
 			Sopramon mySopramon = daoSopramon.seConnecter(username, motDePasse);
 			
-			if (mySopramon.getId() !=0 ) {
+			if (mySopramon != null) {
 			System.out.println("Connection avec votre Sopramon :");
 			System.out.println(mySopramon.toString());
 			}
@@ -146,4 +150,4 @@ public class main {
 		}
 
 }
-}
+

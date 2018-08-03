@@ -141,14 +141,12 @@ public class ProgrammeGenerator {
 		daoItem.save(myItem);
 	}
 	
-<<<<<<< HEAD
-=======
 	public static void modifyItem(String nom)  {
 		DAOItemHibernate daoItem = new DAOItemHibernate();
 		Item item = daoItem.findByNom(nom);	
 		Scanner keyboard = new Scanner(System.in);
 		
-	System.out.println("Quelle paramètre voulez-vous modifier ?\n"
+	System.out.println("Quelle paramï¿½tre voulez-vous modifier ?\n"
 			+ "0 : le nom \n"
 			+ "1 : prix \n"
 			+"2 : PV\n"
@@ -194,7 +192,7 @@ public class ProgrammeGenerator {
 		    
 	  case 4 :
 		  
-			 System.out.println("Entrer la nouvelle défense");
+			 System.out.println("Entrer la nouvelle dï¿½fense");
 			    int nouveauDefense = keyboard.nextInt();
 			    item.getCapacite().setDefense(nouveauDefense);
 			    daoItem.save(item);
@@ -229,5 +227,4 @@ public class ProgrammeGenerator {
 	
 	keyboard.close();
 }
->>>>>>> master
 }

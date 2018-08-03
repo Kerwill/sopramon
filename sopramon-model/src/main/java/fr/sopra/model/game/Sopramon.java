@@ -155,37 +155,37 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 
 
 
-
-	@Override
-	public void attaquerBoss(Sopramon sop, Boss boss, Combat combat) {
-		
-		DAOCoupHibernate daoCoup = new DAOCoupHibernate();
-		Coup coup = new Coup();
-		int degats = sop.getCapacite().getAttaque();
-		coup.setDegats(degats);
-		coup.setSopramon(sop);
-		coup.setBoss(boss);
-		coup.setPersistance(0);
-		coup.setCombat(combat);
-	
-	int pv = boss.getCapacite().getPointsDeVie();
-	int defBoss = boss.getCapacite().getDefense();
-	boss.getCapacite().setPointsDeVie(pv + defBoss - coup.getDegats());
-	
-	daoCoup.save(coup);
-	}
-
-	@Override
-	public void attaquerSopramon(Sopramon sop, Sopramon sop2, Combat combat) {
-		// TODO Auto-generated method stub
-		
-	}
-
-@Override
-public void attaquerBoss(Sopramon entity, Boss entity2, Combat combat) {
-	// TODO Auto-generated method stub
-	
-}
+//
+//	@Override
+//	public void attaquerBoss(Sopramon sop, Boss boss, Combat combat) {
+//		
+//		DAOCoupHibernate daoCoup = new DAOCoupHibernate();
+//		Coup coup = new Coup();
+//		int degats = sop.getCapacite().getAttaque();
+//		coup.setDegats(degats);
+//		coup.setSopramon(sop);
+//		coup.setBoss(boss);
+//		coup.setPersistance(0);
+//		coup.setCombat(combat);
+//	
+//	int pv = boss.getCapacite().getPointsDeVie();
+//	int defBoss = boss.getCapacite().getDefense();
+//	boss.getCapacite().setPointsDeVie(pv + defBoss - coup.getDegats());
+//	
+//	daoCoup.save(coup);
+//	}
+//
+//	@Override
+//	public void attaquerSopramon(Sopramon sop, Sopramon sop2, Combat combat) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//@Override
+//public void attaquerBoss(Sopramon entity, Boss entity2, Combat combat) {
+//	// TODO Auto-generated method stub
+//	
+//}
 
 
 }
