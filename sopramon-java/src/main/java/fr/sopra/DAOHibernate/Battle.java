@@ -37,7 +37,7 @@ public class Battle {
 				Coup coup = new Coup();
 				System.out.println("point de vie avant attaque :"+attaquant2.getCapacite().getPointsDeVie());
 				
-//				if(qui == true) {
+				if(qui == true) {
 					int degats = attaquant1.getCapacite().getAttaque();
 					coup.setDegats(degats);
 					coup.setAttaquant(attaquant1);
@@ -52,27 +52,27 @@ public class Battle {
 				daoCoup.save(coup);
 				System.out.println("point de vie après attaque :"+attaquant2.getCapacite().getPointsDeVie());
 				
-//				qui = false;
-//				}
-//				else {
-//					System.out.println(attaquant1.getCapacite().getPointsDeVie());
-//					int degats = attaquant2.getCapacite().getAttaque();
-//					
-//					coup.setDegats(degats);
-//					coup.setAttaquant(attaquant2);
-//					coup.setPersistance(0);
-//					coup.setCombat(myCombat);
-//					System.out.println(degats);
-//					System.out.println(attaquant2.toString());
-//				
-//				int pv = attaquant1.getCapacite().getPointsDeVie();
-//				int def = attaquant1.getCapacite().getDefense();
-//				attaquant2.getCapacite().setPointsDeVie(pv - degats);
-//				daoCoup.save(coup);
-//				System.out.println(attaquant1.getCapacite().getPointsDeVie());
-//				qui = true;
-//				
-//				}
+				qui = false;
+				}
+				else {
+					System.out.println(attaquant1.getCapacite().getPointsDeVie());
+					int degats = attaquant2.getCapacite().getAttaque();
+					
+					coup.setDegats(degats);
+					coup.setAttaquant(attaquant2);
+					coup.setPersistance(0);
+					coup.setCombat(myCombat);
+					System.out.println(degats);
+					System.out.println(attaquant2.toString());
+				
+				int pv = attaquant1.getCapacite().getPointsDeVie();
+				int def = attaquant1.getCapacite().getDefense();
+				attaquant2.getCapacite().setPointsDeVie(pv - degats);
+				daoCoup.save(coup);
+				System.out.println(attaquant1.getCapacite().getPointsDeVie());
+				qui = true;
+				
+				}
 			}
 			while (attaquant1.getCapacite().getPointsDeVie() > 0 && attaquant2.getCapacite().getPointsDeVie() > 0);
 

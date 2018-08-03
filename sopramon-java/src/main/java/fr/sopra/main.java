@@ -4,7 +4,6 @@ import java.text.ParseException;
 
 import java.util.List;
 import java.util.Scanner;
-;
 import fr.sopra.DAOHibernate.DAOBossHibernate;
 import fr.sopra.DAOHibernate.DAOCombatHibernate;
 import fr.sopra.DAOHibernate.DAOItemHibernate;
@@ -28,9 +27,9 @@ public class main {
 
 		String username;
 		String motDePasse;
-		int choix1 = 0;
-		DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
-		DAOItemHibernate daoItem = new DAOItemHibernate();
+		int choix1 = keyboard.nextInt();
+		
+	
 		
 		switch (choix1) {
 		
@@ -42,7 +41,7 @@ public class main {
 			break;
 
 		case 2:
-
+			DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
 			System.out.println("Entrez votre nom d'utilisateur");
 			username = keyboard.next();
 			System.out.println("Entrez votre mot de passe");
@@ -54,13 +53,13 @@ public class main {
 				System.out.println(mySopramon1.toString());
 			} else
 				System.out.println("Echec de connection - veuillez saisir un mot de passe valide");
-			DAOSopramonHibernate.close();
+			
 			break;
 
 		case 3:
 			
-			
-			List<Sopramon> list = daoSopramon.findAll();
+			DAOSopramonHibernate daoSopramon1 = new DAOSopramonHibernate();
+			List<Sopramon> list = daoSopramon1.findAll();
 			for (Sopramon s : list)
 				System.out.println(s.toString());
 			
@@ -72,7 +71,7 @@ public class main {
 			break;
 			
 		case 5:
-			
+			DAOItemHibernate daoItem = new DAOItemHibernate();
 			List<Item> listItem = daoItem.findAll();
 			for (Item i : listItem)
 				System.out.println(i.toString());
@@ -108,9 +107,9 @@ public class main {
 //			System.out.println("Veuillez saisir une commande valide SVP.");
 //			break;
 		}
-		DAOSopramonHibernate.close();
-		DAOItemHibernate.close();
-		keyboard.close();
+//		DAOSopramonHibernate.close();
+//		DAOItemHibernate.close();
+//		keyboard.close();
 	}
 
 }
