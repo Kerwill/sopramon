@@ -86,16 +86,16 @@ public class Coup {
 		return sopramon;
 	}
 
-	public void setSopramon(Sopramon sopramon) {
-		this.sopramon = sopramon;
+	public void setSopramon(ICombattant sopramon) {
+		this.sopramon = (Sopramon) sopramon;
 	}
 
 	public Boss getBoss() {
 		return boss;
 	}
 
-	public void setBoss(Boss boss) {
-		this.boss = boss;
+	public void setBoss(ICombattant  boss) {
+		this.boss = (Boss) boss;
 	}
 
 	public Combat getCombat() {
@@ -105,5 +105,24 @@ public class Coup {
 	public void setCombat(Combat combat) {
 		this.combat = combat;
 	}
+	
+	public void setAttaquant(ICombattant attaquant) {
+		if (attaquant instanceof Boss)
+		{
+			this.boss = (Boss)attaquant;
+		}
+		else  {
+				this.sopramon = (Sopramon) attaquant;
+		}
+	}
 
+	public ICombattant getAttaquant() {
+		if (this.getBoss() == null) {
+		
+			return this.sopramon;
+		}
+		else  {
+				return this.boss;
+		}
+	}
 }

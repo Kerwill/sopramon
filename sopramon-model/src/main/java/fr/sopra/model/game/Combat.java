@@ -24,9 +24,6 @@ public class Combat {
 	@Column(name="COM_ID")
 	private int id;
 	
-	// private Arene arene;
-	// private Type type;
-	
 	@Column(name="COM_TOUR", nullable=false)
 	@Positive 
 	@NotEmpty
