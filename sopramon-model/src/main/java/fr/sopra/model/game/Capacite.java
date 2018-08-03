@@ -19,27 +19,22 @@ public class Capacite {
 	private int id;
 	
 	@Column(name = "CAP_PV", nullable = true)
-	@PositiveOrZero
 	@NotEmpty
 	private int pointsDeVie = 0;
 	
 	@Column(name = "CAP_ATTAQUE", nullable = true)
-	@PositiveOrZero
 	@NotEmpty
 	private int attaque = 0;
 	
 	@Column(name = "CAP_DEFENSE", nullable = true)
-	@PositiveOrZero
 	@NotEmpty
 	private int defense = 0;
 	
 	@Column(name = "CAP_ESQUIVE", nullable = true)
-	@PositiveOrZero
 	@NotEmpty
 	private int esquive = 0;
 	
 	@Column(name = "CAP_VITESSE", nullable = true)
-	@PositiveOrZero
 	@NotEmpty
 	private int vitesse = 0;
 

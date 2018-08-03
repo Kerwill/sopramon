@@ -26,7 +26,7 @@ public class ProgrammeGenerator {
 		//
 
 		DAOHibernate.close();
-	}
+	}   
 
 	public static Sopramon addSopramon(@Size(max = 30) @NotEmpty String nomUtil,
 			@Size(max = 30) @NotEmpty String prenomUtil, @Size(max = 30) @NotEmpty String username,
@@ -46,7 +46,7 @@ public class ProgrammeGenerator {
 		mySopramon.setArgent(100.00d);
 		mySopramon.setNom(nom);
 
-		return mySopramon;
+		return mySopramon;  
 	}
 
 	public static void addBoss(String nom, int niveau, Signe signe) {
