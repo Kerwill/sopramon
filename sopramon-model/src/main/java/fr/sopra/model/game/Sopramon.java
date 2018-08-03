@@ -142,9 +142,7 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 		return type;
 	}
 
-	public void setType(Type type) {
-		this.type = type;
-	}
+
 
 	@Override
 	public String toString() {
