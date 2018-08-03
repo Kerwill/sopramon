@@ -49,6 +49,12 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 	
 	@OneToMany(mappedBy="boss")
 	private List<Coup> coups;
+	
+	@Enumerated(EnumType.ORDINAL)
+	@Column(name = "BOS_TYPE")
+	@NotEmpty
+	private Type type = Type.UNKNOWN;
+	
 
 	public int getId() {
 		return id;
@@ -88,8 +94,13 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 
 	public void setSigne(Signe signe) {
 		this.signe = signe;
+		this.type = signe.getType();
 	}
 
+
+	public Type getType() {
+		return type;
+	}
 
 
 	@Override

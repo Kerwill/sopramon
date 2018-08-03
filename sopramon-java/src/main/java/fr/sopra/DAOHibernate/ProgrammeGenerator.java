@@ -1,5 +1,7 @@
 package fr.sopra.DAOHibernate;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -23,7 +25,7 @@ import fr.sopra.model.game.Type;
 
 public class ProgrammeGenerator {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		Scanner keyboard = new Scanner(System.in);
 		
@@ -44,7 +46,19 @@ public class ProgrammeGenerator {
 		System.out.println("Entrez la vitesse du boss : ");
 		int vitesseBoss = keyboard.nextInt();
 		
-		addBoss(nomBoss, niveauBoss, Signe.LION, attaqueBoss, defenseBoss, pdvBoss, esquiveBoss, vitesseBoss); // nom / niveau / signe / attaque / defense / pdv / esquive / vitesse
+		 System.out.println("Veuillez saisir le jour de naissance");
+		 int jourNaissance = keyboard.nextInt();
+		 System.out.println("Veuillez saisir le mois de naissance");
+		 int moisNaissance = keyboard.nextInt();
+		 System.out.println("Veuillez saisir l'annee de naissance");
+		 int anneeNaissance = keyboard.nextInt();
+
+		 System.out.println(jourNaissance+" "+moisNaissance+" "+anneeNaissance);
+		 
+		 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		
+		addBoss(nomBoss, niveauBoss,  attaqueBoss, defenseBoss, pdvBoss, 
+				esquiveBoss, vitesseBoss, formatter.parse(jourNaissance + "/" + moisNaissance + "/" + anneeNaissance));
 		
 //cr�er un item		
 		System.out.println("-----Cr�ation d'un item ----");
@@ -92,14 +106,14 @@ public class ProgrammeGenerator {
 		return mySopramon;  
 	}
 
-	public static void addBoss(String nom, int niveau, Signe signe, int attaque, int defense, int pdv, int esquive, int vitesse) {
+	public static void addBoss(String nom, int niveau, int attaque, int defense, int pdv, int esquive, int vitesse, Date dateNaissance) {
 
 		IDAOBoss daoBoss = new DAOBossHibernate();
 		Boss myBoss = new Boss();
 
 		myBoss.setNom(nom);
 		myBoss.setNiveau(niveau);
-		myBoss.setSigne(signe);
+		myBoss.setSigne(SigneGenerator.getAstrologicalSign(dateNaissance));
 		myBoss.getCapacite().setAttaque(attaque);
 		myBoss.getCapacite().setDefense(defense);
 		myBoss.getCapacite().setPointsDeVie(pdv);
