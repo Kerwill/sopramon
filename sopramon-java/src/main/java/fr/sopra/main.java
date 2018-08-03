@@ -1,22 +1,12 @@
 package fr.sopra;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
-
 import fr.sopra.DAO.DAOBossSQL;
 import fr.sopra.DAO.DAOCombatSQL;
-import fr.sopra.DAO.DAOCoupSQL;
-import fr.sopra.DAO.DAOSQL;
 import fr.sopra.DAO.DAOSopramonSQL;
-import fr.sopra.DAO.IDAOBoss;
-import fr.sopra.DAO.IDAOCombat;
-import fr.sopra.DAO.IDAOCoup;
-import fr.sopra.DAO.IDAOSopramon;
-import fr.sopra.DAOHibernate.DAOSopramonHibernate;
 import fr.sopra.DAOHibernate.ProgrammeGenerator;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;
@@ -99,9 +89,7 @@ do {
 			 anneeNaissance = keyboard.nextInt();
 
 			Sopramon nouveauSopra = ProgrammeGenerator.addSopramon(nomUtil, prenomUtil, username, motDePasse, new Date(anneeNaissance,moisNaissance,jourNaissance), nomSopra);
-			DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
-			daoSopramon.save(nouveauSopra);
-			
+	
 			System.out.println(nouveauSopra.toString());
 			
 			

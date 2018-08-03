@@ -32,6 +32,11 @@ import fr.sopra.model.Utilisateur;
 
 public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss, Combat> {
 	
+	@Column(name = "SOP_NOM", length=30, nullable = false)
+	@NotEmpty
+	@Size(max = 30)
+	private String nom = "Unknown";
+	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "SOP_DATE")
 	@NotEmpty
@@ -53,10 +58,6 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@PositiveOrZero
 	private double argent = 0.00d;
 	
-	@Column(name = "SOP_NOM", length=30, nullable = false)
-	@NotEmpty
-	@Size(max = 30)
-	private String nom = "Unknown";
 	
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "SOP_CAPACITE_ID")
@@ -137,7 +138,7 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	}
 
 	public Type getType() {
-		return type;
+		return signe.getType();
 	}
 
 	public void setType(Type type) {
@@ -146,9 +147,9 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 
 	@Override
 	public String toString() {
-		return "Sopramon [dateNaissance=" + dateNaissance + ", experience=" + experience + ", niveau="
-				+ niveau + ", argent=" + argent + ", capacite=" + capacite.toString() + ", signe="
-				+ signe + ", nom=" + nom + ", type=" + type + "]";
+		return "Sopramon [nom=" + nom + ", dateNaissance=" + dateNaissance + ", experience=" + experience + ", niveau="
+				+ niveau + ", argent=" + argent + ", capacite=" + capacite + ", signe=" + signe + ", type=" + type
+				+ ", achats=" + achats + ", coups=" + coups + "]";
 	}
 
 
