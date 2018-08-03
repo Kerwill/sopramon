@@ -25,7 +25,7 @@ public class main {
 				+ "4 : Démarrer un duel avec un Boss\n\n" + "Quel est votre choix ?\n");
 
 
-do {
+
 		int choix = keyboard.nextInt();
 		String nomUtil;
 		String prenomUtil;
@@ -99,54 +99,53 @@ do {
 			
 			
 
-		case 3:
-			List<Sopramon> list = daoSopra.findAllWithCapacity();
-			for (Sopramon p : list)
-				System.out.println(p.toString());
-
-			break;
+//		case 3:
+//			List<Sopramon> list = daoSopramon.findAllWithCapacity();
+//			for (Sopramon p : list)
+//				System.out.println(p.toString());
+//
+//			break;
 
 
 
 		
 
-		case 4:
-
-			System.out.println("Entrer le nom du Sopramon.");
-			String sop1 = keyboard.next();
-			
-			Sopramon sopra = daoSopra.findByNom(sop1);
-			sopra=daoSopra.findById(sopra.getId());
-			DAOBossSQL daoBoss = new DAOBossSQL();
-			DAOCombatSQL daoCombat = new DAOCombatSQL();
-			Boss nouveauBoss = daoBoss.findById(1);
-			System.out.println(sopra.toString());
-			System.out.println(nouveauBoss.toString());
-
-			if (sopra != null) {
-				Combat nouveauCombat = new Combat(sopra, nouveauBoss);
-				
-			
-				daoCombat.saveBoss(nouveauCombat);
-				
-				System.out.println(nouveauCombat.toString());
+//		case 4:
+//
+//			System.out.println("Entrer le nom du Sopramon.");
+//			String sop1 = keyboard.next();
+//			
+//			Sopramon sopra = daoSopra.findByNom(sop1);
+//			sopra=daoSopra.findById(sopra.getId());
+//			DAOBossSQL daoBoss = new DAOBossSQL();
+//			DAOCombatSQL daoCombat = new DAOCombatSQL();
+//			Boss nouveauBoss = daoBoss.findById(1);
+//			System.out.println(sopra.toString());
+//			System.out.println(nouveauBoss.toString());
+//
+//			if (sopra != null) {
+//				Combat nouveauCombat = new Combat(sopra, nouveauBoss);
+//				
+//			
+//				daoCombat.saveBoss(nouveauCombat);
+//				
+//				System.out.println(nouveauCombat.toString());
 				
 //				sopra.attaquerBoss(sopra, nouveauBoss, nouveauCombat);
 
 //
 //			} else {
 //				System.out.println("Le Sopramon n'exsite pas.");
-			}
-			break;
+//			}
+//			break;
+//
+//		default:
+//
+//			System.out.println("Veuillez saisir une commande valide SVP.");
+//			break;
+//		}
 
-		default:
-
-			System.out.println("Veuillez saisir une commande valide SVP.");
-			break;
 		}
-} 
-while (choix != 0 || choix != 1 || choix != 2 || choix != 3);
-	
-	}
-	
+
+}
 }
