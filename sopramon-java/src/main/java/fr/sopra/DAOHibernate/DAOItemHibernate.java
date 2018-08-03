@@ -2,8 +2,12 @@ package fr.sopra.DAOHibernate;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import fr.sopra.DAO.IDAOItem;
+import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Item;
+import fr.sopra.model.game.Sopramon;
 
 public class DAOItemHibernate extends DAOHibernate implements IDAOItem {
 
@@ -36,6 +40,12 @@ public class DAOItemHibernate extends DAOHibernate implements IDAOItem {
 	public void deleteById(int id) {
 		Item myItem = new Item();
 		myItem.setId(id);
+		delete(myItem);
+	}
+	
+	public void deleteByNom(String nom) {
+		Item myItem = new Item();
+		myItem.setNom(nom);
 		delete(myItem);
 	}
 }
