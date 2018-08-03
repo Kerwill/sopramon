@@ -8,6 +8,8 @@ import java.util.Scanner;
 import fr.sopra.DAO.DAOBossSQL;
 import fr.sopra.DAO.DAOCombatSQL;
 import fr.sopra.DAO.DAOSopramonSQL;
+import fr.sopra.DAOHibernate.DAOBossHibernate;
+import fr.sopra.DAOHibernate.DAOCombatHibernate;
 import fr.sopra.DAOHibernate.DAOSopramonHibernate;
 import fr.sopra.DAOHibernate.ProgrammeGenerator;
 import fr.sopra.model.game.Boss;
@@ -99,51 +101,47 @@ public class main {
 			
 			
 
-//		case 3:
-//			List<Sopramon> list = daoSopramon.findAllWithCapacity();
-//			for (Sopramon p : list)
-//				System.out.println(p.toString());
-//
-//			break;
+		case 3:
+			List<Sopramon> list = daoSopramon.findAll();
+			for (Sopramon p : list)
+				System.out.println(p.toString());
 
+			break;
 
+		case 4:
 
-		
+			System.out.println("Entrer le nom du Sopramon.");
+			String sop1 = keyboard.next();
+			
+			Sopramon sopra = daoSopramon.findByNom(sop1);
+			sopra=daoSopramon.findById(sopra.getId());
+			DAOBossHibernate daoBoss = new DAOBossHibernate();
+			DAOCombatHibernate daoCombat = new DAOCombatHibernate();
+			Boss nouveauBoss = daoBoss.findById(1);
+			System.out.println(sopra.toString());
+			System.out.println(nouveauBoss.toString());
 
-//		case 4:
-//
-//			System.out.println("Entrer le nom du Sopramon.");
-//			String sop1 = keyboard.next();
-//			
-//			Sopramon sopra = daoSopra.findByNom(sop1);
-//			sopra=daoSopra.findById(sopra.getId());
-//			DAOBossSQL daoBoss = new DAOBossSQL();
-//			DAOCombatSQL daoCombat = new DAOCombatSQL();
-//			Boss nouveauBoss = daoBoss.findById(1);
-//			System.out.println(sopra.toString());
-//			System.out.println(nouveauBoss.toString());
-//
-//			if (sopra != null) {
-//				Combat nouveauCombat = new Combat(sopra, nouveauBoss);
-//				
-//			
-//				daoCombat.saveBoss(nouveauCombat);
-//				
-//				System.out.println(nouveauCombat.toString());
+			if (sopra != null) {
+				Combat nouveauCombat = new Combat(sopra, nouveauBoss);
 				
-//				sopra.attaquerBoss(sopra, nouveauBoss, nouveauCombat);
+			
+				daoCombat.saveBoss(nouveauCombat);
+				
+				System.out.println(nouveauCombat.toString());
+				
+				sopra.attaquerBoss(sopra, nouveauBoss, nouveauCombat);
 
-//
-//			} else {
-//				System.out.println("Le Sopramon n'exsite pas.");
-//			}
-//			break;
-//
-//		default:
-//
-//			System.out.println("Veuillez saisir une commande valide SVP.");
-//			break;
-//		}
+
+			} else {
+				System.out.println("Le Sopramon n'exsite pas.");
+			}
+			break;
+
+		default:
+
+			System.out.println("Veuillez saisir une commande valide SVP.");
+			break;
+		}
 
 		}
 

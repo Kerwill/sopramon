@@ -58,4 +58,5 @@ public class DAOItemHibernate extends DAOHibernate implements IDAOItem {
 		em.remove(em.merge(myItem));
 		em.getTransaction().commit();
 	}
+
 }

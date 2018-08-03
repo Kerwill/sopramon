@@ -221,47 +221,47 @@ public class DAOSopramonSQL extends DAOSQL implements IDAOSopramon {
 
 	}
 
-	@Override
-	public List<Sopramon> findAllWithCapacity() {
-		try {
-			List<Sopramon> listSopramon = new ArrayList<>();
-			Statement myStatement;
-			myStatement = this.getConnection().createStatement();
-
-			ResultSet myResultSopramon = myStatement.executeQuery(
-					("SELECT SOP_NOM, SOP_ID, SOP_DATE, SOP_EXPERIENCE, SOP_NIVEAU, SOP_ARGENT, CAP_ID, CAP_PV, CAP_ATTAQUE, CAP_DEFENSE, CAP_ESQUIVE, CAP_VITESSE FROM sopramon \r\n"
-							+ "INNER JOIN capacite ON CAP_ID = SOP_CAPACITE_ID"));
-
-			while (myResultSopramon.next()) {
-
-				Capacite myCapacite = new Capacite();
-				myCapacite.setId(myResultSopramon.getInt("CAP_ID"));
-				myCapacite.setPointsDeVie(myResultSopramon.getInt("CAP_PV"));
-				myCapacite.setAttaque(myResultSopramon.getInt("CAP_ATTAQUE"));
-				myCapacite.setDefense(myResultSopramon.getInt("CAP_DEFENSE"));
-				myCapacite.setEsquive(myResultSopramon.getInt("CAP_ESQUIVE"));
-				myCapacite.setVitesse(myResultSopramon.getInt("CAP_ESQUIVE"));
-
-				Sopramon mySopramon = new Sopramon();
-				mySopramon.setNom(myResultSopramon.getString("SOP_NOM"));
-				mySopramon.setId(myResultSopramon.getInt("SOP_ID"));
-				mySopramon.setDateNaissance(myResultSopramon.getDate("SOP_DATE"));
-				mySopramon.setExperience(myResultSopramon.getInt("SOP_EXPERIENCE"));
-				mySopramon.setNiveau(myResultSopramon.getInt("SOP_NIVEAU"));
-				mySopramon.setArgent(myResultSopramon.getDouble("SOP_ARGENT"));
-				mySopramon.setCapacite(myCapacite);
-				listSopramon.add(mySopramon);
-			}
-
-			return listSopramon;
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-
-		}
-		return null;
-	}
+//	@Override
+//	public List<Sopramon> findAllWithCapacity() {
+//		try {
+//			List<Sopramon> listSopramon = new ArrayList<>();
+//			Statement myStatement;
+//			myStatement = this.getConnection().createStatement();
+//
+//			ResultSet myResultSopramon = myStatement.executeQuery(
+//					("SELECT SOP_NOM, SOP_ID, SOP_DATE, SOP_EXPERIENCE, SOP_NIVEAU, SOP_ARGENT, CAP_ID, CAP_PV, CAP_ATTAQUE, CAP_DEFENSE, CAP_ESQUIVE, CAP_VITESSE FROM sopramon \r\n"
+//							+ "INNER JOIN capacite ON CAP_ID = SOP_CAPACITE_ID"));
+//
+//			while (myResultSopramon.next()) {
+//
+//				Capacite myCapacite = new Capacite();
+//				myCapacite.setId(myResultSopramon.getInt("CAP_ID"));
+//				myCapacite.setPointsDeVie(myResultSopramon.getInt("CAP_PV"));
+//				myCapacite.setAttaque(myResultSopramon.getInt("CAP_ATTAQUE"));
+//				myCapacite.setDefense(myResultSopramon.getInt("CAP_DEFENSE"));
+//				myCapacite.setEsquive(myResultSopramon.getInt("CAP_ESQUIVE"));
+//				myCapacite.setVitesse(myResultSopramon.getInt("CAP_ESQUIVE"));
+//
+//				Sopramon mySopramon = new Sopramon();
+//				mySopramon.setNom(myResultSopramon.getString("SOP_NOM"));
+//				mySopramon.setId(myResultSopramon.getInt("SOP_ID"));
+//				mySopramon.setDateNaissance(myResultSopramon.getDate("SOP_DATE"));
+//				mySopramon.setExperience(myResultSopramon.getInt("SOP_EXPERIENCE"));
+//				mySopramon.setNiveau(myResultSopramon.getInt("SOP_NIVEAU"));
+//				mySopramon.setArgent(myResultSopramon.getDouble("SOP_ARGENT"));
+//				mySopramon.setCapacite(myCapacite);
+//				listSopramon.add(mySopramon);
+//			}
+//
+//			return listSopramon;
+//
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//
+//		}
+//		return null;
+//	}
 
 	public Sopramon seConnecter(String nom, String password) {
 
