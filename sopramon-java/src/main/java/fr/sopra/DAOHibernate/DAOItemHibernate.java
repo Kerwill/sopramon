@@ -43,9 +43,19 @@ public class DAOItemHibernate extends DAOHibernate implements IDAOItem {
 		delete(myItem);
 	}
 	
+	@Override
+	public Item findByNom(String nom) {
+		Query myQuery = em.createQuery("select i from Item i where i.nom = :nom", Item.class);
+		myQuery.setParameter("nom", nom);
+		return (Item) myQuery.getSingleResult();
+	}
+	
 	public void deleteByNom(String nom) {
 		Item myItem = new Item();
 		myItem.setNom(nom);
-		delete(myItem);
+		myItem = findByNom(nom);
+		em.getTransaction().begin();
+		em.remove(em.merge(myItem));
+		em.getTransaction().commit();
 	}
 }

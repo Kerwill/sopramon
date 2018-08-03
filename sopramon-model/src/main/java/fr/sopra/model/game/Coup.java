@@ -36,7 +36,6 @@ public class Coup {
 	
 	@Column(name="COU_PERSISTANCE")
 	@PositiveOrZero
-	@NotEmpty
 	private int persistance;
 	
 	@ManyToOne 

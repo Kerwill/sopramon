@@ -21,6 +21,12 @@ public class PrincipalHibernate {
 		// printCombat();
 //			printItem();
 		deleteItem("Truc");
+		
+//		IDAOSopramon daoSopramon = new DAOSopramonHibernate();		
+//		System.out.println(daoSopramon.findByNom("Briac").toString());
+		
+//		IDAOItem daoItem = new DAOItemHibernate();
+//		System.out.println(daoItem.findByNom("Truc").getNom());
 	}
 
 	public static void printSopramons() {

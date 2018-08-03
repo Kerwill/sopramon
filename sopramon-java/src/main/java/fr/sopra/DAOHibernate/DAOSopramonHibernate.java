@@ -48,7 +48,7 @@ public class DAOSopramonHibernate extends DAOHibernate implements IDAOSopramon{
 
 	@Override
 	public Sopramon findByNom(String nom) {
-		Query myQuery = em.createQuery("select s from Sopramon s where g.nom = :nom", Sopramon.class);
+		Query myQuery = em.createQuery("select s from Sopramon s where s.nom = :nom", Sopramon.class);
 		myQuery.setParameter("nom", nom);
 		return (Sopramon) myQuery.getSingleResult();
 	}

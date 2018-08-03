@@ -149,8 +149,7 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	@Override
 	public String toString() {
 		return "Sopramon [nom=" + nom + ", dateNaissance=" + dateNaissance + ", experience=" + experience + ", niveau="
-				+ niveau + ", argent=" + argent + ", capacite=" + capacite + ", signe=" + signe + ", type=" + type
-				+ ", achats=" + achats + ", coups=" + coups + "]";
+				+ niveau + ", argent=" + argent + ", capacite=" + capacite + ", signe=" + signe + ", type=" + type;
 	}
 
 
