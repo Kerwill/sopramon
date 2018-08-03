@@ -135,10 +135,11 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 
 	public void setSigne(Signe signe) {
 		this.signe = signe;
+		this.type = signe.getType();
 	}
 
 	public Type getType() {
-		return signe.getType();
+		return type;
 	}
 
 	public void setType(Type type) {

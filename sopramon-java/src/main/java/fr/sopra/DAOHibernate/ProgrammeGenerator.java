@@ -73,8 +73,8 @@ public class ProgrammeGenerator {
 			@Size(max = 30) @NotEmpty String prenomUtil, @Size(max = 30) @NotEmpty String username,
 			@Size(max = 30) @NotEmpty String password, @NotEmpty Date dateNaissance,
 			@NotEmpty @Size(max = 30) String nom) {
-
-//		DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
+		
+		DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
 		Sopramon mySopramon = new Sopramon();
 
 		mySopramon.setNomUtil(nomUtil);
@@ -87,7 +87,7 @@ public class ProgrammeGenerator {
 		mySopramon.setArgent(100.00d);
 		mySopramon.setNom(nom);
 		mySopramon.setSigne(SigneGenerator.getAstrologicalSign(dateNaissance));
-//		daoSopramon.save(mySopramon);
+		daoSopramon.save(mySopramon);
 
 		return mySopramon;  
 	}

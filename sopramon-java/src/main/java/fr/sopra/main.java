@@ -1,7 +1,8 @@
 package fr.sopra;
 
 import java.text.ParseException;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import fr.sopra.DAO.DAOBossSQL;
@@ -88,7 +89,12 @@ do {
 			 System.out.println("Veuillez saisir votre annee de naissance");
 			 anneeNaissance = keyboard.nextInt();
 
-			Sopramon nouveauSopra = ProgrammeGenerator.addSopramon(nomUtil, prenomUtil, username, motDePasse, new Date(anneeNaissance,moisNaissance,jourNaissance), nomSopra);
+			 System.out.println(jourNaissance+" "+moisNaissance+" "+anneeNaissance);
+			 
+			 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			 
+			 
+			Sopramon nouveauSopra = ProgrammeGenerator.addSopramon(nomUtil, prenomUtil, username, motDePasse, formatter.parse(jourNaissance + "/" + moisNaissance + "/" + anneeNaissance), nomSopra);
 	
 			System.out.println(nouveauSopra.toString());
 			

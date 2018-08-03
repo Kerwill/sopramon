@@ -1,8 +1,8 @@
 package fr.sopra.DAOHibernate;
 
-import java.util.Date;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.util.Date;
+
 
 import fr.sopra.model.game.Signe;
 
@@ -11,11 +11,12 @@ public class SigneGenerator {
 
 
 public static Signe getAstrologicalSign(Date d) {
+	Calendar cal = Calendar.getInstance();
 	
+	cal.setTime(d);
 	
-int month = d.getMonth();
-int day = d.getDay();
-System.out.println();
+int month = cal.get(Calendar.MONTH) + 1;
+int day = cal.get(Calendar.DAY_OF_MONTH);
 	
 	if ((month == 12 && day >= 22 && day <= 31) || (month == 1 && day >= 1 && day <= 19))
 	
