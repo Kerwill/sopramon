@@ -19,7 +19,8 @@ public class PrincipalHibernate {
 		// printBoss();
 		// printCoup();
 		// printCombat();
-		printItem();
+//			printItem();
+		deleteItem("Truc");
 	}
 
 	public static void printSopramons() {
@@ -68,5 +69,10 @@ public class PrincipalHibernate {
 			System.out.println("l'esquive de : " + i.getCapacite().getEsquive());
 			System.out.println("la vitesse de : " + i.getCapacite().getVitesse());
 		}
+	}
+	
+	public static void deleteItem(String nom) {
+		IDAOItem daoItem = new DAOItemHibernate();
+		daoItem.deleteByNom(nom);
 	}
 }

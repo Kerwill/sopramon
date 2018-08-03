@@ -27,8 +27,8 @@ public class ProgrammeGenerator {
 		
 		Scanner keyboard = new Scanner(System.in);
 		
-//créer un boss
-		System.out.println("-----Création d'un boss----");
+//crï¿½er un boss
+		System.out.println("-----Crï¿½ation d'un boss----");
 		System.out.println("Entrez le nom du boss : ");
 		String nomBoss = keyboard.next();
 		System.out.println("Entrez le niveau du boss : ");
@@ -41,26 +41,26 @@ public class ProgrammeGenerator {
 		int pdvBoss = keyboard.nextInt();
 		System.out.println("Entrez l'esquive du boss : ");
 		int esquiveBoss = keyboard.nextInt();
-		System.out.println("Entrez le nom de l'item : ");
+		System.out.println("Entrez la vitesse du boss : ");
 		int vitesseBoss = keyboard.nextInt();
 		
 		addBoss(nomBoss, niveauBoss, Signe.LION, attaqueBoss, defenseBoss, pdvBoss, esquiveBoss, vitesseBoss); // nom / niveau / signe / attaque / defense / pdv / esquive / vitesse
 		
-//créer un item		
-		System.out.println("-----Création d'un item ----");
+//crï¿½er un item		
+		System.out.println("-----Crï¿½ation d'un item ----");
 		System.out.println("Entrez le nom de l'item : ");
 		String nomItem = keyboard.next();
-		System.out.println("Entrez le nom de l'item : ");
+		System.out.println("Entrez le prix de l'item : ");
 		double prixItem = keyboard.nextDouble();
-		System.out.println("Entrez le nom de l'item : ");
+		System.out.println("Entrez l'attaque de l'item : ");
 		int attaqueItem = keyboard.nextInt();
-		System.out.println("Entrez le nom de l'item : ");
+		System.out.println("Entrez la defense de l'item : ");
 		int defenseItem = keyboard.nextInt();
-		System.out.println("Entrez le nom de l'item : ");
+		System.out.println("Entrez les pdv de l'item : ");
 		int pdvItem = keyboard.nextInt();
-		System.out.println("Entrez le nom de l'item : ");
+		System.out.println("Entrez l'esquive de l'item : ");
 		int esquiveItem = keyboard.nextInt();
-		System.out.println("Entrez le nom de l'item : ");
+		System.out.println("Entrez la vitesse de l'item : ");
 		int vitesseItem = keyboard.nextInt();
 		
 		addItem(nomItem, prixItem, attaqueItem, defenseItem, pdvItem, esquiveItem, vitesseItem); // nom / prix / attaque / defense / pdv / esquive / vitesse
