@@ -1,12 +1,14 @@
 package fr.sopra.DAOHibernate;
+
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import fr.sopra.DAO.IDAOSopramon;
 import fr.sopra.model.game.Sopramon;
 
-public class DAOSopramonHibernate extends DAOHibernate implements IDAOSopramon{
+public class DAOSopramonHibernate extends DAOHibernate implements IDAOSopramon {
 
 	@Override
 	public List<Sopramon> findAll() {
@@ -23,7 +25,7 @@ public class DAOSopramonHibernate extends DAOHibernate implements IDAOSopramon{
 	public Sopramon save(Sopramon entity) {
 		em.getTransaction().begin();
 		em.persist(entity);
-		em.getTransaction().commit(); 
+		em.getTransaction().commit();
 		return entity;
 	}
 
@@ -33,7 +35,7 @@ public class DAOSopramonHibernate extends DAOHibernate implements IDAOSopramon{
 		entity = em.merge(entity);
 		em.remove(entity);
 		em.getTransaction().commit();
-		
+
 	}
 
 	@Override
@@ -43,7 +45,7 @@ public class DAOSopramonHibernate extends DAOHibernate implements IDAOSopramon{
 		em.getTransaction().begin();
 		em.remove(em.merge(mySopramon));
 		em.getTransaction().commit();
-		
+
 	}
 
 	@Override
@@ -52,13 +54,23 @@ public class DAOSopramonHibernate extends DAOHibernate implements IDAOSopramon{
 		myQuery.setParameter("nom", nom);
 		return (Sopramon) myQuery.getSingleResult();
 	}
-	
-	public Sopramon seConnecter(String username, String password) {
-		
-		Query myQuery = em.createQuery("select s from Sopramon s where s.username = :username and s.password = :password", Sopramon.class).setParameter("username", username);
-		myQuery.setParameter("password", password);
-		Sopramon mySopramon = (Sopramon) myQuery.getSingleResult();
-		return mySopramon;
-		
+
+	public Sopramon seConnecter(String username, String password) throws NoResultException {
+
+		try {
+
+			Query myQuery = em
+					.createQuery("select s from Sopramon s where s.username = :username and s.password = :password",
+							Sopramon.class)
+					.setParameter("username", username);
+			myQuery.setParameter("password", password);
+			Sopramon mySopramon = (Sopramon) myQuery.getSingleResult();
+			return mySopramon;
+		} catch (NoResultException e)
+
+		{
+			return null;
+		}
+
 	}
 }
