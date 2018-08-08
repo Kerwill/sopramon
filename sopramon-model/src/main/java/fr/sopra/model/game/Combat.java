@@ -26,7 +26,6 @@ public class Combat {
 	
 	@Column(name="COM_TOUR", nullable=false)
 	@Positive 
-	@NotEmpty
 	private int tour;
 	
 	@ManyToOne 
@@ -94,7 +93,7 @@ public class Combat {
 	public void setAttaquant1(ICombattant attaquant) {
 		if (attaquant instanceof Boss)
 		{
-			this.boss = (Boss)attaquant;
+			this.boss = (Boss) attaquant;
 		}
 		else  {
 				this.sopramon1 = (Sopramon) attaquant;

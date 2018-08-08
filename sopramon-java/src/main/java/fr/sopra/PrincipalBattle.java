@@ -38,16 +38,23 @@ public class PrincipalBattle {
 	public void run(String[] args) {
 
 		Boss myBoss = daoBoss.findById(1).get();
-		Sopramon mySopramon = daoSopramon.findById(2).get();
+		Sopramon mySopramon = daoSopramon.findById(3).get();
 
-		attaquer(mySopramon, myBoss);
+		
+		attaquer(myBoss, mySopramon);
 
 	}
 
 	public static Combat attaquer(ICombattant attaquant1, ICombattant attaquant2) {
 
 		Combat myCombat = new Combat(attaquant1, attaquant2);
+	
+		try {
 		daoCombat.save(myCombat);
+		}
+		catch (Exception e){
+			System.out.println("sauvegarde rat√©e");
+		}
 
 		int compteur = 0;
 		boolean qui = (Math.random() < 0.5);
@@ -85,7 +92,7 @@ public class PrincipalBattle {
 					pv2 = pv2 - 1;
 				}
 				daoCoup.save(coup);
-				System.out.println("point de vie aprËs attaque :" + cap2.getPointsDeVie());
+				System.out.println("point de vie aprÔøΩs attaque :" + cap2.getPointsDeVie());
 
 				qui = false;
 				
