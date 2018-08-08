@@ -4,20 +4,28 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 
-import fr.sopra.DAOHibernate.DAOItemHibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.sopra.DAOHibernate.DAOSopramonHibernate;
 import fr.sopra.DAOHibernate.ProgrammeGenerator;
+import fr.sopra.idao.IDAOSopramon;
 import fr.sopra.model.game.Item;
 import fr.sopra.model.game.Sopramon;
 
 public class MenuConnection {
-
-	public static void main(String[] args) throws ParseException {
-		connecter();
+	@Autowired
+	private static IDAOSopramon daoSopramon;
+	
+	@Transactional
+	public void runConnecter(String[] args) throws ParseException{
+		menuConnecter();
 
 	}
 
-	public static void connecter() throws ParseException{
+	
+	
+	public static void menuConnecter() throws ParseException{
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("---------------------------MENU DE CONNECTION ---------------------------------\n"
@@ -30,13 +38,11 @@ public class MenuConnection {
 		switch (choix) {
 
 		case 1:
-
-			Sopramon mySopramon = ProgrammeGenerator.addSopramon();
+			Sopramon mySopramon = ProgrammeGeneratorNew.addSopramon();
 			System.out.println(mySopramon.toString());
 			break;
 
 		case 2:
-			DAOSopramonHibernate daoSopramon = new DAOSopramonHibernate();
 			System.out.println("Entrez votre nom d'utilisateur");
 			username = keyboard.next();
 			System.out.println("Entrez votre mot de passe");
