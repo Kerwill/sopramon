@@ -144,6 +144,26 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 
 
 
+	public List<Achat> getAchats() {
+		return achats;
+	}
+
+	public void setAchats(List<Achat> achats) {
+		this.achats = achats;
+	}
+
+	public List<Coup> getCoups() {
+		return coups;
+	}
+
+	public void setCoups(List<Coup> coups) {
+		this.coups = coups;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
 	@Override
 	public String toString() {
 		return "Sopramon [nom=" + nom + ", dateNaissance=" + dateNaissance + ", experience=" + experience + ", niveau="
