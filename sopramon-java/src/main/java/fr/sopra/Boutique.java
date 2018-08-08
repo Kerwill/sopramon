@@ -26,14 +26,14 @@ public class Boutique {
 	public void shopping(Sopramon sopramon) {
 		
 		
-		Scanner keyboard = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		System.out.println("Bienvenue à la boutique " + sopramon.getUsername() + " !");
 		System.out.println("Vous trouverez ici la liste des items que nous vendons : ");
 		for (Item i : daoItem.findAll()) {
 			System.out.println(i.getNom() + " : " + i.getPrix() + "£");
 		}
 		System.out.println("Quel item désirez-vous acquérir ?");
-		String nom = keyboard.next();
+		String nom = sc.next();
 		Item itemVoulu = daoItem.findByNom(nom);
 		double porteMonnaie = sopramon.getArgent();
 
@@ -43,10 +43,12 @@ public class Boutique {
 			myAchat.setPrix(itemVoulu.getPrix());
 			myAchat.setSopramon(sopramon);
 			System.out.println("Vous avez acheté un(e) " + itemVoulu.getNom() + "au prix de " + itemVoulu.getPrix() + "£ !");
-			sopramon.setArgent(porteMonnaie =- itemVoulu.getPrix());; 
+			sopramon.setArgent(porteMonnaie =- itemVoulu.getPrix());
+			sc.close();
 		}
 		else {
 			System.out.println("Vous êtes trop pauvre pour vour offrir cette merveille...retournez au combat !");
+			sc.close();
 		}
 	}
 

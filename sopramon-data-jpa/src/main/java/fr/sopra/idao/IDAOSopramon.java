@@ -10,9 +10,9 @@ public interface IDAOSopramon extends JpaRepository<Sopramon, Integer> {
 
 	public Sopramon findByNom(String nom);
 
-//	@Query("SELECT *" + 
+//	@Query("select" + 
 //		   "from utilisateur u" + 
-//		   "where (u.username = :nomDUtilicateur AND u.password = :motDePasse)")
+//		   "where u.username = :nomDUtilisateur and u.password = :motDePasse)")
 //	public Sopramon findByUsernameQuery(@Param("nomDUtilisateur") String username, @Param("motDePasse") String password);
 
 }
