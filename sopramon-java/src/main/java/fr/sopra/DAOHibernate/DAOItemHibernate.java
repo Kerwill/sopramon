@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import fr.sopra.DAO.IDAOItem;
+import fr.sopra.idao.IDAOItem;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Item;
 import fr.sopra.model.game.Sopramon;

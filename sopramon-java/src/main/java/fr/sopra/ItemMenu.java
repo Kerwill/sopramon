@@ -2,8 +2,8 @@ package fr.sopra;
 
 import java.util.Scanner;
 
-import fr.sopra.DAO.IDAOItem;
 import fr.sopra.DAOHibernate.DAOItemHibernate;
+import fr.sopra.idao.IDAOItem;
 import fr.sopra.model.game.Item;
 
 public class ItemMenu {

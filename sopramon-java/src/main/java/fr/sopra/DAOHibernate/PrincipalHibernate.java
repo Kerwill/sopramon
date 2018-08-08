@@ -1,10 +1,10 @@
 package fr.sopra.DAOHibernate;
 
-import fr.sopra.DAO.IDAOBoss;
-import fr.sopra.DAO.IDAOCombat;
-import fr.sopra.DAO.IDAOCoup;
-import fr.sopra.DAO.IDAOItem;
-import fr.sopra.DAO.IDAOSopramon;
+import fr.sopra.idao.IDAOBoss;
+import fr.sopra.idao.IDAOCombat;
+import fr.sopra.idao.IDAOCoup;
+import fr.sopra.idao.IDAOItem;
+import fr.sopra.idao.IDAOSopramon;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;
 import fr.sopra.model.game.Coup;

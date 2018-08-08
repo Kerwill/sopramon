@@ -2,7 +2,7 @@ package fr.sopra.DAOHibernate;
 
 import java.util.List;
 
-import fr.sopra.DAO.IDAOAchat;
+import fr.sopra.idao.IDAOAchat;
 import fr.sopra.model.game.Achat;
 
 public class DAOAchatHibernate extends DAOHibernate implements IDAOAchat {

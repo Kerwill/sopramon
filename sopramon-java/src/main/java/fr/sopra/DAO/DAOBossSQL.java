@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.sopra.idao.IDAOBoss;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Capacite;
 import fr.sopra.model.game.Signe;

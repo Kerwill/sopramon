@@ -2,7 +2,7 @@ package fr.sopra.DAOHibernate;
 
 import java.util.List;
 
-import fr.sopra.DAO.IDAOCombat;
+import fr.sopra.idao.IDAOCombat;
 import fr.sopra.model.game.Combat;
 import fr.sopra.model.game.Coup;
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import fr.sopra.DAO.IDAOBoss;
+import fr.sopra.idao.IDAOBoss;
 import fr.sopra.model.game.Boss;
 
 public class DAOBossHibernate extends DAOHibernate implements IDAOBoss {

@@ -1,4 +1,4 @@
-package fr.sopra.DAO;
+package fr.sopra.idao;
 
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;

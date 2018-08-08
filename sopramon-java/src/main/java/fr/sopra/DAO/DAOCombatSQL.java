@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.sopra.idao.IDAOCombat;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;
 import fr.sopra.model.game.Sopramon;

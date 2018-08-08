@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import fr.sopra.DAO.DAOSQL;
+import fr.sopra.idao.IDAOSopramon;
 import fr.sopra.model.game.Capacite;
 import fr.sopra.model.game.Sopramon;
 

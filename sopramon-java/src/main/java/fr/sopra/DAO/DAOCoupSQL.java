@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.sopra.idao.IDAOCoup;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Combat;
 import fr.sopra.model.game.Coup;

@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.sopra.idao.IDAOCapacite;
 import fr.sopra.model.game.Capacite;
 
 public class DAOCapaciteSQL extends DAOSQL implements IDAOCapacite {

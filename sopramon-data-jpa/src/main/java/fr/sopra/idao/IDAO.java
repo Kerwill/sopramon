@@ -1,4 +1,4 @@
-package fr.sopra.DAO;
+package fr.sopra.idao;
 
 import java.util.List;
 
