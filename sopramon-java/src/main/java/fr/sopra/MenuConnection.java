@@ -1,31 +1,18 @@
 package fr.sopra;
 
 import java.text.ParseException;
-import java.util.List;
 import java.util.Scanner;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-
-import fr.sopra.DAOHibernate.DAOSopramonHibernate;
-import fr.sopra.DAOHibernate.ProgrammeGenerator;
 import fr.sopra.idao.IDAOSopramon;
-import fr.sopra.model.game.Item;
 import fr.sopra.model.game.Sopramon;
 
 public class MenuConnection {
 	@Autowired
 	private static IDAOSopramon daoSopramon;
-	
+
 	@Transactional
-	public void runConnecter(String[] args) throws ParseException{
-		menuConnecter();
-
-	}
-
-	
-	
-	public static void menuConnecter() throws ParseException{
+	public void runMenuConnecter(String[] args) throws ParseException {
 		Scanner keyboard = new Scanner(System.in);
 
 		System.out.println("---------------------------MENU DE CONNECTION ---------------------------------\n"
@@ -38,7 +25,7 @@ public class MenuConnection {
 		switch (choix) {
 
 		case 1:
-			Sopramon mySopramon = ProgrammeGeneratorNew.addSopramon();
+			Sopramon mySopramon = ProgrammeGeneratorNew.addSopramon(); // modifier : pointer la methode CRUD sopramon !
 			System.out.println(mySopramon.toString());
 			break;
 
@@ -47,7 +34,7 @@ public class MenuConnection {
 			username = keyboard.next();
 			System.out.println("Entrez votre mot de passe");
 			motDePasse = keyboard.next();
-			Sopramon mySopramon1 = daoSopramon.seConnecter(username, motDePasse);
+			Sopramon mySopramon1 = daoSopramon.findByUsernameQuery(username, motDePasse); //
 
 			if (mySopramon1 != null) {
 				System.out.println("Connection avec votre Sopramon :");
@@ -57,7 +44,7 @@ public class MenuConnection {
 
 			break;
 		}
-		
-		 keyboard.close();
+		keyboard.close();
 	}
+
 }
