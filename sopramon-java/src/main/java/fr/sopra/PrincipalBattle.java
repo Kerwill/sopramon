@@ -24,9 +24,9 @@ import fr.sopra.model.game.Sopramon;
 @Component
 public class PrincipalBattle {
 	@Autowired
-	private static IDAOCombat daoCombat;
+	private IDAOCombat daoCombat;
 	@Autowired
-	private static IDAOCoup daoCoup;
+	private IDAOCoup daoCoup;
 	@Autowired
 	private IDAOCapacite daoCapacite;
 	@Autowired
@@ -35,10 +35,10 @@ public class PrincipalBattle {
 	private IDAOSopramon daoSopramon;
 
 	@Transactional
-	public void attaquer (String[] args) {
+	public void attaquer(String[] args) {
 	
-		ICombattant attaquant1 = daoSopramon.findByNom("Briac");
-		ICombattant attaquant2 = daoBoss.findById(1).get();
+		ICombattant attaquant2 = daoSopramon.findByNom("Briac");
+		ICombattant attaquant1 = daoBoss.findById(1).get();
 
 		Combat myCombat = new Combat(attaquant1, attaquant2);
 	
@@ -75,10 +75,12 @@ public class PrincipalBattle {
 
 				if (degats1 > def2) {
 					pv2 = pv2 - (degats1 - def2);
-				} else {
-					pv2 = pv2 - 1;
+				} 
+				else {
+					pv2--;
 				}
 				daoCoup.save(coup);
+					
 				System.out.println("point de vie apr�s attaque :" + cap2.getPointsDeVie());
 
 				qui = false;
@@ -99,7 +101,7 @@ public class PrincipalBattle {
 				if (degats2 > def1) {
 					pv1 = pv1 - (degats2 - def1);
 				} else {
-					pv1 = pv1 - 1;
+					pv1 = pv1--;
 				}
 				
 				daoCoup.save(coup);
