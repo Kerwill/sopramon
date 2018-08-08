@@ -1,8 +1,13 @@
-package fr.sopra.DAOHibernate;
+package fr.sopra;
 
 import java.util.Date;
 
 import fr.sopra.DAO.DAOSopramonSQL;
+import fr.sopra.DAOHibernate.DAOBossHibernate;
+import fr.sopra.DAOHibernate.DAOCombatHibernate;
+import fr.sopra.DAOHibernate.DAOCoupHibernate;
+import fr.sopra.DAOHibernate.DAOSopramonHibernate;
+import fr.sopra.idao.IDAOCapacite;
 import fr.sopra.idao.IDAOCombat;
 import fr.sopra.idao.IDAOCoup;
 import fr.sopra.model.game.Boss;
@@ -29,6 +34,7 @@ public class Battle {
 			IDAOCoup daoCoup = new DAOCoupHibernate();
 			Combat myCombat = new Combat(attaquant1,attaquant2);
 			daoCombat.save(myCombat);
+			IDAOCapacite daoCapacite = new DAOCapacite();
 			
 			int compteur = 0;
 			boolean qui = (Math.random() < 0.5);
