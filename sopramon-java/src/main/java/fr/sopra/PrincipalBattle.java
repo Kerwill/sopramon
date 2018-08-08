@@ -36,12 +36,12 @@ public class PrincipalBattle {
 
 	@Transactional
 	public void attaquer(String[] args) {
-	
+
 		ICombattant attaquant2 = daoSopramon.findByNom("Briac");
 		ICombattant attaquant1 = daoBoss.findById(1).get();
 
 		Combat myCombat = new Combat(attaquant1, attaquant2);
-	
+
 		daoCombat.save(myCombat);
 		int compteur = 0;
 		boolean qui = (Math.random() < 0.5);
@@ -50,75 +50,66 @@ public class PrincipalBattle {
 		Capacite cap1 = attaquant1.getCapacite();
 		Capacite cap2 = attaquant2.getCapacite();
 
+		System.out.println(cap1.toString());
+		System.out.println(cap2.toString());
+
 		int pv1 = cap1.getPointsDeVie();
 		int def1 = cap1.getDefense();
-		int degats1 = cap1.getAttaque();
+		int attaque1 = cap1.getAttaque();
 
 		int pv2 = cap2.getPointsDeVie();
 		int def2 = cap2.getDefense();
-		int degats2 = cap2.getAttaque();
+		int attaque2 = cap2.getAttaque();
+
+		System.out.println(pv1 + ": " + def1 + " : " + def2 + " ");
 
 		do {
 			compteur++;
 			Coup coup = new Coup();
-			System.out.println("point de vie avant attaque :" + cap2.getPointsDeVie());
+			int degat;
+			System.out.println("point de vie avant attaque :" + pv2);
 
-			if (qui == true) {
+			coup.setDate(new Date());
+			coup.setCombat(myCombat);
+			coup.setPersistance(0);
 
-				coup.setDegats(degats1);
+			if (qui) {
 				coup.setAttaquant(attaquant1);
-				coup.setPersistance(0);
-				coup.setCombat(myCombat);
-				coup.setDate(new Date());
+				if (attaque1 > def2) {
+					degat = attaque1 - def2;
 
-				System.out.println("degats : " + degats1);
-
-				if (degats1 > def2) {
-					pv2 = pv2 - (degats1 - def2);
-				} 
-				else {
-					pv2--;
-				}
-				daoCoup.save(coup);
-					
-				System.out.println("point de vie apr�s attaque :" + cap2.getPointsDeVie());
-
-				qui = false;
-				
-			} else {
-				
-				System.out.println(cap1.getPointsDeVie());
-
-				coup.setDegats(degats2);
-				coup.setAttaquant(attaquant2);
-				coup.setPersistance(0);
-				coup.setCombat(myCombat);
-				coup.setDate(new Date());
-				
-				System.out.println(degats2);
-				System.out.println(attaquant2.toString());
-
-				if (degats2 > def1) {
-					pv1 = pv1 - (degats2 - def1);
 				} else {
-					pv1 = pv1--;
+					degat = 1;
 				}
-				
-				daoCoup.save(coup);
-				
-				System.out.println(cap1.getPointsDeVie());
-				
-				qui = true;
-
+				pv2 -= degat;
+				attaquant2.getCapacite().setPointsDeVie(pv2);
+				qui = false;
 			}
-			
-		} while (cap1.getPointsDeVie() >= 0 && cap2.getPointsDeVie() >= 0);
+
+			else {
+				coup.setAttaquant(attaquant2);
+				if (attaque2 > def1) {
+					degat = attaque2 - def1;
+
+				} else {
+					degat = 1;
+				}
+				pv1 -= degat;
+				attaquant1.getCapacite().setPointsDeVie(pv1);
+				qui = true;
+			}
+
+			coup.setDegats(degat);
+			daoCoup.save(coup);
+
+			qui = false;
+
+		} while (pv1 >= 0 && pv2 >= 0);
 
 		myCombat.getAttaquant1().setCapacite(cap1);
 		myCombat.getAttaquant2().setCapacite(cap2);
 		myCombat.setTour(compteur);
-		
-		
+
 		daoCombat.save(myCombat);
 	}
 
