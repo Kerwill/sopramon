@@ -73,7 +73,7 @@ public class PrincipalBattle {
 			coup.setCombat(myCombat);
 			coup.setPersistance(0);
 
-			if (qui) {
+			if (qui == true) {
 				coup.setAttaquant(attaquant1);
 				if (attaque1 > def2) {
 					degat = attaque1 - def2;
@@ -102,7 +102,6 @@ public class PrincipalBattle {
 			coup.setDegats(degat);
 			daoCoup.save(coup);
 
-			qui = false;
 
 		} while (pv1 >= 0 && pv2 >= 0);
 
