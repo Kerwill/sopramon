@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 
 @Entity
 @Table(name = "combat")
@@ -25,7 +26,7 @@ public class Combat {
 	private int id;
 	
 	@Column(name="COM_TOUR", nullable=false)
-	@Positive 
+	@PositiveOrZero
 	private int tour;
 	
 	@ManyToOne 
