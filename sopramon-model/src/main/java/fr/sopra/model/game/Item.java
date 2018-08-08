@@ -77,4 +77,10 @@ public class Item {
 		this.capacite = capacite;
 	}
 
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", nom=" + nom + ", prix=" + prix + ", capacite=" + capacite + ", achats=" + achats
+				+ "]";
+	}
+
 }
