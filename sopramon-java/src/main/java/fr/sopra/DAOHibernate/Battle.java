@@ -45,12 +45,12 @@ public class Battle {
 					coup.setCombat(myCombat);
 					coup.setDate(new Date());
 		
-				System.out.println("degats : "+degats);
+				System.out.println("degats : "+ degats);
 				int pv = attaquant2.getCapacite().getPointsDeVie();
 				int def = attaquant2.getCapacite().getDefense();
 				attaquant2.getCapacite().setPointsDeVie(pv - degats);
 				daoCoup.save(coup);
-				System.out.println("point de vie après attaque :"+attaquant2.getCapacite().getPointsDeVie());
+				System.out.println("point de vie après attaque :"+ attaquant2.getCapacite().getPointsDeVie());
 				
 				qui = false;
 				}
