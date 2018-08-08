@@ -14,11 +14,10 @@ public class ItemMenu {
 	@Autowired
 	private IDAOItem daoItem;
 
-	
 	public void createItem(String[] args) {
-		
-		Scanner keyboard = new Scanner (System.in);
-		
+
+		Scanner keyboard = new Scanner(System.in);
+
 		System.out.println("-----Creation d'un item ----");
 		System.out.println("Entrez le nom de l'item : ");
 		String nomItem = keyboard.next();
@@ -34,8 +33,7 @@ public class ItemMenu {
 		int esquiveItem = keyboard.nextInt();
 		System.out.println("Entrez vitesse de l'item : ");
 		int vitesseItem = keyboard.nextInt();
-		
-		
+
 		Item myItem = new Item();
 
 		myItem.setNom(nomItem);
@@ -47,19 +45,20 @@ public class ItemMenu {
 		myItem.getCapacite().setVitesse(vitesseItem);
 		System.out.println(myItem.toString());
 		daoItem.save(myItem);
-		
+
 		keyboard.close();
-		
+
 	}
-	
+
 	public void readItem(String[] args) {
-		for( Item i : daoItem.findAll()) {
+		for (Item i : daoItem.findAll()) {
 			System.out.println(i.getNom());
 		}
 	}
+
 	public void updateItem(String[] args)  {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Quel item voulez-vous modifier ?)");
+		System.out.println("Quel item voulez-vous modifier ?");
 		String nom = keyboard.next();
 		Item item = daoItem.findByNom(nom);	
 		
@@ -133,11 +132,18 @@ public class ItemMenu {
 		    break;
 	 
 	}
+
 	keyboard.close();
 
 }
 	
-	
+	public void deleteItem(String[] args) {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Quel item voulez-vous supprimer ?");
+		String nom = keyboard.next();
+		Item item = daoItem.findByNom(nom);
+		daoItem.delete(item);
+		}
+	}
 
-	
-}
+

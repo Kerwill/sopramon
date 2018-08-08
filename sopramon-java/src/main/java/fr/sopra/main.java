@@ -67,7 +67,7 @@ public class main {
 
 		case 4:
 			
-			ItemMenu.addItem();
+			ItemMenu.updateItem();
 			break;
 			
 		case 5:
