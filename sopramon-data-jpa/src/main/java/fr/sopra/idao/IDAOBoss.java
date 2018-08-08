@@ -7,5 +7,4 @@ import fr.sopra.model.game.Boss;
 
 public interface IDAOBoss extends JpaRepository<Boss, Integer> {
 	public Boss findByNom(String nom);
-
 }
