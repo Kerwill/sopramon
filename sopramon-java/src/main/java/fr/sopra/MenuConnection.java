@@ -18,8 +18,7 @@ public class MenuConnection {
 	private IDAOUtilisateur daoUser;
 
 	@Transactional
-	public Sopramon connexion(String[] args) throws ParseException {
-		Scanner keyboard = new Scanner(System.in);
+	public Sopramon connexion(Scanner keyboard) throws ParseException {
 
 		System.out.println("---------------------------MENU DE CONNECTION ---------------------------------\n"
 				+ "1 : Creer un compte\n" + "2 : Se connecter\n" + "Quel est votre choix ?");
@@ -70,36 +69,36 @@ public class MenuConnection {
 			mySopramon.setNom(nomSopra);
 			mySopramon.setSigne(SigneGeneratorNew
 					.getAstrologicalSign(formatter.parse(jourNaissance + "/" + moisNaissance + "/" + anneeNaissance)));
-			keyboard.close();
 			return daoSopramon.save(mySopramon);
 		}
 
 		else if (choix == 2) {
-
+			
 			System.out.println("Entrez votre nom d'utilisateur");
 			username = keyboard.next();
 			System.out.println("Entrez votre mot de passe");
 			motDePasse = keyboard.next();
 			Sopramon user = (Sopramon) daoUser.findByUsernameAndPassword(username, motDePasse);
+			
 
 			if (user != null) {
 				System.out.println("Connection avec votre Sopramon :");
 				System.out.println(user.toString());
-				keyboard.close();
 				return user;
-			} else {
+			} 
+			else {
 				System.out.println("Echec de connection - veuillez saisir un mot de passe valide");
-				keyboard.close();
 				return null;
-			}
-
+							}
+		
 		}
-
+		
 		else {
 			System.out.println("Commande invalide, merci de relancer le programme");
-			keyboard.close();
 			return null;
-		}
-
 	}
+	
+		
+
+}
 }

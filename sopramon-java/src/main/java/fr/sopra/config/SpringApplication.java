@@ -1,6 +1,7 @@
 package fr.sopra.config;
 
 import java.text.ParseException;
+import java.util.Scanner;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -16,12 +17,13 @@ public class SpringApplication {
 	public static void main(String[] args) throws BeansException, ParseException {
 
 		Sopramon mySopramon = null;
+		Scanner keyboard = new Scanner (System.in);
 
 		AnnotationConfigApplicationContext myContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		try {
 
-			mySopramon = myContext.getBeanFactory().createBean(MenuConnection.class).connexion(args);
-			myContext.getBeanFactory().createBean(Boutique.class).shopping(mySopramon);
+			mySopramon = myContext.getBeanFactory().createBean(MenuConnection.class).connexion(keyboard);
+			myContext.getBeanFactory().createBean(Boutique.class).shopping(mySopramon, keyboard);
 
 		} catch (BeansException | ParseException e) {
 			e.printStackTrace();
