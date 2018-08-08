@@ -35,27 +35,14 @@ public class PrincipalBattle {
 	private IDAOSopramon daoSopramon;
 
 	@Transactional
-	public void run(String[] args) {
-
-		Boss myBoss = daoBoss.findById(1).get();
-		Sopramon mySopramon = daoSopramon.findById(3).get();
-
-		
-		attaquer(myBoss, mySopramon);
-
-	}
-
-	public static Combat attaquer(ICombattant attaquant1, ICombattant attaquant2) {
+	public void attaquer (String[] args) {
+	
+		ICombattant attaquant1 = daoSopramon.findByNom("Briac");
+		ICombattant attaquant2 = daoBoss.findById(1).get();
 
 		Combat myCombat = new Combat(attaquant1, attaquant2);
 	
-		try {
 		daoCombat.save(myCombat);
-		}
-		catch (Exception e){
-			System.out.println("sauvegarde ratée");
-		}
-
 		int compteur = 0;
 		boolean qui = (Math.random() < 0.5);
 		System.out.println(qui);
@@ -122,10 +109,15 @@ public class PrincipalBattle {
 				qui = true;
 
 			}
+			
 		} while (cap1.getPointsDeVie() >= 0 && cap2.getPointsDeVie() >= 0);
 
+		myCombat.getAttaquant1().setCapacite(cap1);
+		myCombat.getAttaquant2().setCapacite(cap2);
+		myCombat.setTour(compteur);
+		
+		
 		daoCombat.save(myCombat);
-		return myCombat;
 	}
 
 }
