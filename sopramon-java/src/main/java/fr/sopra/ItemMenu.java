@@ -2,20 +2,20 @@ package fr.sopra;
 
 import java.util.Scanner;
 
-import fr.sopra.DAOHibernate.DAOItemHibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 import fr.sopra.idao.IDAOItem;
 import fr.sopra.model.game.Item;
 
+@Component
 public class ItemMenu {
+	@Autowired
+	private IDAOItem daoItem;
 
-	public static void run(String[] args) {
-		// TODO Auto-generated method stub
-		
-		
-	}
 	
-	
-	public static void addItem() {
+	public void createItem(String[] args) {
 		
 		Scanner keyboard = new Scanner (System.in);
 		
@@ -23,7 +23,7 @@ public class ItemMenu {
 		System.out.println("Entrez le nom de l'item : ");
 		String nomItem = keyboard.next();
 		System.out.println("Entrez le prix de l'item : ");
-		double prixItem = keyboard.nextDouble();
+		double prixItem = keyboard.nextFloat();
 		System.out.println("Entrez l'attaque de l'item : ");
 		int attaqueItem = keyboard.nextInt();
 		System.out.println("Entrez la defense de l'item : ");
@@ -35,8 +35,7 @@ public class ItemMenu {
 		System.out.println("Entrez vitesse de l'item : ");
 		int vitesseItem = keyboard.nextInt();
 		
-		keyboard.close();
-		IDAOItem daoItem = new DAOItemHibernate();
+		
 		Item myItem = new Item();
 
 		myItem.setNom(nomItem);
@@ -46,18 +45,24 @@ public class ItemMenu {
 		myItem.getCapacite().setPointsDeVie(pdvItem);
 		myItem.getCapacite().setEsquive(esquiveItem);
 		myItem.getCapacite().setVitesse(vitesseItem);
-
+		System.out.println(myItem.toString());
 		daoItem.save(myItem);
 		
 		keyboard.close();
-		DAOItemHibernate.close();
 		
 	}
 	
-	public static void modifyItem(String nom)  {
-		DAOItemHibernate daoItem = new DAOItemHibernate();
-		Item item = daoItem.findByNom(nom);	
+	public void readItem(String[] args) {
+		for( Item i : daoItem.findAll()) {
+			System.out.println(i.getNom());
+		}
+	}
+	public void updateItem(String[] args)  {
 		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Quel item voulez-vous modifier ?)");
+		String nom = keyboard.next();
+		Item item = daoItem.findByNom(nom);	
+		
 		
 	System.out.println("Quelle param�tre voulez-vous modifier ?\n"
 			+ "0 : le nom \n"
@@ -128,8 +133,11 @@ public class ItemMenu {
 		    break;
 	 
 	}
-	DAOItemHibernate.close();
 	keyboard.close();
 
 }
+	
+	
+
+	
 }
