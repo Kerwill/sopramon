@@ -2,6 +2,7 @@ package fr.sopra;
 
 import java.util.Date;
 import java.util.Optional;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,28 +28,23 @@ public class PrincipalBattle {
 	private IDAOCombat daoCombat;
 	@Autowired
 	private IDAOCoup daoCoup;
-	@Autowired
-	private IDAOCapacite daoCapacite;
-	@Autowired
-	private IDAOBoss daoBoss;
-	@Autowired
-	private IDAOSopramon daoSopramon;
 
 	@Transactional
-	public void attaquer(String[] args) {
-
-		ICombattant attaquant2 = daoSopramon.findByNom("Briac");
-		ICombattant attaquant1 = daoSopramon.findById(3).get();
-
-		Combat myCombat = new Combat(attaquant1, attaquant2);
+	public void attaquer(ICombattant myOpponent, ICombattant mySopramon, Scanner keyboard) {
+		
+		System.out.println("Qui souhaitez-vous provoquer en duel ?");
+		
+		String myOpponentNom = keyboard.next();
+		
+		Combat myCombat = new Combat(myOpponent, mySopramon);
 
 		daoCombat.save(myCombat);
 		int compteur = 0;
 		boolean qui = (Math.random() < 0.5);
 		System.out.println(qui);
 
-		Capacite cap1 = attaquant1.getCapacite();
-		Capacite cap2 = attaquant2.getCapacite();
+		Capacite cap1 = myOpponent.getCapacite();
+		Capacite cap2 = mySopramon.getCapacite();
 
 		int pv1 = cap1.getPointsDeVie();
 		int def1 = cap1.getDefense();
@@ -70,7 +66,7 @@ public class PrincipalBattle {
 			coup.setPersistance(0);
 
 			if (qui == true) {
-				coup.setAttaquant(attaquant1);
+				coup.setAttaquant(myOpponent);
 				if (attaque1 > def2) {
 					degat = attaque1 - def2;
 
@@ -82,7 +78,7 @@ public class PrincipalBattle {
 			}
 
 			else {
-				coup.setAttaquant(attaquant2);
+				coup.setAttaquant(mySopramon);
 				if (attaque2 > def1) {
 					degat = attaque2 - def1;
 
