@@ -38,7 +38,7 @@ public class PrincipalBattle {
 	public void attaquer(String[] args) {
 
 		ICombattant attaquant2 = daoSopramon.findByNom("Briac");
-		ICombattant attaquant1 = daoBoss.findById(3).get();
+		ICombattant attaquant1 = daoSopramon.findById(3).get();
 
 		Combat myCombat = new Combat(attaquant1, attaquant2);
 
@@ -49,9 +49,6 @@ public class PrincipalBattle {
 
 		Capacite cap1 = attaquant1.getCapacite();
 		Capacite cap2 = attaquant2.getCapacite();
-
-		System.out.println(cap1.toString());
-		System.out.println(cap2.toString());
 
 		int pv1 = cap1.getPointsDeVie();
 		int def1 = cap1.getDefense();
@@ -67,8 +64,6 @@ public class PrincipalBattle {
 			compteur++;
 			Coup coup = new Coup();
 			int degat;
-			System.out.println("point de vie de boss avant attaque :" + pv1);
-			System.out.println("point de vie de Briac avant attaque :" + pv2);
 
 			coup.setDate(new Date());
 			coup.setCombat(myCombat);
@@ -83,7 +78,6 @@ public class PrincipalBattle {
 					degat = 1;
 				}
 				pv2 -= degat;
-				attaquant2.getCapacite().setPointsDeVie(pv2);
 				qui = false;
 			}
 
@@ -96,21 +90,19 @@ public class PrincipalBattle {
 					degat = 1;
 				}
 				pv1 -= degat;
-				attaquant1.getCapacite().setPointsDeVie(pv1);
 				qui = true;
 			}
-
-			System.out.println("dégat du coup " + degat);
 
 			coup.setDegats(degat);
 			daoCoup.save(coup);
 
 
-			System.out.println("Vie Briac" + pv2);
-			System.out.println("Vie Jeremy" + pv1);
 			
-		} while (pv1 >= 0 && pv2 >= 0);
+			
+		} while (pv1 > 0 && pv2 > 0);
 
+		System.out.println(cap1.toString());
+		System.out.println(cap2.toString());
 		myCombat.getAttaquant1().setCapacite(cap1);
 		myCombat.getAttaquant2().setCapacite(cap2);
 		myCombat.setTour(compteur);
