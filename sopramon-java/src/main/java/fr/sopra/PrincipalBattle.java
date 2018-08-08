@@ -28,14 +28,12 @@ public class PrincipalBattle {
 	private IDAOCombat daoCombat;
 	@Autowired
 	private IDAOCoup daoCoup;
+	@Autowired
+	private IDAOSopramon daoSopramon;
 
 	@Transactional
 	public void attaquer(ICombattant myOpponent, ICombattant mySopramon, Scanner keyboard) {
-		
-		System.out.println("Qui souhaitez-vous provoquer en duel ?");
-		
-		String myOpponentNom = keyboard.next();
-		
+
 		Combat myCombat = new Combat(myOpponent, mySopramon);
 
 		daoCombat.save(myCombat);
@@ -92,9 +90,6 @@ public class PrincipalBattle {
 			coup.setDegats(degat);
 			daoCoup.save(coup);
 
-
-			
-			
 		} while (pv1 > 0 && pv2 > 0);
 
 		System.out.println(cap1.toString());
@@ -104,6 +99,20 @@ public class PrincipalBattle {
 		myCombat.setTour(compteur);
 
 		daoCombat.save(myCombat);
+	}
+
+	@Transactional
+
+	public Sopramon chooseOpponent(Scanner keyboard) {
+
+		System.out.println("Qui souhaitez-vous provoquer en duel ?");
+
+		String myOpponentNom = keyboard.next();
+
+		Sopramon myOpponent = daoSopramon.findByNom(myOpponentNom);
+
+		return myOpponent;
+
 	}
 
 }

@@ -7,11 +7,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import fr.sopra.config.AppConfig;
 import fr.sopra.idao.IDAOUtilisateur;
-import fr.sopra.model.Utilisateur;
+
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,16 +27,16 @@ public class IDAOUtilisateurTest {
 	private EntityManager em;
 
 	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
+	public static void setUp(){
 		System.out.println("Hi ! DaoUtilisateur en Test !");
 	}
 
 	@Test
-	public void testConnect
+	public void testConnect()
 	{
-		assertTrue(daoUser.findByUsernameAndPassword("frofro44", "hubert"));
-		assertTrue(daoUser.findByUsernameAndPassword("frofro4", "hubert"));
-		assertTrue(daoUser.findByUsernameAndPassword("frofro44", ""));
+		assertNotNull(daoUser.findByUsernameAndPassword("frofro44", "hubert"));
+		assertNull(daoUser.findByUsernameAndPassword("frofro4", "hubert"));
+		assertNull(daoUser.findByUsernameAndPassword("frofro44", ""));
 	}
 
 }

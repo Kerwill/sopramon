@@ -3,6 +3,7 @@ package fr.sopra;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.sopra.idao.IDAOAchat;
 import fr.sopra.idao.IDAOCapacite;
@@ -26,6 +27,7 @@ public class MenuSopramon {
 	@Autowired
 	private IDAOCoup daoCoup;
 
+	@Transactional
 	public void menu(Sopramon sopramon) {
 
 		System.out.println("--------------------------Vos caracteristiques----------------------- \n"
