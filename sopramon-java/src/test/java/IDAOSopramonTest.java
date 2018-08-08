@@ -36,27 +36,27 @@ public class IDAOSopramonTest {
 	@Test
 	public void test() {
 		assertNotNull(daosopramon);
-//		assertNotNull(mySopramon);
+		assertNotNull(mySopramon);
 	}
-//
-//	@Test
-//		public void testFind() {
-//			assertNotNull(daosopramon.findAll());
-//			assertNotNull(daosopramon.findById(2).get());
-//			assertTrue(daosopramon.findById(2).isPresent());
-//			assertNull(daosopramon.findByNom("ggfg"));
-//		}
-//
-//	@Test
-//		@Transactional
-//		@Rollback(true)
-//
-//		public void testSave() {
-//			try {
-//				daosopramon.save(mySopramon);
-//		
-//			} catch (Exception e) {
-//				fail();
-//}
-//	}
+
+	@Test
+		public void testFind() {
+			assertNotNull(daosopramon.findAll());
+			assertNotNull(daosopramon.findById(2).get());
+			assertTrue(daosopramon.findById(2).isPresent());
+			assertNull(daosopramon.findByNom("ggfg"));
+		}
+
+	@Test
+		@Transactional
+		@Rollback(true)
+
+		public void testSave() {
+			try {
+				daosopramon.save(mySopramon);
+		
+			} catch (Exception e) {
+				fail();
+}
+	}
 }

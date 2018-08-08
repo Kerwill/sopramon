@@ -8,7 +8,7 @@ import fr.sopra.model.game.Item;
 
 public class ItemMenu {
 
-	public static void main(String[] args) {
+	public static void run(String[] args) {
 		// TODO Auto-generated method stub
 		
 		
