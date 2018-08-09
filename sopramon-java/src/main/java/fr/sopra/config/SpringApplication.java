@@ -23,6 +23,7 @@ public class SpringApplication {
 
 		Sopramon mySopramon = null;
 		Sopramon myOpponent = null;
+		Boss boss = new Boss();
 
 		Scanner keyboard = new Scanner(System.in);
 
@@ -30,7 +31,10 @@ public class SpringApplication {
 		try {
 
 			mySopramon = myContext.getBeanFactory().createBean(MenuConnection.class).connexion(keyboard);
-			myContext.getBeanFactory().createBean(MenuSopramon.class).listeCoupsEtCombat(mySopramon);
+//			myOpponent = myContext.getBeanFactory().createBean(PrincipalBattle.class).chooseOpponent(keyboard);
+			Arene myArene = myContext.getBeanFactory().createBean(PrincipalBattle.class).chooseArene(boss);
+			myContext.getBeanFactory().createBean(PrincipalBattle.class).attaquer(myArene, boss, mySopramon, keyboard);
+			
 		} catch (BeansException | ParseException e) {
 			e.printStackTrace();
 		}
