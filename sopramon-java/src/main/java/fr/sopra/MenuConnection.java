@@ -3,12 +3,15 @@ package fr.sopra;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
+
+import org.hibernate.service.spi.ServiceRegistryAwareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import fr.sopra.idao.IDAOSopramon;
 import fr.sopra.idao.IDAOUtilisateur;
 import fr.sopra.model.Utilisateur;
 import fr.sopra.model.game.Sopramon;
+import fr.sopra.service.ServiceSopramon;
 
 public class MenuConnection {
 	@Autowired
@@ -16,6 +19,9 @@ public class MenuConnection {
 
 	@Autowired
 	private IDAOUtilisateur daoUser;
+	
+	@Autowired
+	private ServiceSopramon serviceSopramon;
 
 	@Transactional
 	public Sopramon connexion(Scanner keyboard) throws ParseException {
@@ -78,7 +84,8 @@ public class MenuConnection {
 			username = keyboard.next();
 			System.out.println("Entrez votre mot de passe");
 			motDePasse = keyboard.next();
-			Sopramon user = (Sopramon) daoUser.findByUsernameAndPassword(username, motDePasse);
+			
+			Sopramon user = serviceSopramon.connect("frofro44", "hubert"); // (Sopramon) daoUser.findByUsernameAndPassword(username, motDePasse);
 			
 
 			if (user != null) {

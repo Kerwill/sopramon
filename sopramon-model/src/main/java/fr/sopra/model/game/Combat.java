@@ -3,6 +3,7 @@ package fr.sopra.model.game;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,7 @@ public class Combat {
 	@JoinColumn(name="COM_SOPRAMON_ID")
 	private Sopramon sopramon1;
 	
-	@ManyToOne 
+	@ManyToOne
 	@JoinColumn(name="COM_SOPRAMON2_ID")
 	private Sopramon sopramon2;
 	

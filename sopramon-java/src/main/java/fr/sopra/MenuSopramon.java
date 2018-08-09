@@ -2,6 +2,10 @@ package fr.sopra;
 
 import java.util.Scanner;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +16,9 @@ import fr.sopra.idao.IDAOItem;
 import fr.sopra.idao.IDAOSopramon;
 import fr.sopra.model.game.Achat;
 import fr.sopra.model.game.Sopramon;
+import fr.sopra.service.ServiceSopramon;
 
+@Transactional
 public class MenuSopramon {
 
 	@Autowired
@@ -26,6 +32,12 @@ public class MenuSopramon {
 	private IDAOCapacite daoCapacite;
 	@Autowired
 	private IDAOCoup daoCoup;
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	@Autowired
+	private ServiceSopramon serviceSopramon;
 
 	@Transactional
 	public void menu(Sopramon sopramon) {
@@ -39,11 +51,16 @@ public class MenuSopramon {
 				+ "Vitesse : " + sopramon.getCapacite().getVitesse() + "\n" + "Esquive : "
 				+ sopramon.getCapacite().getEsquive() + "\n" + "Argent : " + sopramon.getArgent() + "\n" + "Defense : "
 				+ sopramon.getCapacite().getAttaque() + "\n");
-
-		System.out.println("--------------------------Vos achats----------------------- \n");
-		for (Achat a : sopramon.getAchats()) {
-			System.out.println("nom : "+a.getItem().getNom()+ "prix d'achat : "+a.getPrix());
-		}
 	}
+	
+	@Transactional
+    public void besace(Sopramon sopramon) {
+//		sopramon = em.merge(sopramon);
+		
+        System.out.println("--------------------------Vos achats----------------------- \n");
+        for (Achat a : serviceSopramon.getAchats()) {
+            System.out.println("nom : "+a.getItem().getNom()+ "prix d'achat : "+a.getPrix());
+        }
 
+	}
 }

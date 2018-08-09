@@ -20,7 +20,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@ComponentScan("fr.sopra.idao")
+@ComponentScan("fr.sopra")
 @EnableTransactionManagement
 @EnableJpaRepositories("fr.sopra.idao")
 @PropertySource("classpath:data-source.properties")
