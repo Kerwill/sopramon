@@ -81,6 +81,9 @@ public class PrincipalBattle {
 					}
 					pv2 -= degat;
 					qui = false;
+					System.out.println("La puissance de votre coup a été de " + (attaque1 - def2) + ".");
+					System.out.println("Vous avez " + myOpponent.getCapacite().getPointsDeVie() + " PV.");
+
 				} else if (choix == "F") {
 					System.out
 							.println("Lâche, pleutre, froussard, pied plat, veule, vous avez osé quitter le combat !");
@@ -105,6 +108,9 @@ public class PrincipalBattle {
 					}
 					pv1 -= degat;
 					qui = true;
+
+					System.out.println("La puissance de votre coup a été de " + (attaque2 - def1) + ".");
+					System.out.println("Vous avez " + mySopramon.getCapacite().getPointsDeVie() + " PV.");
 				} else if (choix == "F") {
 					System.out
 							.println("Lâche, pleutre, froussard, pied plat, veule, vous avez osé quitter le combat !");
