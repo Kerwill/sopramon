@@ -92,5 +92,12 @@ public class Capacite {
 				+ ", esquive=" + esquive + ", vitesse=" + vitesse + "]";
 	}
 
+	public String description() {
+		
+		return "pointsDeVie = " + pointsDeVie + "attaque = " + attaque + "defense = " + defense
+				+ "esquive = " + esquive + "vitesse = " + vitesse;
+		
+	}
+
 
 }

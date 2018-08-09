@@ -11,10 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.sopra.idao.IDAOAchat;
 import fr.sopra.idao.IDAOCapacite;
+import fr.sopra.idao.IDAOCombat;
 import fr.sopra.idao.IDAOCoup;
 import fr.sopra.idao.IDAOItem;
 import fr.sopra.idao.IDAOSopramon;
 import fr.sopra.model.game.Achat;
+import fr.sopra.model.game.Combat;
+import fr.sopra.model.game.Coup;
 import fr.sopra.model.game.Sopramon;
 import fr.sopra.service.ServiceSopramon;
 
@@ -29,7 +32,7 @@ public class MenuSopramon {
 	private IDAOAchat daoAchat;
 
 	@Autowired
-	private IDAOCapacite daoCapacite;
+	private IDAOCombat daoCombat;
 	@Autowired
 	private IDAOCoup daoCoup;
 	
@@ -54,13 +57,48 @@ public class MenuSopramon {
 	}
 	
 	
+
+    
+    @Transactional
     public void besace(Sopramon sopramon) {
-//		sopramon = em.merge(sopramon);
+
 		
         System.out.println("--------------------------Vos achats----------------------- \n");
         for (Achat a : serviceSopramon.getAchats()) {
-            System.out.println("nom : "+a.getItem().getNom()+ "prix d'achat : "+a.getPrix());
+            System.out.println("nom : "+a.getItem().getNom()+ " prix d'achat : "+a.getPrix()+" Capacites : "+ a.getItem().getCapacite().description());
         }
 
 	}
+	
+	
+    public void listeCoupsEtCombat(Sopramon sopramon) {
+    	
+//    	System.out.println("--------------------------Vos coups ----------------------- \n");
+//    	for (Coup c : serviceSopramon.getCoups())
+//    	{
+//    		System.out.println("Degat : "+c.getDegats()+ " Date : "+c.getDate());
+//    	}
+    	
+    	
+    	System.out.println("--------------------------Vos 10 derniers coups ----------------------- \n");
+    	
+ 
+//    	for (Coup c : serviceSopramon.getCoups())
+//    	{
+//    		System.out.println("Degat : "+c.getDegats()+ " Date : "+c.getDate());
+//    	}
+    	
+    	 for (Coup c : daoCoup.findTop10BySopramonOrderByIdDesc(sopramon))
+     	{
+     		System.out.println("Degat : "+c.getDegats()+ " Date : "+c.getDate());
+     	}
+    	 
+    	 System.out.println("--------------------------Vos 10 derniers combats----------------------- \n");
+    	 
+    	 for (Combat cb : daoCombat.findTop10BySopramon1OrSopramon2OrderByIdDesc(sopramon,sopramon))
+      	{
+      		System.out.println("Nbre de tour "+ cb.getTour()+ "Opposant Boss : "+cb.getBoss()+ "Opposant sopramon : "+cb.getAttaquant2());
+      	}
+    		
+    }
 }

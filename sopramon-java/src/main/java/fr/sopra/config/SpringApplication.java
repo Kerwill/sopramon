@@ -30,7 +30,7 @@ public class SpringApplication {
 		try {
 
 			mySopramon = myContext.getBeanFactory().createBean(MenuConnection.class).connexion(keyboard);
-			myContext.getBeanFactory().createBean(AreneGenerator.class).run(args);
+			myContext.getBeanFactory().createBean(MenuSopramon.class).listeCoupsEtCombat(mySopramon);
 		} catch (BeansException | ParseException e) {
 			e.printStackTrace();
 		}
