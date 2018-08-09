@@ -53,7 +53,7 @@ public class MenuSopramon {
 				+ sopramon.getCapacite().getAttaque() + "\n");
 	}
 	
-	@Transactional
+	
     public void besace(Sopramon sopramon) {
 //		sopramon = em.merge(sopramon);
 		

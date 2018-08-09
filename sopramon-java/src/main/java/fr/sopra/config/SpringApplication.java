@@ -28,7 +28,7 @@ public class SpringApplication {
 		try {
 
 			mySopramon = myContext.getBeanFactory().createBean(MenuConnection.class).connexion(keyboard);
-			myContext.getBeanFactory().createBean(MenuSopramon.class).besace(mySopramon);
+//			myContext.getBeanFactory().createBean(MenuSopramon.class).besace(mySopramon);
 		} catch (BeansException | ParseException e) {
 			e.printStackTrace();
 		}
