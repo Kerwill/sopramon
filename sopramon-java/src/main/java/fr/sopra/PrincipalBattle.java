@@ -38,11 +38,10 @@ public class PrincipalBattle {
 
 		Combat myCombat = new Combat(myOpponent, mySopramon);
 
-
+		System.out.println(myArene);
 		daoCombat.save(myCombat);
 		int compteur = 0;
 		boolean qui = (Math.random() < 0.5);
-		System.out.println(qui);
 
 		Capacite cap1 = myOpponent.getCapacite();
 		Capacite cap2 = mySopramon.getCapacite();
@@ -162,13 +161,19 @@ public class PrincipalBattle {
 
 	}
 	
-	public Arene chooseArene(ICombattant myOpponent ) {
+	public Arene chooseArene(ICombattant myOpponent) {
+		
 		if (myOpponent instanceof Boss) {
-			Signe signeBoss = ((Boss) myOpponent).getSigne();
-			return ((Boss) myOpponent).getSigne().getType().getArene();
+			return ((Boss) myOpponent).getSigne().getArene();
+			
+	
 		}
-		else
-		return null;
+		else {
+			int nombreAleatoire= 0 + (int) (Math.random()*12);
+			return Arene.values()[nombreAleatoire];	
+		}
+		
+			 
 	}
 
 }
