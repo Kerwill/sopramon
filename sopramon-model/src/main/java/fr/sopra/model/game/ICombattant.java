@@ -5,4 +5,6 @@ public interface ICombattant <S,B, C> {
 	public Capacite getCapacite();
 
 	public void setCapacite(Capacite capacite);
+
+	public String getNom();
 }

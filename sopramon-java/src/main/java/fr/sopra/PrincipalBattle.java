@@ -52,39 +52,64 @@ public class PrincipalBattle {
 		int def2 = cap2.getDefense();
 		int attaque2 = cap2.getAttaque();
 
-		System.out.println(pv1 + ": " + def1 + " : " + def2 + " ");
+		System.out.println("Le duel commence : " + mySopramon.getNom() + " vs " + myOpponent.getNom() + " !");
 
 		do {
+
 			compteur++;
 			Coup coup = new Coup();
-			int degat;
+			int degat = 0;
 
 			coup.setDate(new Date());
 			coup.setCombat(myCombat);
 			coup.setPersistance(0);
 
 			if (qui == true) {
-				coup.setAttaquant(myOpponent);
-				if (attaque1 > def2) {
-					degat = attaque1 - def2;
 
-				} else {
-					degat = 1;
+				System.out.println("C'est votre tour " + myOpponent.getNom()
+						+ ", voulez-vous porter un coup (C) ou fuir le combat (F) ?");
+
+				String choix = keyboard.next();
+
+				if (choix == "C") {
+					coup.setAttaquant(myOpponent);
+					if (attaque1 > def2) {
+						degat = attaque1 - def2;
+
+					} else {
+						degat = 1;
+					}
+					pv2 -= degat;
+					qui = false;
+				} else if (choix == "F") {
+					System.out
+							.println("Lâche, pleutre, froussard, pied plat, veule, vous avez osé quitter le combat !");
+					break;
 				}
-				pv2 -= degat;
-				qui = false;
 			}
 
 			else {
-				coup.setAttaquant(mySopramon);
-				if (attaque2 > def1) {
-					degat = attaque2 - def1;
 
-				} else {
-					degat = 1;
+				System.out.println("C'est votre tour " + myOpponent.getNom()
+						+ ", voulez-vous porter un coup (C) ou fuir le combat (F) ?");
+
+				String choix = keyboard.next();
+
+				if (choix == "C") {
+					coup.setAttaquant(mySopramon);
+					if (attaque2 > def1) {
+						degat = attaque2 - def1;
+
+					} else {
+						degat = 1;
+					}
+					pv1 -= degat;
+					qui = true;
+				} else if (choix == "F") {
+					System.out
+							.println("Lâche, pleutre, froussard, pied plat, veule, vous avez osé quitter le combat !");
+					break;
 				}
-				pv1 -= degat;
-				qui = true;
 			}
 
 			coup.setDegats(degat);
