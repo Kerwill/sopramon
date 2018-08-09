@@ -63,6 +63,8 @@ public class PrincipalBattle {
 			coup.setDate(new Date());
 			coup.setCombat(myCombat);
 			coup.setPersistance(0);
+			String C = "C";
+			String F = "F";
 
 			if (qui == true) {
 
@@ -71,7 +73,7 @@ public class PrincipalBattle {
 
 				String choix = keyboard.next();
 
-				if (choix == "C") {
+				if (choix.equals(C)) {
 					coup.setAttaquant(myOpponent);
 					if (attaque1 > def2) {
 						degat = attaque1 - def2;
@@ -80,25 +82,31 @@ public class PrincipalBattle {
 						degat = 1;
 					}
 					pv2 -= degat;
-					qui = false;
-					System.out.println("La puissance de votre coup a été de " + (attaque1 - def2) + ".");
-					System.out.println("Vous avez " + myOpponent.getCapacite().getPointsDeVie() + " PV.");
+					
+					System.out.println("La puissance de votre coup a été de " + degat + ".");
+					System.out.println("Vous avez " + pv2 + " PV.");
 
-				} else if (choix == "F") {
+				} else if (choix.equals(F)) {
 					System.out
 							.println("Lâche, pleutre, froussard, pied plat, veule, vous avez osé quitter le combat !");
-					break;
+					System.exit(0);
 				}
+				else
+					System.out.println("raté attaquant 1");
+				
+				qui = false;
 			}
 
 			else {
 
-				System.out.println("C'est votre tour " + myOpponent.getNom()
+				System.out.println("C'est votre tour " + mySopramon.getNom()
 						+ ", voulez-vous porter un coup (C) ou fuir le combat (F) ?");
 
-				String choix = keyboard.next();
+				String choix = keyboard.next().toUpperCase();
+				
+				
 
-				if (choix == "C") {
+				if (choix.equals(C)) {
 					coup.setAttaquant(mySopramon);
 					if (attaque2 > def1) {
 						degat = attaque2 - def1;
@@ -107,15 +115,20 @@ public class PrincipalBattle {
 						degat = 1;
 					}
 					pv1 -= degat;
-					qui = true;
-
-					System.out.println("La puissance de votre coup a été de " + (attaque2 - def1) + ".");
-					System.out.println("Vous avez " + mySopramon.getCapacite().getPointsDeVie() + " PV.");
-				} else if (choix == "F") {
+				
+					System.out.println("La puissance de votre coup a été de " + degat + ".");
+					System.out.println("Vous avez " + pv1 + " PV.");
+				} else if (choix.equals(F)) {
 					System.out
 							.println("Lâche, pleutre, froussard, pied plat, veule, vous avez osé quitter le combat !");
-					break;
+					System.exit(0);
+					
 				}
+				else
+					System.out.println("raté attaquant2");
+				
+				
+				qui = true;
 			}
 
 			coup.setDegats(degat);
