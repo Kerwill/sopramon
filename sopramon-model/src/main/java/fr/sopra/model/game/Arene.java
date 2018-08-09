@@ -1,5 +1,7 @@
 package fr.sopra.model.game;
 
+import java.util.Random;
+
 public enum Arene {
 	
 	ABELIER(Signe.BELIER), ATAUREAU(Signe.TAUREAU), AGEMEAUX(Signe.GEMEAUX), ACANCER(Signe.CANCER), ALION(Signe.LION), AVIERGE(Signe. VIERGE),
@@ -15,6 +17,10 @@ public enum Arene {
 		return ASigne;
 	}
 	
+	 public static Arene getRandomAreneType() {
+	        Random random = new Random();
+	        return (values()[random.nextInt(values().length)]);
+	    }
 	
 }
 	
