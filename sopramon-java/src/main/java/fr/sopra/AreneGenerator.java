@@ -8,7 +8,8 @@ import fr.sopra.model.game.Type;
 
 public class AreneGenerator {
 
-	public static void main(String[] args) {
+	
+	public static void run(String[] args) {
 
 //Pas random
 //		Type currentAreneType = Arene.ASAGITTAIRE.getASigne().getType();//Instruction ([sopramon1.getType()] == currentAreneType) pour comparer les elements et attribuer les bonus
@@ -19,10 +20,10 @@ public class AreneGenerator {
 //		System.out.println(randomAreneType);
 		
 //Avec random, avec var intermediaire
-		Signe randomAreneSigne = Arene.getRandomAreneType().getASigne();
-		Type randomAreneType = randomAreneSigne.getType();
-		System.out.println(randomAreneSigne);
-		System.out.println(randomAreneType);
+//		Signe randomAreneSigne = Arene.getRandomArene().getASigne();
+//		Type randomAreneType = randomAreneSigne.getType();
+//		System.out.println(randomAreneSigne);
+//		System.out.println(randomAreneType);
 		
 	}
 	

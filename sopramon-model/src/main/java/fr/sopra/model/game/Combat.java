@@ -127,6 +127,14 @@ public class Combat {
 			return this.sopramon2;
 	}		
 					
+	public Arene getArene() {
+		return arene;
+	}
+
+	public void setArene(Arene arene) {
+		this.arene = arene;
+	}
+
 	public Combat(ICombattant attaquant1, ICombattant attaquant2) {
 		this.setAttaquant1(attaquant1);
 		this.setAttaquant2(attaquant2);

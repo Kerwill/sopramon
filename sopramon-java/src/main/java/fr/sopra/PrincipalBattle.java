@@ -15,11 +15,13 @@ import fr.sopra.idao.IDAOCapacite;
 import fr.sopra.idao.IDAOCombat;
 import fr.sopra.idao.IDAOCoup;
 import fr.sopra.idao.IDAOSopramon;
+import fr.sopra.model.game.Arene;
 import fr.sopra.model.game.Boss;
 import fr.sopra.model.game.Capacite;
 import fr.sopra.model.game.Combat;
 import fr.sopra.model.game.Coup;
 import fr.sopra.model.game.ICombattant;
+import fr.sopra.model.game.Signe;
 import fr.sopra.model.game.Sopramon;
 
 @Component
@@ -32,9 +34,10 @@ public class PrincipalBattle {
 	private IDAOSopramon daoSopramon;
 
 	@Transactional
-	public void attaquer(ICombattant myOpponent, ICombattant mySopramon, Scanner keyboard) {
+	public void attaquer(Arene myArene, ICombattant myOpponent, ICombattant mySopramon, Scanner keyboard) {
 
 		Combat myCombat = new Combat(myOpponent, mySopramon);
+
 
 		daoCombat.save(myCombat);
 		int compteur = 0;
@@ -157,6 +160,15 @@ public class PrincipalBattle {
 
 		return myOpponent;
 
+	}
+	
+	public Arene chooseArene(ICombattant myOpponent ) {
+		if (myOpponent instanceof Boss) {
+			Signe signeBoss = ((Boss) myOpponent).getSigne();
+			return ((Boss) myOpponent).getSigne().getType().getArene();
+		}
+		else
+		return null;
 	}
 
 }

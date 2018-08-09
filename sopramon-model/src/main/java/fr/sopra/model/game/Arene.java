@@ -4,20 +4,13 @@ import java.util.Random;
 
 public enum Arene {
 	
-	ABELIER(Signe.BELIER), ATAUREAU(Signe.TAUREAU), AGEMEAUX(Signe.GEMEAUX), ACANCER(Signe.CANCER), ALION(Signe.LION), AVIERGE(Signe. VIERGE),
-	ABALANCE(Signe.BALANCE), ASCORPION(Signe. SCORPION), ASAGITTAIRE(Signe.SAGITTAIRE), ACAPRICORNE(Signe.CAPRICORNE), AVERSEAU(Signe.VERSEAU),
-	APOISSON(Signe.POISSON), AUNKNOWN(Signe.UNKNOWN);
+	ABELIER, ATAUREAU, AGEMEAUX, ACANCER, ALION, AVIERGE,
+	ABALANCE, ASCORPION, ASAGITTAIRE, ACAPRICORNE, AVERSEAU,
+	APOISSON, AFEU, AEAU, ATERRE, AAIR, AUNKNOWN;
 
-	private Signe ASigne = Signe.UNKNOWN;
-	private Arene (Signe ASigne) {
-		this.ASigne = ASigne;
-	}
+
 	
-	public Signe getASigne() {
-		return ASigne;
-	}
-	
-	 public static Arene getRandomAreneType() {
+	 public static Arene getRandomArene() {
 	        Random random = new Random();
 	        return (values()[random.nextInt(values().length)]);
 	    }

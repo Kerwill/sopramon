@@ -7,4 +7,6 @@ public interface ICombattant <S,B, C> {
 	public void setCapacite(Capacite capacite);
 
 	public String getNom();
+
+	public Signe getSigne();
 }
