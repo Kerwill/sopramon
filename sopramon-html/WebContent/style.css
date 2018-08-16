@@ -1,44 +1,69 @@
-body{
-
-  background-color: #D7CEC7 ;
+body {
+	background-color: #D7CEC7;
 }
 
-.header{
-  background-color: #565656;
-  height: 60px;
-}
-h1{
-  text-align: center;
-  color: white;
+.header {
+	background-color: #565656;
+	height: 60px;
 }
 
-input[type="button"]{
-  position: relative;
-  width: 200px;
-  height: 200px;
-   top: 200px;
-   overflow: auto;
-   text-align: center;
-
-}
-.buttons{
-  text-align: center;
+h1 {
+	text-align: center;
+	color: white;
 }
 
- section:not(home){
+input[type="button"] {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	top: 200px;
+	overflow: auto;
+	text-align: center;
+}
 
-overflow:hidden;
+.buttons {
+	text-align: center;
+}
+
+section:not(home) {
+	display: none;
+}
+
+footer {
+	background-color: #76323F;
+	position: fixed;
+	bottom: 0;
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+	color: white;
+	text-align: right;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+form {
+    width: 300px;
+    height: 200px;
+    line-height: 30px;
+    top: 50%; 
+    left: 50%;
+    border-radius: 5px;
+    text-align: center;
+ 	z-index: 11;
+ 	position: fixed;
+ 	    margin-top: -100px;
+    margin-left: -150px;
+    background-color: #2B2B2B;
+    color : white;
 }
 
 
-
-footer{
-    background-color:#76323F;
-  position: fixed;
-  bottom: 0;
-  height: 50px;
-  line-height: 50px;
-  width: 100%;
-  color: white;
-  text-align: right;
-}
