@@ -1,3 +1,11 @@
+$('a').bind('click', function() {
+	let sectionId = $(this).attr('href');
+	
+	$('section').hide();
+	$(sectionId).show();
+});
+
+
 //inscription
 var mySubmission = $('#inscription');
 mySubmission.bind('submit', function() {
@@ -58,7 +66,7 @@ function connexion() {
 
 		success : function(data) {
 			
-			alert("connexion");
+			alert("vous êtes connecté");
 			
 			console.log(data);
 			appendSopramon(data);

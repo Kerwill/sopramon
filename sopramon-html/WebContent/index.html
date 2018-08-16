@@ -23,6 +23,7 @@
 		<h1>Plongez dans l'univers des Sopramons !</h1>
 	</div>
 
+	<img src="51NYiB7TYBL.jpg" alt="51NYiB7TYBL.jpg"/>
 	<div class="buttons">
 		<a href=#login><input type="button" value="login"
 			class="btn btn-outline-secondary btn-lg"></a> <a href=#signin><input
@@ -36,31 +37,43 @@
 
 
 	<section id="login">
-	
-	
-			<form method="GET">
-				<div>
-					<label>Username :</label><input type="text" name="Username"
-						placeholder="Votre username" required />
-				</div>
-				<div>
-					<label>Password :</label> <input type="text" name="Password"
-						placeholder="******" required />
-				</div>
-				<div>
-					<input type="submit" value="Connexion" />
-
-				</div>
-
-			</form>
-
 		<div class="overlay"></div>
-	
+		<form id="connexion">
+			<label for="username"> Votre username : </label> <input type="text"
+				name="username" placeholder="username" required /> <label
+				for="password"> Votre password : </label> <input type="password"
+				name="password" placeholder="*********" required />
+
+			<div class="bouton">
+				<input type="submit" value="Connexion" />
+			</div>
+
+		</form>
 	</section>
 
+	<section id="signin">
+		<div class="overlay"></div>
+		<form id="inscription">
+			<label for="firstname"> Votre Prénom : </label> <input type="text"
+				name="firstname" placeholder="Prénom" required /> <label
+				for="surname"> Votre Nom : </label> <input type="text"
+				name="surname" placeholder="NOM" required /> <label
+				for="username"> Votre nom d'utilisateur : </label> <input
+				type="text" name="username"
+				placeholder="username" required /> <label
+				for="password"> Votre Mot de Passe : </label> <input type="password"
+				name="password" placeholder="******" required />
+			<label for="birthdate"> Votre Date de naissance : </label> <input
+				type="date" name="birthdate" required />
 
 
-	<section id="signin"></section>
+			<div class="bouton">
+				<input type="submit" value="S'inscrire" />
+			</div>
+
+		</form>
+
+	</section>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -74,7 +87,10 @@
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
 
-	<script src="navigation.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="ajax.js"></script>
+
 </body>
 
 </html>
