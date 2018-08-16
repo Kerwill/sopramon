@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<base href="/formation-html/" />
+<meta charset="UTF-8" />
+<meta name="description"
+	content="Dépensez ici votre argent en toute impunité." />
+<link rel="stylesheet" type="text/css" href="monfichier.css" />
+<link rel="stylesheet" type="text/css" href="animate.css" />
+
+<title></title>
+
+</head>
+
+<nav>
+	<ul>
+		<li><a href=index.html>Accueil</a></li>
+		<li><a href=produit.html>Produit</a></li>
+		<li><a href=contact.html>Contact</a></li>
+	</ul>
+</nav>
+
+
+<body>
+	<header>
+		<h1>Ajouter un produit</h1>
+	</header>
+	<section>
+	
+		<form method="GET">
+			<div>
+				<input type="text" name="Nom"
+					placeholder="Saisir le nom du produit." required /><label>Nom
+					du produit :</label>
+			</div>
+			<div>
+				<label>Prix du produit :</label> <input type="number" name="Prix"
+					placeholder="Saisir le prix" step="0,01" value="0" required />
+			</div>
+
+			<div>
+				<label>Gamme du produit :</label> <select name="Gamme">
+					<option value="1" selected>GoldSurf</option>
+					<option value="2">PowerGoPRO</option>
+					<option value="3">SoPaddle</option>
+				</select>
+			</div>
+			<div>
+				<input type="submit" value="Ajouter"/>
+			</div>
+			<div id="validation"></div>
+		</form>
+
+		<table id="produits">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prix</th>
+					<th>Gamme</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</section>
+
+	<footer>Copyright ewavy2.bzh &copy;</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="produitJQuery.js"></script>
+
+
+</body>
+</html>
