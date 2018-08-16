@@ -23,6 +23,7 @@ input[type="button"] {
 
 .buttons {
 	text-align: center;
+	z-index: 11;
 }
 
 section:not(home) {
@@ -47,10 +48,10 @@ footer {
     height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.5);
-    z-index: 10;
+    z-index: 12;
 }
 
-form {
+#connexion {
     width: 300px;
     height: 200px;
     line-height: 30px;
@@ -58,7 +59,7 @@ form {
     left: 50%;
     border-radius: 5px;
     text-align: center;
- 	z-index: 11;
+ 	z-index: 13;
  	position: fixed;
  	    margin-top: -100px;
     margin-left: -150px;
@@ -66,4 +67,29 @@ form {
     color : white;
 }
 
+#inscription
+{
+    width: 300px;
+    height: 400px;
+    line-height: 30px;
+    top: 50%; 
+    left: 50%;
+    border-radius: 5px;
+    text-align: center;
+ 	z-index: 13;
+ 	position: fixed;
+ 	margin-top: -100px;
+    margin-left: -150px;
+    background-color: #2B2B2B;
+    color : white;
+}
 
+img {
+
+	top: 50%; 
+    left: 50%;
+    position: fixed;
+    margin-top: -190px;
+    margin-left: -220px;
+    
+}

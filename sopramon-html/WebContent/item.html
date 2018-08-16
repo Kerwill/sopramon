@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+
+
+<body>
+	<header>
+		<h1>Ajouter un item</h1>
+	</header>
+	<section>
+
+		<button id = "charge" class="btn-charge">Charger</button>
+		<form method="GET">
+			<div>
+				<label>Nom :</label><input type="text" name="Nom"
+					placeholder="Saisir le nom de l'item." required />
+			</div>
+			<div>
+				<label>Prix :</label> <input type="number" name="Prix"
+					placeholder="Saisir le prix" step="0,01" value="0" required />
+			</div>
+			<div>
+				<label>Attaque :</label> <input type="number" name="Attaque"
+					placeholder="Saisir l'attaque  step=" 0,01" value="0" required />
+			</div>
+			<div>
+				<label>Defense :</label> <input type="number" name="Defense"
+					placeholder="Saisir la défense" step="0,01" value="0" required />
+			</div>
+			<div>
+				<label>Esquive :</label> <input type="number" name="Esquive"
+					placeholder="Saisir l'esquive" step="0,01" value="0" required />
+			</div>
+			<div>
+				<label>Points de vie :</label> <input type="number" name="PointsDeVie"
+					placeholder="Saisir l'esquive" step="0,01" value="0" required />
+			</div>
+			<div>
+				<label>Vitesse :</label> <input type="number" name="Vitesse"
+					placeholder="Saisir la vitesse" step="0,01" value="0" required />
+			</div>
+
+
+			<div>
+				<input type="submit" value="Ajouter" />
+			</div>
+			<div id="validation"></div>
+		</form>
+		<button class="btn-clear">Nettoyer</button>
+
+		<table id="items">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prix</th>
+					<th>Attaque</th>
+					<th>Defense</th>
+					<th>Esquive</th>
+					<th>Points de vie</th>
+					<th>Vitesse</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</section>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="itemJQuery.js"></script>
+
+
+</body>
+</html>
