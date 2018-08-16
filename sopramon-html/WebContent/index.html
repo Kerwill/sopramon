@@ -2,73 +2,40 @@
 <html>
 
 <head>
-<base href="/formation-html/" />
+<base href="/repertoire-du-projet/" />
 <meta charset="UTF-8" />
-<meta name="description"
-	content="Dépensez ici votre argent en toute impunité." />
-<link rel="stylesheet" type="text/css" href="monfichier.css" />
-<link rel="stylesheet" type="text/css" href="animate.css" />
-
-<title></title>
-
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<title>Bienvenue sur Sopraworld !</title>
 </head>
-
-<nav>
-	<ul>
-		<li><a href=index.html>Accueil</a></li>
-		<li><a href=produit.html>Produit</a></li>
-		<li><a href=contact.html>Contact</a></li>
-	</ul>
-</nav>
 
 
 <body>
-	<header>
-		<h1>Ajouter un produit</h1>
+	<header  class="container">
+		<h1>Plongez dans l'univers des Sopramons !</h1>
 	</header>
+
 	<section>
-	
-		<form method="GET">
-			<div>
-				<input type="text" name="Nom"
-					placeholder="Saisir le nom du produit." required /><label>Nom
-					du produit :</label>
-			</div>
-			<div>
-				<label>Prix du produit :</label> <input type="number" name="Prix"
-					placeholder="Saisir le prix" step="0,01" value="0" required />
-			</div>
-
-			<div>
-				<label>Gamme du produit :</label> <select name="Gamme">
-					<option value="1" selected>GoldSurf</option>
-					<option value="2">PowerGoPRO</option>
-					<option value="3">SoPaddle</option>
-				</select>
-			</div>
-			<div>
-				<input type="submit" value="Ajouter"/>
-			</div>
-			<div id="validation"></div>
-		</form>
-
-		<table id="produits">
-			<thead>
-				<tr>
-					<th>Nom</th>
-					<th>Prix</th>
-					<th>Gamme</th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
+	<button class="login" >Login </button>
+	<button class="signin" > Sign in</button>
 	</section>
 
-	<footer>Copyright ewavy2.bzh &copy;</footer>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="produitJQuery.js"></script>
-
+	<footer>Copyright sopramon.sop &copy;</footer>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
 
 </body>
 </html>
