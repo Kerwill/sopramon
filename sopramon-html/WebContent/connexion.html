@@ -12,7 +12,7 @@
 </head>
 
 
-<form id="connexion">
+<form >
 	<label for="username"> Votre nom d'utilisateur : </label> <input
 		type="text" name="username"
 		placeholder="Indiquer votre nom d'utilisateur" required /> <label
@@ -21,13 +21,14 @@
 		
 		
 		<div class="bouton">
-		<input type="submit" value= "Se connecter" />
+		<input id="connexion" type="submit" value= "Se connecter" />
 		</div>
 </form>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="ajax.js"></script>
-<script>
+<script src="connexion.js"></script>
+
+<!-- <script>
 	$.ajax({
 		method : 'GET',
 		url : 'http://192.168.1.100:8080/sopramon-web/api/sopramons',
@@ -37,7 +38,7 @@
 
 		}
 	})
-</script>
+</script> -->
 
 </body>
 </html>
