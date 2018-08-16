@@ -1,0 +1,44 @@
+body{
+
+  background-color: #D7CEC7 ;
+}
+
+.header{
+  background-color: #565656;
+  height: 60px;
+}
+h1{
+  text-align: center;
+  color: white;
+}
+
+input[type="button"]{
+  position: relative;
+  width: 200px;
+  height: 200px;
+   top: 200px;
+   overflow: auto;
+   text-align: center;
+
+}
+.buttons{
+  text-align: center;
+}
+
+ section:not(home){
+
+overflow:hidden;
+}
+
+
+
+footer{
+    background-color:#76323F;
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  color: white;
+  text-align: right;
+}
