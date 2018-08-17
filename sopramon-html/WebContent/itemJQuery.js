@@ -1,5 +1,6 @@
 function addItem() {
 	let myItem = {
+		id : $('input[name="Id"]').val(),
 		nom : $('input[name="Nom"]').val(),
 		prix : $('input[name="Prix"]').val(),
 		capacite : {
@@ -24,8 +25,12 @@ function addItem() {
 	});
 }
 
+	
+
+
 function appendItem(item) {
 	let myRow = $("<tr />");
+	let myColId = $("<td />");
 	let myColNom = $("<td />");
 	let myColPrix = $("<td />");
 	let myColAttaque = $("<td />");
@@ -35,7 +40,8 @@ function appendItem(item) {
 	let myColVitesse = $("<td />");
 
 	// AFFECTER LE CONTENU A MES COLONNES
-
+	
+	myColId.html(item.id);
 	myColNom.html(item.nom);
 	myColPrix.html(item.prix);
 	myColAttaque.html(item.capacite.attaque);
@@ -46,6 +52,8 @@ function appendItem(item) {
 	
 
 	// DONNER LES COLONNES A LA LIGNE
+	
+	myRow.append(myColId);
 	myRow.append(myColNom);
 	myRow.append(myColPrix);
 	myRow.append(myColAttaque);
@@ -78,11 +86,11 @@ function appendItem(item) {
 				});
 			});
 
-//	// AJOUTER UNE OPTION DE SUPRESSION GENERALE
-//	$('button.btn-clear').bind('click', function() {
-//		$('tbody tr').remove();
-//
-//	});
+	// AJOUTER UNE OPTION DE MODIFICATION
+	
+	let myColModif = $("<button class=\"btn-modify\" />");
+	myColModif.html("Modifier");
+	myRow.append(myColModif);
 }
 
 $('form').bind('submit', function() {
@@ -90,13 +98,6 @@ $('form').bind('submit', function() {
 	return false;
 });
 
-// $('tr').bind('click', function() {
-// $('table').remove();
-// });
-
-// $('tr').bind('click', function() {
-// $(this).remove();
-// });
 
 $("#charge").bind('click', function() {
 	$('tbody tr').remove();
@@ -111,3 +112,39 @@ $("#charge").bind('click', function() {
 			}
 		}
 	})});
+
+
+function modifyItem() {
+	let myItem = {
+		id : $('input[name="Id"]').val(),
+		nom : $('input[name="Nom"]').val(),
+		prix : $('input[name="Prix"]').val(),
+		capacite : {
+		'attaque' : $('input[name="Attaque"]').val(),
+		'defense' : $('input[name="Defense"]').val(),
+		'esquive' : $('input[name="Esquive"]').val(),
+		'pointsDeVie' : $('input[name="Points de vie"]').val(),
+		'vitesse' : $('input[name="Vitesse"]').val(),
+		}
+	};
+
+	$.ajax({
+		method : 'PUT',
+		url : 'http://192.168.1.100:8080/sopramon-web/api/items/'
+		+ parseInt(item.id),
+		contentType : 'application/json',
+		data : JSON.stringify(myItem),
+		success : function() {
+			alert('success');
+		}
+	});
+}
+
+
+$('button.btn-modify').bind(
+		'click',
+		function() {
+//			modifyItem();
+			alert($(this.closest('th[class="id"]')))
+			return false;
+		});
