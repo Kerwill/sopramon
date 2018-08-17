@@ -8,10 +8,14 @@
 	content="Dépensez ici votre argent en toute impunité." />
 
 <title>Inscription</title>
-
+<link rel="stylesheet" type="text/css" href="essai-texture.css" />
 </head>
 
+<fieldset id="inscription">
+ <legend>Rejoignez Sopraworld</legend>
+ 
 <form id="inscription">
+
 	<label for="firstname"> Votre Prénom : </label> <input type="text"
 		name="firstname" placeholder="Indiquer votre prénom" required /> <label
 		for="surname"> Votre Nom : </label> <input type="text" name="surname"
@@ -27,8 +31,9 @@
 	<div class="bouton">
 		<input type="submit" value="S'inscrire" />
 	</div>
+	</form>
+</fieldset>
 
-</form>
 
 <form id = "connexion">
 	<label for="username"> Votre nom d'utilisateur : </label> <input
@@ -43,14 +48,26 @@
 		</div>
 </form>
 
-
+<div style="overflow-x:auto;">
 
 <table id = 'sopramon'>
 <thead>
    <tr> 
-       <th>Nom du Sopramon</th>
-       <th>Signe </th>
-       <th>Date de naissance</th>
+       <th rowspan="2">Nom du Sopramon</th>
+       <th rowspan="2">Signe </th>
+       <th rowspan="2">Date de naissance</th>
+       <th rowspan="2">Experience </th>
+       <th rowspan="2">Niveau</th>
+       <th colspan="6">Capacite </th>
+     
+</tr>
+<tr> 
+      <th>Attaque</th>
+      <th>Defense</th>
+      <th>Esquive</th>
+      <th>Point de Vie</th>
+      <th>Vitesse</th>
+     
 </tr>
 </thead>
 

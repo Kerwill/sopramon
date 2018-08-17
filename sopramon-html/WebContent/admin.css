@@ -1,0 +1,166 @@
+a{
+    text-decoration: none;
+
+}
+
+#admin{
+
+	width : 100%;
+	flex-wrap: wrap;
+	display: flex;
+}
+
+img{
+	width : 100%;
+	
+}
+
+nav{
+	flex : 1;
+}
+
+ul{
+padding: 0px;
+list-style-type: none;
+}
+body {
+    background-color: #eee;
+}
+/* Menu deroulant *************************************************************/
+#menuvertical {
+    background-color: #666 ;
+
+}
+#menuvertical, 
+#menuvertical ul {
+    /* Suppression des puces et des marges pour les listes du menu et des sous-menus */
+    list-style-type: none ; 
+    margin: 0px;
+    padding: 0px;
+}
+#menuvertical ul {
+    /* Masquage des sous-menu par defaut */
+    display: none ;
+}
+#menuvertical li {
+    /* Positionnement relative des elements de menu pour pouvoir positionner les 
+       sous-menu correctement en absolu */
+    position:   relative;
+}
+#menuvertical a {
+    /* On transforme les liens en bloc pour pouvoir les dimensionner */
+    display: block ;
+    
+    /* Dimensions des liens */
+    width: 125px;
+    height: 75px;
+    line-height: 30px; /* Doit etre equivalent a la hauteur du menu pour centrer le texte verticalement */
+    padding: 25px 25px 10px 5px;
+    font-family: 'Planewalker', Arial, serif;
+    text-align: center;
+}
+#menuvertical li:hover ul {
+    /* Affichage du soumenu au survol */
+    display: block ;
+    
+    /* Positionnement du sous-menu */
+    position: absolute;
+    top: 0px; 
+    left: 140px; /* Decalage du sous-menu de la largeur du menu */
+    z-index: 100; /* Gestion de la superposition des sous-menus par rapport au reste de la page */
+}
+#menuvertical ul a {
+    /* Changement de l'affichage des liens des sous-menus pour ne pas les afficher
+    en inline-block comme les liens de menu, ils seront donc verticaux */
+    display: block;
+}
+
+/* Gestion des couleurs */
+#menuvertical li {
+    background-color: #666; /* Couleur d'arriere-plan du menu */
+}
+#menuvertical li a {
+    color: #ccc; /* Couleur du texte du menu */
+}
+#menuvertical li:hover {
+    background-color: #000; /* Couleur d'arriere-plan du menu au survol */
+}
+#menuvertical li:hover a {
+    color: #fff; /* Couleur du texte du menu au survol */
+}
+#menuvertical ul li {
+    background-color: #ccc; /* Couleur d'arriere-plan des sous-menu */
+}
+#menuvertical ul li:hover {
+    background-color: #000; /* Couleur d'arriere-plan des sous-menu au survol */
+}
+#menuvertical ul li a {
+    color: #666; /* Couleur du texte des sous-menu */
+}
+#menuvertical ul li:hover a {
+    color: #f00 ; /* Couleur du texte des sous-menu au survol */
+}
+
+
+.container {
+  position: relative;
+flex : 6;
+  border : 2px solid black;
+}
+
+.image {
+  display: block;
+
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  opacity : 0.7;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  width: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+    
+    
+    .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content : stretch;
+  
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+@font-face { /* Définition d'une nouvelle police 
+    font-family: 'Planewalker';
+    src: url('Planewalker.eot');
+    src: url('Planewalker.otf') format('truetype');
+}

@@ -1,0 +1,251 @@
+body {
+	background-color: #D7CEC7;
+}
+
+header {
+	background-color: #565656;
+	height: 60px;
+	text-align : center;
+	font-family: 'Planewalker', Arial, serif;
+	color : #C09F80;
+}
+
+#front{
+	display: flex;
+	width : 100%;
+	text-align : center;
+	justify-content: stretch;      
+
+	
+}
+
+#credits{
+	color : #76323F;
+}
+
+legend{
+	
+	font-weight : bold;
+}
+
+
+nav{
+
+	flex : 1;
+	background-color : black;
+	opacity : 0.7;
+	display : flex;
+	flex-direction: column;
+	justify-content : space-between;
+	
+}
+nav section{
+	flex :1;
+}
+
+
+input{
+	margin-bottom: 10px;
+	text-align :center;
+}
+
+
+fieldset{
+	width : 65%;
+	color : #C09F80;
+	text-align : center;
+	margin : 20px;
+	display : inline-block;
+	
+}
+
+#zodiaque{
+	color:white;
+	display : inline-block;
+	margin-right : 80px;
+	margin-left : 80px;
+	font-size : 0.5em;		
+text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+
+
+
+footer {
+	background-color: #76323F;
+	position: fixed;
+	bottom: 0;
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+	color: white;
+	text-align: left;
+	display :flex;
+	justify-content: space-between;
+}
+
+/* slide show */
+
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1800px;
+  position: relative;
+  margin: auto;
+
+}
+
+#slideshow{
+	  flex : 6;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 1.8em;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  font-family: 'Anton', sans-serif;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+#point{
+position: absolute;
+  top: 5%;
+  left : 85%;
+}
+
+.active, .dot:hover {
+  background-color: #C09F80;
+}
+
+/* Fading animation */
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  animation-fill-mode : forwards;
+}
+
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@font-face { 
+    font-family: 'Planewalker';
+    src: url('font/Planewalker.eot');
+    src: url('font/Planewalker.otf') format('truetype');
+}
+    
+
+/* Style the social media icons with color, if you want */
+
+
+.icon-bar{
+	flex : 0.7;
+	width : 50px;
+	
+	
+}
+
+
+/* Style the icon bar links */
+.icon-bar a {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  height : 0px;
+}
+
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+/*page signin*/
+
+
+#signin {
+	width : 400px;
+	
+	margin :auto;
+
+}
+
+#signin legend {
+color: #76323F;
+font-family: 'Bangers', cursive;}
+
+
+#signin form {
+	color: #76323F;}
+	

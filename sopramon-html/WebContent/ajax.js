@@ -1,16 +1,16 @@
 $('a').bind('click', function() {
 	let sectionId = $(this).attr('href');
-	
+
 	$('section').hide();
 	$(sectionId).show();
 });
 
-
-//inscription
+// inscription
 var mySubmission = $('#inscription');
 mySubmission.bind('submit', function() {
-
-	inscription();
+	
+		inscription();
+	
 	return false;
 
 });
@@ -34,28 +34,25 @@ function inscription() {
 
 		success : function() {
 
-			alert("Votre inscription a été validée")
+			alert("Votre inscription a été validée");
+			document.location.href = "index2arnaud.html";
 
 		}
+	
 	});
 
 };
 
-
-//connexion 
-
-
-
+// connexion
 
 var myConnexion = $("#connexion");
 myConnexion.bind('submit', function() {
-
 	connexion();
 	return false;
 });
 
 function connexion() {
-	
+
 	$.ajax({
 		method : 'POST',
 		url : 'http://192.168.1.100:8080/sopramon-web/api/auth',
@@ -65,35 +62,52 @@ function connexion() {
 		},
 
 		success : function(data) {
-			
-			alert("vous êtes connecté");
-			
+
+			alert("Vous êtes connecté");
+
 			console.log(data);
 			appendSopramon(data);
-		}
+		},
+		error : function(){alert("Nom d'utilisateur ou mot de passe erroné, merci de recommencer");}
 	})
 };
 
-
 function appendSopramon(sopramon) {
-	
-	let myRow = $('<tr />');
-	let myColNom = $('<td />');
-	let myColPrix = $('<td />');
-	let myColGamme = $('<td />');
-	
-	
-	myColNom.html(sopramon.username);
-	myColPrix.html(sopramon.signe);
-	myColGamme.html(sopramon.dateNaissance);
-	
-	myRow.append(myColNom);
-	myRow.append(myColPrix);
-	myRow.append(myColGamme);
 
+	let myRow = $('<tr />');
+	let myColUsername = $('<td />');
+	let myColSigne = $('<td />');
+	let myColDateNaissance = $('<td />');
+	let myColExperience = $('<td />');
+	let myColNiveau = $('<td />');
+	let myColAttaque = $("<td />");
+	let myColDefense = $("<td />");
+	let myColEsquive = $("<td />");
+	let myColPointsDeVie = $("<td />");
+	let myColVitesse = $("<td />");
+
+	myColUsername.html(sopramon.username);
+	myColSigne.html(sopramon.signe);
+	myColDateNaissance.html(sopramon.dateNaissance);
+	myColExperience.html(sopramon.experience);
+	myColNiveau.html(sopramon.niveau);
+	myColAttaque.html(sopramon.capacite.attaque);
+	myColDefense.html(sopramon.capacite.defense);
+	myColEsquive.html(sopramon.capacite.esquive);
+	myColPointsDeVie.html(sopramon.capacite.pointsDeVie);
+	myColVitesse.html(sopramon.capacite.vitesse);
+
+	myRow.append(myColUsername);
+	myRow.append(myColSigne);
+	myRow.append(myColDateNaissance);
+	myRow.append(myColNiveau);
+	myRow.append(myColExperience);
+	myRow.append(myColAttaque);
+	myRow.append(myColDefense);
+	myRow.append(myColEsquive);
+	myRow.append(myColPointsDeVie);
+	myRow.append(myColVitesse);
 
 	$('#sopramon tbody').append(myRow);
 
 }
-
-
