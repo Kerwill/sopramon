@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Echoppe</title>
+  <title>Faits d'armes</title>
   <meta charset="utf-8">
-  <meta name="description" content="Achetez d'incroyables artefacts" />
+  <a href="faitsdArmes.html"></a>
+  <meta name="description" content="Consultez vos glorieux combats" />
   <link rel="stylesheet" href="menuSopramon.css">
 </head>
 
-<body id="bodyEchoppe">
+<body id="bodyfaitsdArmes">
 
 <ul>
   <li><a href="menuSopramon.html">Expédition</a></li>
   <li><a href="#">News</a></li>
   <li><a href="#popup1">Mon Sopramon</a></li>
-  <li><a href="faitsdArmes.html">Faits d'armes</a></li>
+  <li><a href="#">Faits d'Armes</a></li>
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Profil</a>
     <div class="dropdown-content">
@@ -43,19 +44,16 @@
 	</div>
 </div>
 
-<h1>Bienvenue dans mon échoppe jeune Sopramon !</h1>
-<h2>Voilà ce que je peux te vendre aujourd'hui :</h2>
-<div style="overflow-x:auto;">
-		<table id="items">
+<h1 class="titreFaitsdArmes">Vous avez bien combattu, retrouvez ici vos combats :</h1>
+
+<div class="table-container">
+		<table id="combats">
 			<thead>
 				<tr>
-					<th>Nom</th>
-					<th>Prix</th>
-					<th>Attaque</th>
-					<th>Defense</th>
-					<th>Esquive</th>
-					<th>Points de vie</th>
-					<th>Vitesse</th>
+					<th>Date</th>
+					<th>Arene</th>
+					<th>Type</th>
+					<th>Adversaire</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -64,6 +62,6 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="echoppeJQuery.js"></script>
+<script src="faitsdArmesJQuery.js"></script>
 </body>
 </html>
