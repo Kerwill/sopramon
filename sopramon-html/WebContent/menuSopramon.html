@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sopraworld</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Partez explorer votre monde" />
+  <a href="sopramon2.html"></a>
+  <link rel="stylesheet" href="sopramon.css">
+</head>
+<body>
+
+<ul>
+  <li><a href="#">News</a></li>
+  <li><a href="#popup1">Mon Sopramon</a></li>
+  <li><a href="#">Mes Items</a></li>
+  <li><a href="#">Hall of Fame (classement)</a></li>
+  <li><a href="#">Mes messages</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Profil</a>
+    <div class="dropdown-content">
+      <a href="#">Mon Profil</a>
+      <a href="#">Paramètres</a>
+      <a href="index.html">Déconnecter</a>
+    </div>
+  </li>
+</ul>
+
+/*fixer la taille de popup et empecher de diminuer le navigateur, ou enlever popup si trop petit, ou bloquer (obligé de scroller)*/
+
+<div id="popup1" class="overlay">
+	<div class="popupMonsopramon">
+		<h2>Nom de mon Sopramon</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+		 <p>On importe l'image du sopramon, les capacités</p>
+		</div>
+	</div>
+</div>
+<h3></h3>
+<p></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="adapt-resize.js"></script>
+</body>
+</html>
