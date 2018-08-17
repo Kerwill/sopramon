@@ -2,7 +2,7 @@
   margin: 100px auto;
   width: 100px;
   height: 100px;
-  position: relative;
+
   text-align: center;
   top : 25%;
   -webkit-animation: sk-rotate 2.0s infinite linear;
@@ -17,7 +17,6 @@
   top: 0;
   background-color: #333;
   border-radius: 100%;
-  
   -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
   animation: sk-bounce 2.0s infinite ease-in-out;
 }
