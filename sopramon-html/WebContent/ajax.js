@@ -62,7 +62,7 @@ function connexion() {
 		},
 
 		success : function(data) {
-
+			document.location.href = "menusopramon.html";
 			alert("Vous êtes connecté");
 
 			console.log(data);
