@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Echoppe</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Achetez d'incroyables artefacts" />
+  <link rel="stylesheet" href="menuSopramon.css">
+</head>
+
+<body id="bodyEchoppe">
+
+<ul>
+  <li><a href="menuSopramon.html">Expédition</a></li>
+  <li><a href="#">News</a></li>
+  <li><a href="#popup1">Mon Sopramon</a></li>
+  <li><a href="faitsdArmes.html">Faits d'armes</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Profil</a>
+    <div class="dropdown-content">
+      <a href="#">Mon Profil</a>
+      <a href="#">Paramètres</a>
+      <a href="#">Mes messages</a>
+      <a href="index.html">Déconnecter</a>
+    </div>
+  </li>
+    </li>
+    <li class="dropdown1">
+    <a href="javascript:void(0)" class="dropbtn">Gestion de l'inventaire</a>
+    <div class="dropdown-content1">
+      <a href="besace.html">Ma besace</a>
+      <a href="echoppe.html">L'échoppe</a>
+    </div>
+  </li>
+</ul>
+
+<div id="popup1" class="overlay">
+	<div class="popupMonsopramon">
+		<h2>Nom de mon Sopramon</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+<img id="monster" src = "_monster_hunter__tigrex_magma_icon_by_darkewne-d9fycfm.png">
+		</div>
+	</div>
+</div>
+
+<h1>Bienvenue dans mon échoppe jeune Sopramon !</h1>
+<h2>Voilà ce que je peux te vendre aujourd'hui :</h2>
+<div style="overflow-x:auto;">
+		<table id="items">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prix</th>
+					<th>Attaque</th>
+					<th>Defense</th>
+					<th>Esquive</th>
+					<th>Points de vie</th>
+					<th>Vitesse</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="echoppeJQuery.js"></script>
+</body>
+</html>

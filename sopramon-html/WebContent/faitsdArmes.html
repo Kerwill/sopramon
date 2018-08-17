@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Faits d'armes</title>
+  <meta charset="utf-8">
+  <a href="faitsdArmes.html"></a>
+  <meta name="description" content="Consultez vos glorieux combats" />
+  <link rel="stylesheet" href="menuSopramon.css">
+</head>
+
+<body id="bodyfaitsdArmes">
+
+<ul>
+  <li><a href="menuSopramon.html">Expédition</a></li>
+  <li><a href="#">News</a></li>
+  <li><a href="#popup1">Mon Sopramon</a></li>
+  <li><a href="#">Faits d'Armes</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Profil</a>
+    <div class="dropdown-content">
+      <a href="#">Mon Profil</a>
+      <a href="#">Paramètres</a>
+      <a href="#">Mes messages</a>
+      <a href="index.html">Déconnecter</a>
+    </div>
+  </li>
+    </li>
+    <li class="dropdown1">
+    <a href="javascript:void(0)" class="dropbtn">Gestion de l'inventaire</a>
+    <div class="dropdown-content1">
+      <a href="besace.html">Ma besace</a>
+      <a href="echoppe.html">L'échoppe</a>
+    </div>
+  </li>
+</ul>
+
+<div id="popup1" class="overlay">
+	<div class="popupMonsopramon">
+		<h2>Nom de mon Sopramon</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+		<img id="monster" src = "_monster_hunter__tigrex_magma_icon_by_darkewne-d9fycfm.png">
+		</div>
+	</div>
+</div>
+
+<h1 class="titreFaitsdArmes">Vous avez bien combattu, retrouvez ici vos combats :</h1>
+
+<div class="table-container">
+		<table id="combats">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Arene</th>
+					<th>Type</th>
+					<th>Adversaire</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="faitsdArmesJQuery.js"></script>
+</body>
+</html>

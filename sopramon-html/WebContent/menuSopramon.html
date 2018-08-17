@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sopraworld</title>
+<meta charset="utf-8">
+<meta name="description" content="Partez explorer votre monde" />
+<a href="menuSopramon.html"></a>
+<link rel="stylesheet" href="menuSopramon.css">
+<link rel="stylesheet" href="spinner.css">
+</head>
+<body>
+
+	<ul>
+		<li><a href="menuSopramon.html">Expédition</a></li>
+		<li><a href="#">News</a></li>
+		<li><a href="#popup1">Mon Sopramon</a></li>
+		<li><a href="faitsdArmes.html">Faits d'armes</a></li>
+		<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Profil</a>
+			<div class="dropdown-content">
+				<a href="#">Mon Profil</a> <a href="#">Paramètres</a> <a href="#">Mes
+					messages</a> <a href="index.html">Déconnecter</a>
+			</div></li>
+		<li class="dropdown1"><a href="javascript:void(0)"
+			class="dropbtn">Gestion de l'inventaire</a>
+			<div class="dropdown-content1">
+				<a href="besace.html">Ma besace</a> <a href="echoppe.html">L'échoppe</a>
+			</div></li>
+	</ul>
+
+	<div id="popup1" class="overlay">
+		<div class="popupMonsopramon">
+			<h2>Nom de mon Sopramon</h2>
+			<a class="close" href="#">&times;</a>
+			<div class="content">
+				<img id="monster" src = "_monster_hunter__tigrex_magma_icon_by_darkewne-d9fycfm.png">
+			</div>
+		</div>
+	</div>
+
+	<div id="game"><div class="spinner">
+  <div class="dot1"></div>
+  <div class="dot2"></div>
+</div></div>
+	<div id="buttons">
+		<button class="btn-attaquer">Attaquer</button>
+		<button class="btn-item">Utiliser un item</button>
+	</div>
+	<br />
+	<br />
+	<div id="buttonsDirH">
+		<button class="btn-gauche">←</button>
+		<button class="btn-droite">→</button>
+	</div>
+	<div id="buttonsDirVb">
+		<button class="btn-bas">↓</button>
+	</div>
+	<div id="buttonsDirVh">
+		<button class="btn-haut">↑</button>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+</html>
