@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="style2.css" />
 <link href="https://fonts.googleapis.com/css?family=Anton"
 	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet"> 
 
 <title>Bienvenue sur Sopraworld !</title>
 </head>
@@ -28,14 +29,12 @@
 
 	<div id="front">
 		<nav>
-		
-		
-		<section id="admin">
-		<fieldset>
+			<section id="admin">
+				<fieldset>
 					<legend> Espace administrateur </legend>
-					<button><a href = "admin.html">Accéder</a></button>
-		</fieldset>
-		</section>
+					<button id= "boutonadminconnexion" >Accéder</button>
+				</fieldset>
+			</section>
 			<section id="login">
 				<fieldset>
 					<legend> Connexion </legend>
@@ -49,19 +48,20 @@
 							<input type="submit" value="Connexion" />
 						</div>
 						<label> <input type="checkbox" name="remember"> Se
-							souvenir de moi
+							souvenir de moi</a>
 						</label>
-
 					</form>
-					<div>
-						<div class="overlay">
+					
+					
+					
+						<div>
 
 							<a href="signin.html">Vous n'avez pas de compte, cliquez ici</a>
 						</div>
-					</div>
+			
 				</fieldset>
 			</section>
-			
+
 
 			<section id="credits">
 				<p>Powered by :</p>
@@ -79,7 +79,7 @@
 					<div class="numbertext">1 / 3</div>
 					<img src="explorer.png" alt="explorer le sopraworld"
 						style="width: 100%" />
-					<div class="text">Explorez et découvrez les mysteres de
+					<div class="text">Explorez et découvrez les mystères de
 						Sopraworld</div>
 				</div>
 
@@ -109,7 +109,33 @@
 
 		</section>
 
+<div class="overlay">
 
+		<form id="adminconnexion">
+		<fieldset>
+		<legend>Connexion administrateur</legend>
+			<label for="username"> Votre username : </label> <br/><input type="text"
+				name="username" placeholder="username" required /><br/> <label
+				for="password"> Votre password : </label> <br/><input type="password"
+				name="password" placeholder="*********" required /><br/>
+
+			<div class="bouton">
+			
+			
+			<!-- lien a à bazarder dès qu'on a l'API Admin -->
+			
+			
+				<input type="submit" value="Connexion" />
+			</div>
+			<br/>
+			<label> <input type="checkbox" name="remember"> Se
+							souvenir de moi
+						</label>
+						
+						<a href ="admin.html"> Connexion temporaire direct</a>
+			</fieldset>
+			</form>
+</div>
 
 	</div>
 

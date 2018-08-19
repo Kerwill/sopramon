@@ -8,6 +8,7 @@ header {
 	text-align : center;
 	font-family: 'Planewalker', Arial, serif;
 	color : #C09F80;
+		min-width : 1200px;
 }
 
 #front{
@@ -36,13 +37,12 @@ nav{
 	opacity : 0.7;
 	display : flex;
 	flex-direction: column;
-	justify-content : space-between;
 	
 }
-nav section{
-	flex :1;
-}
 
+nav section{
+	margin-bottom : 50px;
+}
 
 input{
 	margin-bottom: 10px;
@@ -235,17 +235,62 @@ position: absolute;
 
 
 #signin {
-	width : 400px;
-	
+	width : 350px;
 	margin :auto;
-
 }
+
 
 #signin legend {
 color: #76323F;
-font-family: 'Bangers', cursive;}
+font-family: 'Fredericka the Great', cursive;}
 
 
 #signin form {
 	color: #76323F;}
+	
+	
+	
+	
+/*admin*/
+
+
+.overlay {
+	display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display : flex;
+
+}
+
+#adminconnexion {
+display : block;
+margin : auto;
+	width :35%;
+	border : 50px solid ;
+ background-color: rgba(0,0,0,0.79);
+border-style: ridge;
+border-color: #253a5b;
+border-width: 10px;
+}
+
+
+
+#adminconnexion legend{
+	margin-bottom : 30px;
+	font-family: 'Fredericka the Great', cursive;
+	color : #76323F;
+}
+#adminconnexion input{
+	margin-bottom : 35px;
+	margin-top : 10px;
+}
+
+
+
+
+
 	

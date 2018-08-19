@@ -1,16 +1,11 @@
-$('a').bind('click', function() {
-	let sectionId = $(this).attr('href');
-
-	$('section').hide();
-	$(sectionId).show();
-});
+$('.overlay').hide();
 
 // inscription
 var mySubmission = $('#inscription');
 mySubmission.bind('submit', function() {
-	
-		inscription();
-	
+
+	inscription();
+
 	return false;
 
 });
@@ -38,7 +33,7 @@ function inscription() {
 			document.location.href = "index2arnaud.html";
 
 		}
-	
+
 	});
 
 };
@@ -53,23 +48,26 @@ myConnexion.bind('submit', function() {
 
 function connexion() {
 
-	$.ajax({
-		method : 'POST',
-		url : 'http://192.168.1.100:8080/sopramon-web/api/auth',
-		data : {
-			username : $('#connexion > input[name = "username"]').val(),
-			password : $('#connexion > input[name = "password"]').val()
-		},
+	$
+			.ajax({
+				method : 'POST',
+				url : 'http://192.168.1.100:8080/sopramon-web/api/auth',
+				data : {
+					username : $('#connexion > input[name = "username"]').val(),
+					password : $('#connexion > input[name = "password"]').val()
+				},
 
-		success : function(data) {
-			document.location.href = "menusopramon.html";
-			alert("Vous êtes connecté");
+				success : function(data) {
+					alert("Vous êtes connecté");
+					document.location.href = "menusopramon.html";
 
-			console.log(data);
-			appendSopramon(data);
-		},
-		error : function(){alert("Nom d'utilisateur ou mot de passe erroné, merci de recommencer");}
-	})
+					console.log(data);
+					appendSopramon(data);
+				},
+				error : function() {
+					alert("Nom d'utilisateur ou mot de passe erroné, merci de recommencer");
+				}
+			})
 };
 
 function appendSopramon(sopramon) {
@@ -111,3 +109,55 @@ function appendSopramon(sopramon) {
 	$('#sopramon tbody').append(myRow);
 
 }
+
+/* connexion admin */
+
+var myConnexionAdmin = $("#boutonadminconnexion");
+myConnexionAdmin.bind('click', function() {
+	$('.overlay').fadeIn("slow");
+	$('.overlay').show();
+	$(document).mouseup(function(e) {
+		var container = $('#adminconnexion');
+
+		// if the target of the click isn't the container nor a descendant of
+		// the container
+		if (!container.is(e.target) && container.has(e.target).length === 0) {
+			$('.overlay').fadeOut("slow");
+			$('.overlay').container.hide();
+		}
+	});
+}
+
+)
+
+/* par défaut connexion à admin.html */
+
+/* connexion à la table administrateur à définir avec une API */
+
+// $("#adminconnexion").bind('submit', function() {
+// adminconnexion();
+//return false;
+//	
+// });
+//
+// function nadminconnexion() {
+//
+// $.ajax({
+// method : 'POST',
+// url : 'http://192.168.1.100:8080/sopramon-web/api/auth',
+// data : {
+// username : $('#connexion > input[name = "username"]').val(),
+// password : $('#connexion > input[name = "password"]').val()
+// },
+//
+// success : function(data) {
+// alert("Vous êtes connecté en tant qu'administrateur");
+// document.location.href = "admin.html";
+//			
+//			
+// },
+// error : function(){alert("Nom d'administrateur ou mot de passe erroné, merci
+// de recommencer");}
+// })
+// };
+
