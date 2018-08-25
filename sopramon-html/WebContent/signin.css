@@ -1,0 +1,59 @@
+input {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#signin {
+	min-height: 850px;
+	display :flex;
+	justify-content: space-around;
+	align-content: center;
+}
+
+
+#signin fieldset{
+
+	margin : auto;
+
+}
+
+
+#signin legend {
+	
+	color: #76323F;
+	font-family: 'Fredericka the Great', cursive;
+	font-weight : bold;
+	margin-bottom : 50px;
+}
+
+#signin form {
+	color: #76323F;
+}
+
+
+button {
+	background: none;
+	box-sizing: border-box;
+	margin: 1em;
+	padding: 1em 2em;
+	box-shadow: inset 0 0 0 2px #22427C;
+	color: #1E90FF;
+	border-radius: 5px;
+	font-family: 'Righteous', Arial;
+}
+
+button:hover {
+	background-color: #3a3a3a;
+	animation: pulse 0.5s;
+}
+
+input[type="submit"]{
+	background: none;
+	box-sizing: border-box;
+	margin: 1em;
+	padding: 1em 2em;
+	box-shadow: inset 0 0 0 2px #22427C;
+	color: #1E90FF;
+	border-radius: 5px;
+	font-family: 'Righteous', Arial;
+}

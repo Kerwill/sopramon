@@ -11,14 +11,19 @@
 	crossorigin="anonymous"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="style2.css" />
+<link rel="stylesheet" type="text/css" href="animate.css" />
+<link rel="stylesheet" type="text/css" href="headerfooter.css" />
 <link href="https://fonts.googleapis.com/css?family=Anton"
 	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet"> 
+<link
+	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous"
+	rel="stylesheet">
 
 <title>Bienvenue sur Sopraworld !</title>
 </head>
 <body>
-
 	<header>
 		<h1>
 			<span id="zodiaque">&#9800; &#9801; &#9802; &#9803; &#9804;
@@ -28,40 +33,35 @@
 	</header>
 
 	<div id="front">
+
 		<nav>
 			<section id="admin">
 				<fieldset>
 					<legend> Espace administrateur </legend>
-					<button id= "boutonadminconnexion" >Accéder</button>
+					<button id="boutonadminconnexion">Accéder</button>
 				</fieldset>
 			</section>
 			<section id="login">
 				<fieldset>
-					<legend> Connexion </legend>
-					<div class="overlay"></div>
+					<legend> Espace utilisateur </legend>
 					<form id="connexion">
 						<label for="username"> Votre username : </label> <input
 							type="text" name="username" placeholder="username" required /> <label
 							for="password"> Votre password : </label> <input type="password"
-							name="password" placeholder="*********" required />
-						<div class="bouton">
-							<input type="submit" value="Connexion" />
-						</div>
-						<label> <input type="checkbox" name="remember"> Se
-							souvenir de moi</a>
+							name="password" placeholder="*********" required /> <input
+							type="submit" value="Connexion" /> <label> <input
+							type="checkbox" name="remember"> Se souvenir de moi
 						</label>
 					</form>
-					
-					
-					
-						<div>
 
-							<a href="signin.html">Vous n'avez pas de compte, cliquez ici</a>
-						</div>
-			
+
+
+					<div>
+						<a href="signin.html">Créer un compte</a>
+					</div>
+
 				</fieldset>
 			</section>
-
 
 			<section id="credits">
 				<p>Powered by :</p>
@@ -69,7 +69,6 @@
 					height="100px" />
 			</section>
 		</nav>
-
 
 		<section id="slideshow">
 
@@ -106,36 +105,30 @@
 			</div>
 
 
-
 		</section>
 
-<div class="overlay">
+		<div class="overlay">
 
-		<form id="adminconnexion">
-		<fieldset>
-		<legend>Connexion administrateur</legend>
-			<label for="username"> Votre username : </label> <br/><input type="text"
-				name="username" placeholder="username" required /><br/> <label
-				for="password"> Votre password : </label> <br/><input type="password"
-				name="password" placeholder="*********" required /><br/>
+			<form id="adminconnexion">
+				<fieldset>
+					<legend>Connexion administrateur</legend>
+					<label for="username"> Votre username : </label> <br /> <input
+						type="text" name="username" placeholder="username" required /><br />
+					<label for="password"> Votre password : </label> <br /> <input
+						type="password" name="password" placeholder="*********" required /><br />
 
-			<div class="bouton">
-			
-			
-			<!-- lien a à bazarder dès qu'on a l'API Admin -->
-			
-			
-				<input type="submit" value="Connexion" />
-			</div>
-			<br/>
-			<label> <input type="checkbox" name="remember"> Se
-							souvenir de moi
-						</label>
-						
-						<a href ="admin.html"> Connexion temporaire direct</a>
-			</fieldset>
+
+
+
+					<!-- lien a à bazarder dès qu'on a l'API Admin -->
+
+
+					<input type="submit" value="Connexion" /> <br /> <label>
+						<input type="checkbox" name="remember"> Se souvenir de moi
+					</label> <br /> <a href="admin.html"> Connexion temporaire direct</a>
+				</fieldset>
 			</form>
-</div>
+		</div>
 
 	</div>
 
