@@ -199,6 +199,7 @@ tr:nth-child(odd) {
 	overflow: hidden;
 	background-color: gray;
 	z-index: 0;
+	 border : 5px solid black;
 }
 
 #bodyfaitsdArmes {
@@ -290,3 +291,60 @@ table thead, table tbody tr {
  .spinner {
  	position : relative;
  	z-index: 1;}
+ 	
+ 	
+ 	
+ #jeu
+    {
+    display:none;
+      width: 800px;
+      height: 600px;
+      background: url('fond.png');
+     
+      position : relative;
+    }
+    #exploresopramon{
+      z-index: 200; 
+      position: absolute; 
+      top: 300px; 
+      left: 400px;
+      width : 21px;
+      height : 30px;
+      background-image: url("sopraspritemini.png");
+      background-position: left;
+    }
+    
+    
+    #donjon{
+    z-index: 100;
+      top: 0px; 
+      left: 0px; 
+      width : 170px;
+      height : 150px;
+      position: absolute;
+    }
+    
+      #shop{
+    z-index: 100;
+      top: 50px; 
+      left: 300px; 
+      position: absolute;
+    }
+    
+    
+       #home{
+    z-index: 100;
+      top: 50px; 
+      left: 600px; 
+  
+      position: absolute;
+    }
+    
+      #arene{
+    z-index: 100;
+      top: 300px; 
+      left: 0px; 
+      position: absolute;
+    }
+    
+    

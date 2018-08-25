@@ -59,7 +59,7 @@ function connexion() {
 
 				success : function(data) {
 					alert("Vous êtes connecté");
-					document.location.href = "menusopramon.html";
+					document.location.href = "menuSopramon.html";
 
 					console.log(data);
 					appendSopramon(data);
