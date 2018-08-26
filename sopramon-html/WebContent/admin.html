@@ -31,22 +31,28 @@
 
 
 	<div id="front">
-	
+
 		<nav>
-			<section><span><a href ="index2arnaud.html"> Page d'accueil</a></span></section>
+			<section>
+				<span><a href="index2arnaud.html"> Page d'accueil</a></span>
+			</section>
 
-			<section><span>Menu 2</span></section>
+			<section>
+				<span>Menu 2</span>
+			</section>
 
-			<section><span>Menu 3</span></section>
-			
+			<section>
+				<span>Menu 3</span>
+			</section>
+
 			<section id="credits">
-			
+
 				<p>Powered by :</p>
 				<img src="sopra.png" alt="explorer le sopraworld" width="300px"
 					height="100px" />
 			</section>
 		</nav>
-		
+
 		<div class="grid">
 			<div class="row">
 				<div class="container">
@@ -54,12 +60,12 @@
 					<div class="overclick">
 						<div class="text">
 							<ul>
-								<li><a href="#">&#9805; Liste des Sopramons</a></li>
+								<li><a href="#popup1">&#9805; Liste des Sopramons</a></li>
 								<li><a href="#">&#9806; Bannir un Sopramon</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="menuimage">&#9800; Sopramon</div>
+					<div class="menuimage"><span>&#9800; Sopramon</span></div>
 
 				</div>
 
@@ -74,7 +80,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="menuimage">&#9801; Boss</div>
+					<div class="menuimage"><span>&#9801; Boss</span></div>
 				</div>
 			</div>
 			<div class="row">
@@ -89,7 +95,7 @@
 							</ul>
 						</div>
 					</div>
-					<div class="menuimage">&#9802; Item</div>
+					<div class="menuimage"><span>&#9802; Item</span></div>
 				</div>
 
 				<div class="container">
@@ -102,10 +108,57 @@
 						</div>
 
 					</div>
-					<div class="menuimage">&#9804; Combat</div>
+					<div class="menuimage"><span>&#9804; Combat</span></div>
 				</div>
 			</div>
+
+			<div id="popup1" class="overlaye">
+				<div class="popupListSopramon">
+					<h2>Liste des Sopramons</h2>
+					<a class='close' href="#">&times;</a>
+					<div class="container">
+						<table id="listSopramon" class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Prénom</th>
+									<th scope="col">Nom d'utilisateur</th>
+									<th scope="col">Expérience</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			
+		<!-- 	<div id="popup2" class="overlaye">
+				<div class="popupListItem">
+					<h2>Liste des Items</h2>
+					<a class='close' href="#">&times;</a>
+					<div class="container">
+						<table id="listSopramon" class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Prénom</th>
+									<th scope="col">Nom d'utilisateur</th>
+									<th scope="col">Expérience</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div> -->
+
+
 		</div>
+
+
+
+
 		<aside>
 			<section>10 derniers messages sur le forum</section>
 
@@ -130,8 +183,8 @@
 
 		</div>
 		<div>&copy; Copyright sopramon.sop</div>
-		
-		
+
+
 
 	</footer>
 
@@ -151,7 +204,7 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="ajax.js"></script>
-	<script src="indexarnaud.js"></script>
+	<script src="admin.js"></script>
 
 </body>
 

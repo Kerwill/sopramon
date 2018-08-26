@@ -17,3 +17,21 @@ function showSlides() {
     dots[slideIndex-1].className += " active";
     setTimeout(showSlides, 5000); // Change image every 2 seconds
 }
+
+
+var myConnexionAdmin = $("#boutonadminconnexion");
+myConnexionAdmin.bind('click', function() {
+	$('.overlay').fadeIn("slow");
+	$(document).mouseup(function(e) {
+		var container = $('#adminconnexion');
+
+		// if the target of the click isn't the container nor a descendant of
+		// the container
+		if (!container.is(e.target) && container.has(e.target).length === 0) {
+			$('.overlay').fadeOut("slow");
+			$('.overlay').container.hide();
+		}
+	});
+}
+
+)

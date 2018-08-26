@@ -48,8 +48,7 @@ myConnexion.bind('submit', function() {
 
 function connexion() {
 
-	$
-			.ajax({
+	$.ajax({
 				method : 'POST',
 				url : 'http://192.168.1.100:8080/sopramon-web/api/auth',
 				data : {
@@ -112,23 +111,7 @@ function appendSopramon(sopramon) {
 
 /* connexion admin */
 
-var myConnexionAdmin = $("#boutonadminconnexion");
-myConnexionAdmin.bind('click', function() {
-	$('.overlay').fadeIn("slow");
-	$('.overlay').show();
-	$(document).mouseup(function(e) {
-		var container = $('#adminconnexion');
 
-		// if the target of the click isn't the container nor a descendant of
-		// the container
-		if (!container.is(e.target) && container.has(e.target).length === 0) {
-			$('.overlay').fadeOut("slow");
-			$('.overlay').container.hide();
-		}
-	});
-}
-
-)
 
 /* par défaut connexion à admin.html */
 
@@ -160,4 +143,7 @@ myConnexionAdmin.bind('click', function() {
 // de recommencer");}
 // })
 // };
+
+
+
 

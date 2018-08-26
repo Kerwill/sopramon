@@ -121,6 +121,7 @@ h1 {
 	transition: opacity 500ms;
 	visibility: hidden;
 	opacity: 0;
+	z-index : 300;
 }
 
 .overlay:target {
@@ -133,10 +134,10 @@ h1 {
 	padding: 20px;
 	background: #C09F80;
 	border-radius: 5px;
-	width: 30%;
+	width: 70%;
 	position: relative;
 	transition: all 5s ease-in-out;
-	z-index: 10;
+
 }
 
 .popupMonsopramon h2 {
@@ -160,10 +161,10 @@ h1 {
 	color: #76323F;
 }
 
-.popupMonsopramon .content {
+/* .popupMonsopramon .content {
 	max-height: 30%;
 	overflow: auto;
-}
+} */
 
 table {
 	margin: auto;
@@ -227,7 +228,7 @@ table {
 	display: flex;
 	flex-flow: column;
 	height: 100%;
-	width: 60%;
+	width: 100%;
 }
 
 table thead {
@@ -283,10 +284,10 @@ table thead, table tbody tr {
 }
 
 #monster {
-
-	margin-left: auto;
-    margin-right: auto;
-    width: 30em}
+float : left;
+	/* margin-left: auto;
+    margin-right: auto; */
+    width: 9em;}
     
  .spinner {
  	position : relative;
@@ -300,7 +301,6 @@ table thead, table tbody tr {
       width: 800px;
       height: 600px;
       background: url('fond.png');
-     
       position : relative;
     }
     #exploresopramon{
@@ -332,12 +332,28 @@ table thead, table tbody tr {
     }
     
     
+     #shopborne{
+    position : absolute;
+     top: 50px; 
+      left: 305px; 
+      z-index : 150;
+    }
+    
+    
        #home{
     z-index: 100;
       top: 50px; 
       left: 600px; 
   
       position: absolute;
+    }
+    
+      #homeborne{
+    position : absolute;
+     top: 65px; 
+      left: 600px; 
+      z-index : 200;
+   
     }
     
       #arene{
@@ -347,4 +363,6 @@ table thead, table tbody tr {
       position: absolute;
     }
     
+  
     
+   

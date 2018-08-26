@@ -1,11 +1,3 @@
-//$('a').bind('click', function() {
-//	let sectionId = $(this).attr('href');
-//	
-//	$('section').hide();
-//	$(sectionId).show();
-//});
-//
-
 
 var audioexploration = new Audio('audio/audioexploration.mp3');
 var audioexploration2 = new Audio('audio/audioexploration2.mp3');
@@ -15,12 +7,11 @@ var audioshop = new Audio('audio/audioshop.mp3');
 var audiodonjon = new Audio('audio/audiodonjon.mp3');
 var audioarene = new Audio('audio/audioarene.mp3');
 
-var myArray = [audioexploration, audioexploration2];
-
+var myArray = [ audioexploration, audioexploration2 ];
 
 function getRandomInt(max) {
-	  return Math.floor(Math.random() * Math.floor(max));
-	}
+	return Math.floor(Math.random() * Math.floor(max));
+}
 
 var audioplayed = myArray[getRandomInt(2)];
 
@@ -141,11 +132,9 @@ function entrerDonjon() {
 
 	if ((posX + 10 < elemX + 85 + 10) && (posX + 10 > elemX + 85 - 10)
 			&& (posY + 30 > elemY + 150 - 10) && (posY + 30 < elemY + 150 + 10)) {
-		// $('#donjon').fadeOut(1000,'swing');
-		// $('#donjon').fadeIn(200,'linear');
-		// $('#donjon').fadeOut(1000,'swing');
-		// $('#donjon').fadeIn(200,'linear');
-		alert("ok donjon");
+
+		audioplayed.pause();
+		alert("ok Donjon");
 		audiodonjon.play();
 
 	}
@@ -160,14 +149,12 @@ function entrerMagasin() {
 	elemY = parseInt($('#shop').css('top'));
 
 	if ((posX + 10 < elemX + 75 + 10) && (posX + 10 > elemX + 75 - 10)
-			&& (posY + 30 > elemY + 78 - 10) && (posY + 30 < elemY + 78 + 10)) {
-		// $('#donjon').fadeOut(1000,'swing');
-		// $('#donjon').fadeIn(200,'linear');
-		// $('#donjon').fadeOut(1000,'swing');
-		// $('#donjon').fadeIn(200,'linear');
-		alert("ok magasin");
+			&& (posY + 30 > elemY + 78 - 5) && (posY + 30 < elemY + 78 + 5)) {
+		audioplayed.pause();
 		audioshop.play();
-
+		$('body').fadeOut("slow");
+		setTimeout(function() {document.location.href = "echoppe.html";}, 200);
+		setTimeout(function() {$('body').fadeIn("fast");$('#exploresopramon').css('top','+=40').css('background-position-x', '0%');}, 500);
 	}
 };
 
@@ -181,16 +168,13 @@ function entrerMaison() {
 
 	if ((posX + 10 < elemX + 49 + 10) && (posX + 10 > elemX + 49 - 10)
 			&& (posY + 30 > elemY + 94 - 10) && (posY + 30 < elemY + 94 + 10)) {
-		// $('#donjon').fadeOut(1000,'swing');
-		// $('#donjon').fadeIn(200,'linear');
-		// $('#donjon').fadeOut(1000,'swing');
-		// $('#donjon').fadeIn(200,'linear');
-		alert("ok maison");
+
+		audioplayed.pause();
 		audiohome.play();
+		alert("ok maison");
 
 	}
 };
-
 
 function entrerArene() {
 
@@ -202,12 +186,9 @@ function entrerArene() {
 
 	if ((posX + 10 < elemX + 94 + 10) && (posX + 10 > elemX + 94 - 10)
 			&& (posY + 30 > elemY + 101 - 10) && (posY + 30 < elemY + 101 + 10)) {
-		// $('#donjon').fadeOut(1000,'swing');
-		// $('#donjon').fadeIn(200,'linear');
-		// $('#donjon').fadeOut(1000,'swing');
-		// $('#donjon').fadeIn(200,'linear');
-		alert("ok arene");
-		audioarene.play();
 
+		audioplayed.pause();
+		audioarene.play();
+		alert("ok Arene");
 	}
 };
