@@ -1,4 +1,4 @@
-package src.main.java.fr.sopra.controller;
+package fr.sopra.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import fr.formation.dao.IDAOSopramon;
-import fr.formation.model.Sopramon;
+import fr.sopra.idao.IDAOSopramon;
+import fr.sopra.model.game.Capacite;
+import fr.sopra.model.game.Sopramon;
+
 
 
 @Controller
@@ -46,11 +48,7 @@ public class SopramonController {
 		return "redirect:sopramon";
 	}
 	
-	
-	
-	
-	
-	
+		
 	@GetMapping("/editerSopramon")
 	public String editerSopramon(@RequestParam int id, Model model) {
 		model.addAttribute("sopramon", daoSopramon.findById(id).get());
@@ -58,14 +56,14 @@ public class SopramonController {
 	}
 	
 	
-	@PostMapping("/editerSopramon")
-	public String editerSopramon(@ModelAttribute Sopramon sopramon) {
-		Gamme myGamme = new Gamme();
-		
-		myGamme.setId(1);
-		sopramon.setGamme(myGamme);
-		
-		daoSopramon.save(sopramon);
-		return "redirect:sopramon";
-	}
+//	@PostMapping("/editerSopramon")
+//	public String editerSopramon(@ModelAttribute Sopramon sopramon) {
+//		Capacite myCapacite = new Capacite();
+//		
+//		myCapacite.setId(1);
+//		sopramon.setCapacite(myCapacite);
+//		
+//		daoSopramon.save(sopramon);
+//		return "redirect:sopramon";
+//	}
 }
