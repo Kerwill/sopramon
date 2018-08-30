@@ -30,14 +30,12 @@
 
 			<tbody>
 				<tr th:each="sopramon : ${ sopramons }">
+					<td>[[${ sopramon.id }]]</td>
 					<td>[[${ sopramon.nom }]]</td>
-					<td th:text="${ sopramon.prix }"></td>
-					<td><a th:href="@{editerSopramon(id=${ sopramon.id })}"
-						class="btn btn-primary">Editer</a> <a
-						th:href="@{supprimerSopramon(id=${ sopramon.id })}"
-						class="btn btn-dark">Supprimer</a> <a
-						th:href="@{editerSopramon(id=${ sopramon.id })}"
-						class="btn btn-warning">Bannir</a></td>
+					<td><a th:href="@{editerSopramon(id=${ sopramon.id })}" class="btn btn-outline-primary">Editer</a> 
+						<a th:href="@{supprimerSopramon(id=${ sopramon.id })}" class="btn btn-outline-dark">Supprimer</a> 
+						<a th:href="@{bannirSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Bannir</a>
+					</td>
 				</tr>
 			</tbody>
 		</table>
