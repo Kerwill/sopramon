@@ -85,3 +85,10 @@ footer div {
 }
 
 
+@font-face {
+	font-family: 'Planewalker';
+	src: url('font/Planewalker.eot');
+	src: url('font/Planewalker.otf') format('truetype');
+}
+
+
