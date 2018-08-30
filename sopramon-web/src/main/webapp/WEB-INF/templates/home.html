@@ -13,106 +13,108 @@
 
 <body>
 
+	<section layout:fragment="custom-content">
+
+		<div id="front">
+			<nav>
+				<section id="admin">
+					<fieldset>
+						<legend> Espace administrateur </legend>
+						<button id="boutonadminconnexion">Acceder</button>
+					</fieldset>
+				</section>
+				<section id="login">
+					<fieldset>
+						<legend> Espace utilisateur </legend>
+						<form id="connexion">
+							<label for="username"> Votre username : </label> <input
+								type="text" name="username" placeholder="username" required />
+							<label for="password"> Votre password : </label> <input
+								type="password" name="password" placeholder="*********" required />
+							<input type="submit" value="Connexion" /> <label> <input
+								type="checkbox" name="remember"> Se souvenir de moi
+							</label>
+						</form>
 
 
-<div id="front">
 
-		<nav>
-			<section id="admin">
-				<fieldset>
-					<legend> Espace administrateur </legend>
-					<button id="boutonadminconnexion">Acc�der</button>
-				</fieldset>
-			</section>
-			<section id="login">
-				<fieldset>
-					<legend> Espace utilisateur </legend>
-					<form id="connexion">
-						<label for="username"> Votre username : </label> <input
-							type="text" name="username" placeholder="username" required /> <label
-							for="password"> Votre password : </label> <input type="password"
-							name="password" placeholder="*********" required /> <input
-							type="submit" value="Connexion" /> <label> <input
-							type="checkbox" name="remember"> Se souvenir de moi
-						</label>
-					</form>
+						<div>
+							<a href="signin.html">Creer un compte</a>
+						</div>
 
+					</fieldset>
+				</section>
 
+				<section id="credits">
+					<p>Powered by :</p>
+					<img src="assets/img/sopra.png" alt="explorer le sopraworld"
+						width="300px" height="100px" />
+				</section>
+			</nav>
 
-					<div>
-						<a href="signin.html">Cr�er un compte</a>
+			<section id="slideshow">
+
+				<div class="slideshow-container">
+
+					<div class="mySlides fade">
+						<div class="numbertext">1 / 3</div>
+						<img src="assets/img/explorer.png" alt="explorer le sopraworld"
+							style="width: 100%" />
+						<div class="text">Explorez et decouvrez les mysteres de
+							Sopraworld</div>
 					</div>
 
-				</fieldset>
+					<div class="mySlides fade">
+						<div class="numbertext">2 / 3</div>
+						<img src="assets/img/shopping.jpg"
+							alt="Venez acheter les plus belles armes du Sopraworld"
+							style="width: 100%" />
+						<div class="text">Acheter les plus belles armes dans notre
+							boutique</div>
+					</div>
+
+					<div class="mySlides fade">
+						<div class="numbertext">3 / 3</div>
+						<img src="assets/img/boss.jpg"
+							alt="Confrontez-vous aux meilleurs Sopramons. "
+							style="width: 100%">
+						<div class="text">Confrontez-vous aux meilleurs Sopramons</div>
+					</div>
+					<div style="text-align: center" id="point">
+						<span class="dot" onclick="currentSlide(1)"></span> <span
+							class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+							onclick="currentSlide(3)"></span>
+					</div>
+				</div>
+
+
 			</section>
 
-			<section id="credits">
-				<p>Powered by :</p>
-				<img src="assets/img/sopra.png" alt="explorer le sopraworld" width="300px"
-					height="100px" />
-			</section>
-		</nav>
+			<div class="overlay">
 
-		<section id="slideshow">
+				<form id="adminconnexion">
+					<fieldset>
+						<legend>Connexion administrateur</legend>
+						<label for="username"> Votre username : </label> <br /> <input
+							type="text" name="username" placeholder="username" required /><br />
+						<label for="password"> Votre password : </label> <br /> <input
+							type="password" name="password" placeholder="*********" required /><br />
 
-			<div class="slideshow-container">
 
-				<div class="mySlides fade">
-					<div class="numbertext">1 / 3</div>
-					<img src="assets/img/explorer.png" alt="explorer le sopraworld"
-						style="width: 100%" />
-					<div class="text">Explorez et d�couvrez les myst�res de
-						Sopraworld</div>
-				</div>
 
-				<div class="mySlides fade">
-					<div class="numbertext">2 / 3</div>
-					<img src="assets/img/shopping.jpg"
-						alt="Venez acheter les plus belles armes du Sopraworld"
-						style="width: 100%" />
-					<div class="text">Acheter les plus belles armes dans notre
-						boutique</div>
-				</div>
+						<!-- lien a � bazarder d�s qu'on a l'API Admin -->
 
-				<div class="mySlides fade">
-					<div class="numbertext">3 / 3</div>
-					<img src="assets/img/boss.jpg" alt="Confrontez-vous aux meilleurs Sopramons. "
-						style="width: 100%">
-					<div class="text">Confrontez-vous aux meilleurs Sopramons</div>
-				</div>
-				<div style="text-align: center" id="point">
-					<span class="dot" onclick="currentSlide(1)"></span> <span
-						class="dot" onclick="currentSlide(2)"></span> <span class="dot"
-						onclick="currentSlide(3)"></span>
-				</div>
+
+						<input type="submit" value="Connexion" /> <br /> <label>
+							<input type="checkbox" name="remember"> Se souvenir de
+							moi
+						</label> <br /> <a href="admin.html"> Connexion temporaire direct</a>
+					</fieldset>
+				</form>
 			</div>
-
-
-		</section>
-
-		<div class="overlay">
-
-			<form id="adminconnexion">
-				<fieldset>
-					<legend>Connexion administrateur</legend>
-					<label for="username"> Votre username : </label> <br /> <input
-						type="text" name="username" placeholder="username" required /><br />
-					<label for="password"> Votre password : </label> <br /> <input
-						type="password" name="password" placeholder="*********" required /><br />
-
-
-
-					<!-- lien a � bazarder d�s qu'on a l'API Admin -->
-
-
-					<input type="submit" value="Connexion" /> <br /> <label>
-						<input type="checkbox" name="remember"> Se souvenir de moi
-					</label> <br /> <a href="admin.html"> Connexion temporaire direct</a>
-				</fieldset>
-			</form>
 		</div>
-
-	</div>
+	</section>
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
