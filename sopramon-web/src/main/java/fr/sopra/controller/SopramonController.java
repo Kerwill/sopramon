@@ -14,7 +14,6 @@ import fr.sopra.model.game.Capacite;
 import fr.sopra.model.game.Sopramon;
 
 
-
 @Controller
 public class SopramonController {
 	@Autowired

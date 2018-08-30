@@ -12,7 +12,7 @@
 		<h1 layout:fragment="custom-title">Liste des sopramons</h1>
 		
 		<div layout:fragment="custom-content">
-			<a href="ajouterProduit">Ajouter un sopramon</a>
+			<a href="ajouterSopramon">Ajouter un sopramon</a>
 			
 			<table class="table table-striped">
 				<thead>
@@ -24,12 +24,13 @@
 				</thead>
 				
 				<tbody>
-					<tr th:each="sopramon : ${ sopramonss }">
-						<td>[[${ produit.nom }]]</td>
-						<td th:text="${ produit.prix }"></td>
+					<tr th:each="sopramon : ${ sopramons }">
+						<td>[[${ sopramon.nom }]]</td>
+						<td th:text="${ sopramon.prix }"></td>
 						<td>
-							<a th:href="@{editerProduit(id=${ produit.id })}" class="btn btn-warning">Editer</a>
-							<a th:href="@{supprimerProduit(id=${ produit.id })}" class="btn btn-danger">Supprimer</a>
+							<a th:href="@{editerSopramon(id=${ sopramon.id })}" class="btn btn-primary">Editer</a>
+							<a th:href="@{supprimerSopramon(id=${ sopramon.id })}" class="btn btn-dark">Supprimer</a>
+							<a th:href="@{editerSopramon(id=${ sopramon.id })}" class="btn btn-warning">Bannir</a>
 						</td>
 					</tr>
 				</tbody>
