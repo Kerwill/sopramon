@@ -1,0 +1,87 @@
+body {
+	background-color: #D7CEC7;
+}
+
+
+header {
+	flex: 1;
+	background-color: #565656;
+	text-align: center;
+	font-family: 'Planewalker', Arial, serif;
+	color: #C09F80;
+	min-width: 1400px;
+	height: 75px;
+	display: flex;
+}
+
+h1 {
+	display: block;
+	margin: auto;
+}
+
+#zodiaque {
+	color: white;
+	display: inline-block;
+	margin-right: 80px;
+	margin-left: 80px;
+	font-size: 0.5em;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px,
+		#000000 1px -1px;
+}
+
+/*footer ok*/
+footer {
+	background-color: #76323F;
+	color: white;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+footer div {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.icon-bar {
+	flex: 0.7;
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+	display: inline-block;
+	color: white;
+	font-size: 20px;
+	height: 0px;
+}
+
+.facebook {
+	background: #3B5998;
+	color: white;
+}
+
+.twitter {
+	background: #55ACEE;
+	color: white;
+}
+
+.google {
+	background: #dd4b39;
+	color: white;
+}
+
+.linkedin {
+	background: #007bb5;
+	color: white;
+}
+
+.youtube {
+	background: #bb0000;
+	color: white;
+}
+
+

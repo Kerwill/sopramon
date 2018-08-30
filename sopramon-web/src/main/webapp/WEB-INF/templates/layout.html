@@ -8,9 +8,8 @@
 
 <base href="/sopramon-web/">
 
-<link rel="stylesheet" href="assets/css/stylelayout.css" />
+<link rel="stylesheet" href="assets/css/layout.css" />
 
-<link rel="stylesheet" type="text/css" href="/assets/css/layout.css">
 </head>
 <body>
 	<header>
@@ -23,50 +22,8 @@
 
 
 	<section layout:fragment="custom-content" id="front">
-
-			<nav layout:fragment="custom-nav">
-
-				<section id="admin">
-					<fieldset>
-						<legend> Espace administrateur </legend>
-						<button id="boutonadminconnexion">Accéder</button>
-					</fieldset>
-				</section>
-				<section id="login">
-					<fieldset>
-						<legend> Espace utilisateur </legend>
-						<form id="connexion">
-							<label for="username"> Votre username : </label> <input
-								type="text" name="username" placeholder="username" required />
-							<label for="password"> Votre password : </label> <input
-								type="password" name="password" placeholder="*********" required />
-							<input type="submit" value="Connexion" /> <label> <input
-								type="checkbox" name="remember"> Se souvenir de moi
-							</label>
-						</form>
-
-
-
-						<div>
-							<a href="signin.html">Créer un compte</a>
-						</div>
-
-					</fieldset>
-				</section>
-				
-				<section layout:fragment="content" id="content">
-				</section>
-				
-
-				<section id="credits">
-					<p>Powered by :</p>
-					<img src="sopra.png" alt="explorer le sopraworld" width="300px"
-						height="100px" />
-				</section>
-			</nav>
-
-
-		</section>
+			
+	</section>
 
 	<footer layout:fragment="custom-footer">
 		<div class="icon-bar">
