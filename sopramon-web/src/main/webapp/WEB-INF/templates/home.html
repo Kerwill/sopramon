@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<title>Accueil</title>
+<link rel="stylesheet" href="resources/assets/css/home.css" />
+</head>
+
+<body>
+
+
+	<section layout:fragment="custom-content" id="front">
+
+			<section layout:fragment="content" id="content">
+
+				<div class="slideshow-container">
+
+					<div class="mySlides fade">
+						<div class="numbertext">1 / 3</div>
+						<img src="/assets/img/explorer.png" alt="explorer le sopraworld"
+							style="width: 100%" />
+						<div class="text">Explorez et découvrez les mystères de
+							Sopraworld</div>
+					</div>
+
+					<div class="mySlides fade">
+						<div class="numbertext">2 / 3</div>
+						<img src="/assets/img/shopping.jpg"
+							alt="Venez acheter les plus belles armes du Sopraworld"
+							style="width: 100%" />
+						<div class="text">Acheter les plus belles armes dans notre
+							boutique</div>
+					</div>
+
+					<div class="mySlides fade">
+						<div class="numbertext">3 / 3</div>
+						<img src="/assets/img/boss.jpg"
+							alt="Confrontez-vous aux meilleurs Sopramons. "
+							style="width: 100%">
+						<div class="text">Confrontez-vous aux meilleurs Sopramons</div>
+					</div>
+					<div style="text-align: center" id="point">
+						<span class="dot" onclick="currentSlide(1)"></span> <span
+							class="dot" onclick="currentSlide(2)"></span> <span class="dot"
+							onclick="currentSlide(3)"></span>
+					</div>
+				</div>
+
+
+			</section>
+
+			<div class="overlay">
+
+				<form id="adminconnexion">
+					<fieldset>
+						<legend>Connexion administrateur</legend>
+						<label for="username"> Votre username : </label> <br /> <input
+							type="text" name="username" placeholder="username" required /><br />
+						<label for="password"> Votre password : </label> <br /> <input
+							type="password" name="password" placeholder="*********" required /><br />
+
+
+						<!-- lien a à bazarder dès qu'on a l'API Admin -->
+
+
+						<input type="submit" value="Connexion" /> <br /> <label>
+							<input type="checkbox" name="remember"> Se souvenir de
+							moi
+						</label> <br /> <a href="admin.html"> Connexion temporaire direct</a>
+					</fieldset>
+				</form>
+			</div>
+		</section>
+
+	</div>
+</body>
+</html>
