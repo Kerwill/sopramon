@@ -17,7 +17,7 @@ import fr.formation.model.Sopramon;
 public class SopramonController {
 	@Autowired
 	private IDAOSopramon daoSopramon;
-	
+	 
 	
 	@GetMapping("/sopramon")
 	public String findAll(Model model) {
