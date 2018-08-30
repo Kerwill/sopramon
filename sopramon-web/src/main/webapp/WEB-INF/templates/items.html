@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>CRUD Item</title>
+</head>
+<body>
+	<header>
+		<h1 layout:fragment="custom-title">Gérer ici les items</h1>
+	</header>
+	<section layout:fragment="custom-content">
+		<td><a class="btn btn-secondary btn-lg"
+			href="http://localhost:8080/sopramon-web/item/create">Ajouter un
+				item</a></td>
+		<table class="table table-dark">
+
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nom</th>
+					<th>Prix</th>
+					<th>Capacites
+					<th>PV</th>
+					<th>Attaque</th>
+					<th>Defense</th>
+					<th>Esquive</th>
+					<th>Vitesse</th>
+					</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produit : ${produits}">
+					<td th:text="${ produit.id}"></td>
+					<td th:text="${ produit.nom }"></td>
+					<td th:text="${ produit.prix}"></td>
+					<td th:text="${ produit.capacite.pv}"></td>
+					<td th:text="${ produit.capacite.attaque}"></td>
+					<td th:text="${ produit.capacite.defense}"></td>
+					<td th:text="${ produit.capacite.esquive}"></td>
+					<td th:text="${ produit.capacite.vitesse}"></td>
+					<td><a class="btn btn-primary"
+						th:href="@{produit/update(id=${produit.id})}">Editer</a></td>
+					<td><a class="btn btn-warning"
+						th:href="@{produit/delete(id=${produit.id})}">Supprimer</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

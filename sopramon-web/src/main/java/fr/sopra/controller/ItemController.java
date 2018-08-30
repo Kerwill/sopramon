@@ -41,20 +41,20 @@ public class ItemController {
 	}
 
 	@PostMapping({ "/create" })
-	public String createItemPost(@RequestParam String nom, @RequestParam float prix, @RequestParam int pv, @RequestParam int att, @RequestParam int def, @RequestParam int esq, @RequestParam int vit,
+	public String createItemPost(@RequestParam String nom, @RequestParam float prix, @RequestParam int pv, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
 			Model model) {
 		
 		Item myItem = new Item();
 		Capacite myCapacite = new Capacite();
-	
+
+		myCapacite.setPointsDeVie(pv);
+		myCapacite.setAttaque(attaque);
+		myCapacite.setDefense(defense);
+		myCapacite.setVitesse(vitesse);
+		myCapacite.setEsquive(esquive);
+		
 		myItem.setNom(nom);
 		myItem.setPrix(prix);
-		
-		myCapacite.setPointsDeVie(pv);
-		myCapacite.setAttaque(att);
-		myCapacite.setDefense(def);
-		myCapacite.setVitesse(vit);
-		myCapacite.setEsquive(esq);
 		myItem.setCapacite(myCapacite);
 		
 		daoItem.save(myItem);
@@ -71,28 +71,31 @@ public class ItemController {
 	}
 
 	@GetMapping("/update")
-	public String updateItemGet(@RequestParam int id, Model model) {
-		List<Capacite> capacites = daoCapacite.findAll();
-		model.addAttribute("capacites", capacites);
-		model.addAttribute("produit", daoItem.findById(id).get());
+	public String updateItemGet(@RequestParam int idItem, @RequestParam int idCap, Model model) {
+
+		model.addAttribute("item", daoItem.findById(idItem).get());
+		model.addAttribute("capacite", daoCapacite.findById(idCap).get());
 
 		return "createItem";
 	}
 
 	@PostMapping({ "/update" })
-	public String updateItemPost(@RequestParam int id, @RequestParam String nom, @RequestParam float prix, @RequestParam int gamme,
+	public String updateItemPost (@RequestParam String nom, @RequestParam float prix, @RequestParam int pv, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
 			Model model) {
 
 		Item myItem = new Item();
 		Capacite myCapacite = new Capacite();
 
-		myCapacite.setId(gamme);
+		myCapacite.setPointsDeVie(pv);
+		myCapacite.setAttaque(attaque);
+		myCapacite.setDefense(defense);
+		myCapacite.setVitesse(vitesse);
+		myCapacite.setEsquive(esquive);
 		
-		myItem.setId(id);
 		myItem.setNom(nom);
 		myItem.setPrix(prix);
 		myItem.setCapacite(myCapacite);
-
+		
 		daoItem.save(myItem);
 
 		return "redirect:http://localhost:8080/sopramon-web/item/read";
