@@ -36,19 +36,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="produit : ${produits}">
-					<td th:text="${ produit.id}"></td>
-					<td th:text="${ produit.nom }"></td>
-					<td th:text="${ produit.prix}"></td>
-					<td th:text="${ produit.capacite.pv}"></td>
-					<td th:text="${ produit.capacite.attaque}"></td>
-					<td th:text="${ produit.capacite.defense}"></td>
-					<td th:text="${ produit.capacite.esquive}"></td>
-					<td th:text="${ produit.capacite.vitesse}"></td>
+				<tr th:each="item : ${items}">
+					<td th:text="${ item.id}"></td>
+					<td th:text="${ item.nom }"></td>
+					<td th:text="${ item.prix}"></td>
+					<td th:text="${ item.capacite.pv}"></td>
+					<td th:text="${ item.capacite.attaque}"></td>
+					<td th:text="${ item.capacite.defense}"></td>
+					<td th:text="${ item.capacite.esquive}"></td>
+					<td th:text="${ item.capacite.vitesse}"></td>
 					<td><a class="btn btn-primary"
-						th:href="@{produit/update(id=${produit.id})}">Editer</a></td>
+						th:href="@{item/update(id=${item.id})}">Editer</a></td>
 					<td><a class="btn btn-warning"
-						th:href="@{produit/delete(id=${produit.id})}">Supprimer</a></td>
+						th:href="@{item/delete(id=${item.id})}">Supprimer</a></td>
 				</tr>
 			</tbody>
 		</table>
