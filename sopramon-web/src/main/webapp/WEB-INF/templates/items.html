@@ -31,14 +31,15 @@
 					<th>ID</th>
 					<th>Nom</th>
 					<th>Prix</th>
-					<th colspan="5" scope="colgroup">Capacites PV</th>
+					<th colspan="5" scope="colgroup">Capacites</th>
+				</tr>
+			</thead>
+					<th>PV</th>
 					<th>Attaque<th>
 					<th>Defense</th>
 					<th>Esquive</th>
 					<th>Vitesse</th>		
 					<th>Action</th>
-				</tr>
-			</thead>
 			<tbody>
 				<tr th:each="item : ${items}">
 					<td th:text="${ item.id}"></td>
