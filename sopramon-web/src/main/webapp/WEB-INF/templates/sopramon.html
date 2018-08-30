@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layout.html">
+    
+	<head>
+		<title>Liste des sopramons</title>
+	</head>
+	
+	<body>
+		<h1 layout:fragment="custom-title">Liste des sopramons</h1>
+		
+		<div layout:fragment="custom-content">
+			<a href="ajouterProduit">Ajouter un sopramon</a>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Nom</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="sopramon : ${ sopramonss }">
+						<td>[[${ produit.nom }]]</td>
+						<td th:text="${ produit.prix }"></td>
+						<td>
+							<a th:href="@{editerProduit(id=${ produit.id })}" class="btn btn-warning">Editer</a>
+							<a th:href="@{supprimerProduit(id=${ produit.id })}" class="btn btn-danger">Supprimer</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
