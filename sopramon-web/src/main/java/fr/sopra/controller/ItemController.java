@@ -2,6 +2,10 @@ package fr.sopra.controller;
 
 import java.util.List;
 
+<<<<<<< Updated upstream
+=======
+import org.springframework.stereotype.Controller;
+>>>>>>> Stashed changes
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.sopra.model.game.Capacite;
 import fr.sopra.model.game.Item;
 
+<<<<<<< Updated upstream
+=======
+@Controller
+>>>>>>> Stashed changes
 @RequestMapping("/item")
 public class ItemController {
 
