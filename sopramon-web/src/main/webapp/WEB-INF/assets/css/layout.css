@@ -2,7 +2,7 @@ body {
 	background-color: #D7CEC7;
 }
 
-/* header OK*/
+
 header {
 	flex: 1;
 	background-color: #565656;
@@ -127,7 +127,10 @@ nav section:not(#credits){
 	font-family: 'Righteous', Arial;
 }
  
- 
+ #content {
+	flex: 6;
+	min-width: 1200px;
+}
  
  
 legend {
@@ -185,3 +188,23 @@ input[type="submit"]:hover {
 	src: url('font/Planewalker.eot');
 	src: url('font/Planewalker.otf') format('truetype');
 }
+
+
+
+
+input[type="submit"], #admin button {
+	background: none;
+	box-sizing: border-box;
+	margin: 1em;
+	padding: 1em 2em;
+	box-shadow: inset 0 0 0 2px #22427C;
+	color: #1E90FF;
+	border-radius: 5px;
+	font-family: 'Righteous', Arial;
+}
+
+input[type="submit"]:hover, #admin button:hover {
+	background-color: #3a3a3a;
+	animation: pulse 0.5s;
+}
+

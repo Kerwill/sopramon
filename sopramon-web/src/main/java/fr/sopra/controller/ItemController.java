@@ -15,6 +15,9 @@ import fr.sopra.idao.IDAOItem;
 import fr.sopra.model.game.Capacite;
 import fr.sopra.model.game.Item;
 
+
+
+
 @Controller
 @RequestMapping("/item")
 public class ItemController {

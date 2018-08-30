@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 
-<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Sopramon-the Game</title>
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Sopramon-the
+	Game</title>
 
 <base href="/sopramon-web/">
 
@@ -21,19 +22,60 @@
 	</header>
 
 
-	<section layout:fragment="custom-content">
-		
-	</section>
-	
-	
+	<section layout:fragment="custom-content" id="front">
+
+			<nav layout:fragment="custom-nav">
+
+				<section id="admin">
+					<fieldset>
+						<legend> Espace administrateur </legend>
+						<button id="boutonadminconnexion">Accéder</button>
+					</fieldset>
+				</section>
+				<section id="login">
+					<fieldset>
+						<legend> Espace utilisateur </legend>
+						<form id="connexion">
+							<label for="username"> Votre username : </label> <input
+								type="text" name="username" placeholder="username" required />
+							<label for="password"> Votre password : </label> <input
+								type="password" name="password" placeholder="*********" required />
+							<input type="submit" value="Connexion" /> <label> <input
+								type="checkbox" name="remember"> Se souvenir de moi
+							</label>
+						</form>
+
+
+
+						<div>
+							<a href="signin.html">Créer un compte</a>
+						</div>
+
+					</fieldset>
+				</section>
+				
+				<section layout:fragment="content" id="content">
+				</section>
+				
+
+				<section id="credits">
+					<p>Powered by :</p>
+					<img src="sopra.png" alt="explorer le sopraworld" width="300px"
+						height="100px" />
+				</section>
+			</nav>
+
+
+		</section>
+
 	<footer layout:fragment="custom-footer">
 		<div class="icon-bar">
 			Partage ta Sopralife sur les réseaux sociaux : <a href="#"
 				class="twitter"><img src="/assets/img/twitter.png" width="25px"
 				height="25px" /></a> <a href="#" class="facebook"><img
-				src="/assets/img/facebook.png" width="25px" height="25px" /></a> <a href="#"
-				class="instagram"><img src="/assets/img/instagram.png" width="25px"
-				height="25px" /></a> <a href="#" class="youtube"><img
+				src="/assets/img/facebook.png" width="25px" height="25px" /></a> <a
+				href="#" class="instagram"><img src="/assets/img/instagram.png"
+				width="25px" height="25px" /></a> <a href="#" class="youtube"><img
 				src="/assets/img/youtube.png" width="25px" height="25px" /></a>
 
 		</div>
