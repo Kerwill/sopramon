@@ -1,0 +1,187 @@
+body {
+	background-color: #D7CEC7;
+}
+
+/* header OK*/
+header {
+	flex: 1;
+	background-color: #565656;
+	text-align: center;
+	font-family: 'Planewalker', Arial, serif;
+	color: #C09F80;
+	min-width: 1400px;
+	height: 75px;
+	display: flex;
+}
+
+h1 {
+	display: block;
+	margin: auto;
+}
+
+#zodiaque {
+	color: white;
+	display: inline-block;
+	margin-right: 80px;
+	margin-left: 80px;
+	font-size: 0.5em;
+	text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px,
+		#000000 1px -1px;
+}
+
+/*footer ok*/
+footer {
+	background-color: #76323F;
+	color: white;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+}
+
+footer div {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.icon-bar {
+	flex: 0.7;
+}
+
+/* Style the icon bar links */
+.icon-bar a {
+	display: inline-block;
+	color: white;
+	font-size: 20px;
+	height: 0px;
+}
+
+.facebook {
+	background: #3B5998;
+	color: white;
+}
+
+.twitter {
+	background: #55ACEE;
+	color: white;
+}
+
+.google {
+	background: #dd4b39;
+	color: white;
+}
+
+.linkedin {
+	background: #007bb5;
+	color: white;
+}
+
+.youtube {
+	background: #bb0000;
+	color: white;
+}
+
+
+#front {
+	min-height: 850px;
+	display: flex;
+	text-align: center;
+	justify-content: stretch;
+
+}
+
+
+#front nav {
+	flex: 1;
+}
+
+
+
+/* nav*/
+nav {
+	background-color: black;
+	opacity: 0.7;
+	display: flex;
+	flex-direction: column;
+}
+
+nav section {
+	padding-bottom: 35px;
+	padding-top: 15px;
+	margin-left : auto;
+	margin-right : auto;
+	display: flex;
+
+}
+ 
+nav section:not(#credits ) span {
+	display: block;
+	margin: auto;
+} 
+
+nav section:not(#credits){
+	
+	font-family: 'Righteous', Arial;
+}
+ 
+ 
+ 
+ 
+legend {
+	font-family: 'Righteous', Arial;
+}
+
+fieldset {
+	width: 80%;
+	color: #C09F80;
+	text-align: center;
+	display: inline-block;
+	margin : auto;
+}
+
+#credits {
+	flex :0.5;
+	color: #76323F;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+#credits p {
+	display: block;
+	margin: 0;
+}
+
+#credits img {
+	display: block;
+}
+
+input {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+input[type="submit"] {
+	background: none;
+	box-sizing: border-box;
+	margin: 1em;
+	padding: 1em 2em;
+	box-shadow: inset 0 0 0 2px #22427C;
+	color: #1E90FF;
+	border-radius: 5px;
+	font-family: 'Righteous', Arial;
+}
+
+input[type="submit"]:hover {
+	background-color: #3a3a3a;
+	animation: pulse 0.5s;
+}
+
+@font-face {
+	font-family: 'Planewalker';
+	src: url('font/Planewalker.eot');
+	src: url('font/Planewalker.otf') format('truetype');
+}
