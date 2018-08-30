@@ -4,4 +4,46 @@
   <artifactId>sopramon-web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  
+  <dependencies>
+  
+  <dependency>
+			<groupId>fr.sopra</groupId>
+			<artifactId>sopramon-data-jpa</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+  
+  
+  <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-webmvc</artifactId>
+    <version>5.0.8.RELEASE</version>
+</dependency>
+
+
+<dependency>
+    <groupId>org.thymeleaf</groupId>
+    <artifactId>thymeleaf-spring5</artifactId>
+    <version>3.0.9.RELEASE</version>
+</dependency>
+
+<dependency>
+    <groupId>nz.net.ultraq.thymeleaf</groupId>
+    <artifactId>thymeleaf-layout-dialect</artifactId>
+    <version>2.3.0</version>
+</dependency>
+<dependency>
+    <groupId>nz.net.ultraq.thymeleaf</groupId>
+    <artifactId>thymeleaf-layout-dialect</artifactId>
+    <version>2.3.0</version>
+</dependency>
+</dependencies>
+ 
+
+   <properties>
+  <maven.compiler.sources>1.8</maven.compiler.sources>
+  <maven.compiler.target>1.8</maven.compiler.target>
+  <spring.version>5.0.8.RELEASE</spring.version>
+ </properties>
+  
 </project>
