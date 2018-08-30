@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>Ajouter et modifier</title>
+</head>
+<body>
+	<header>
+		<h1 layout:fragment="custom-title">Gerer ici vos items</h1>
+	</header>
+	<section layout:fragment="custom-content">
+		<form method="post">
+			<label for="nom" class="col-2 col-form-label">Nom de l'item :</label>
+			<div class="col-10">
+				<input class="form-control" name="nom" type="text"
+					th:value="${ item?.nom }" id="nom" placeholder="Nom du item">
+			</div>
+			<label for="prix" class="col-2 col-form-label">Prix de l'item
+				:</label>
+			<div class="col-10">
+				<input class="form-control" name="prix" type="text"
+					th:value="${ item?.prix}" id="prix" placeholder="Prix du item">
+			</div>
+			<label for="pv" class="col-2 col-form-label">Altération PV
+				:</label>
+			<div class="col-10">
+				<input class="form-control" name="pv" type="text"
+					th:value="${ item?.capacite.pv}" id="pv" placeholder="PV">
+			</div>
+			<label for="attaque" class="col-2 col-form-label">Altération attaque
+				:</label>
+			<div class="col-10">
+				<input class="form-control" name="attaque" type="text"
+					th:value="${ item?.capacite.attaque}" id="attaque" placeholder="Attaque">
+			</div>
+			<label for="defense" class="col-2 col-form-label">Altération
+				defense :</label>
+			<div class="col-10">
+				<input class="form-control" name="defense" type="text"
+					th:value="${ item?.capacite.defense}" id="prix" placeholder="Defense">
+			</div>
+			<label for="esquive" class="col-2 col-form-label">Altération
+				esquive :</label>
+			<div class="col-10">
+				<input class="form-control" name="esquive" type="text"
+					th:value="${ item?.capacite.esquive}" id="esquive" placeholder="Esquive">
+			</div>
+			<label for="vitesse" class="col-2 col-form-label">Altération
+				vitesse :</label>
+			<div class="col-10">
+				<input class="form-control" name="vitesse" type="text"
+					th:value="${ item?.capacite.vitesse}" id="vitesse" placeholder="Vitesse">
+			</div>
+
+			</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</section>
+</body>
+</html>
