@@ -40,7 +40,7 @@ nav section:not(#credits){
 	font-family: 'Righteous', Arial;
 }
  
- #content {
+ #slideshow {
 	flex: 6;
 	min-width: 1200px;
 }
