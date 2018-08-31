@@ -3,11 +3,10 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layout.html">
 <head>
-<<<<<<< HEAD
-=======
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <base href="/sopramon-web/" />
->>>>>>> master
+
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -31,6 +30,7 @@
 					<th>PV</th>
 					<th>Attaque</th>
 					<th>Actions</th>
+					<th>Banni ?</th>
 				</tr>
 			</thead>
 
@@ -40,9 +40,13 @@
 					<td>[[${ sopramon.nom }]]</td>
 					<td>[[${ sopramon.capacite.pointsDeVie }]]</td>
 					<td>[[${ sopramon.capacite.attaque }]]</td>
-					<td><a th:href="@{createSop(id=${ sopramon.id })}" class="btn btn-outline-primary">Editer</a> 
+					<td>
+						<a th:href="@{createSop(id=${ sopramon.id })}" class="btn btn-outline-primary">Editer</a> 
 						<a th:href="@{supprimerSopramon(id=${ sopramon.id })}" class="btn btn-outline-dark">Supprimer</a> 
+					</td>
+					<td>
 						<a th:href="@{bannirSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Bannir</a>
+						[[${ sopramon.access }]]
 					</td>
 				</tr>
 			</tbody>

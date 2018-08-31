@@ -45,13 +45,13 @@ public class HomeController {
 		Utilisateur checkUser = daoUser.findByUsernameAndPassword(utilisateur.getUsername(),utilisateur.getPassword());
 		
 		if (checkUser == null) {
-		result.rejectValue("username.empty", "Nom ou mot de passe erroné");
+		result.rejectValue("username.empty", "Nom ou mot de passe erronï¿½");
 		return "home";
 		}
 		
 		if (checkUser.getAccess() = 1)
 		{
-			result.reject("Nom ou mot de passe erroné");
+			result.reject("Nom ou mot de passe erronï¿½");
 			return "home";
 			}
 		
@@ -65,6 +65,11 @@ public class HomeController {
 		
 		}
 
+	
+	 @GetMapping("/logout")
+	    public String logout(Model model) {
+	        return "logout";
+	    }
 }
 
 //	if (bindingResult.hasErrors()) {
