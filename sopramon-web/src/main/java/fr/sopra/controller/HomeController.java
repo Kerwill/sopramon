@@ -1,6 +1,5 @@
 package fr.sopra.controller;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,34 +39,32 @@ public class HomeController {
 	}
 
 	@GetMapping("/utilisateur")
-	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model,
-			HttpSession session) {
+	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model) {
 
 		Utilisateur checkUser = daoUser.findByUsernameAndPassword(utilisateur.getUsername(), utilisateur.getPassword());
 
 		if (checkUser == null) {
-			result.rejectValue("username", "username.errone", "Nom ou mot de passe erroné");
+			result.rejectValue("username", "username.errone", "Nom ou mot de passe erronï¿½");
 
 			return "home";
 		}
 
 		else if (checkUser.getAccess() == 1) {
-			result.rejectValue("username", "username.banni", "Vous êtes banni");
+			result.rejectValue("username", "username.banni", "Vous ï¿½tes banni");
 
 			return "home";
 		}
 
 		else {
 			System.out.println("ok");
-			session.setAttribute("utilisateur", checkUser);
+//			session.setAttribute("utilisateur", checkUser);
 			return "menuSopramon";
 		}
 
 	}
 
 	@GetMapping("/administrateur")
-	public String login(@Valid @ModelAttribute Administrateur administrateur, BindingResult result, Model model,
-			HttpSession session) {
+	public String login(@Valid @ModelAttribute Administrateur administrateur, BindingResult result, Model model) {
 
 		Utilisateur checkAdmin = daoUser.findByUsernameAndPassword(administrateur.getUsername(),
 				administrateur.getPassword());
@@ -75,17 +72,17 @@ public class HomeController {
 
 		if (checkAdmin == null) {
 
-			result.rejectValue("username", "username.errone", "Nom ou mot de passe erroné");
+			result.rejectValue("username", "username.errone", "Nom ou mot de passe erronï¿½");
 			return "home";
 		}
 
 		if (checkAdmin.getAccess() == 2) {
-			session.setAttribute("administrateur", checkAdmin);
+//			session.setAttribute("administrateur", checkAdmin);
 			return "admin";
 		}
 
 		else {
-			result.rejectValue("admin", "username.errone", "Nom ou mot de passe erroné");
+			result.rejectValue("admin", "username.errone", "Nom ou mot de passe erronï¿½");
 			return "home";
 		}
 	}

@@ -34,23 +34,23 @@ layout:decorator="layout.html">
 	<section id="signin">
 		<fieldset>
 			<legend>Inscrivez-vous et entrez dans la SopraZone</legend>
-			<form id="inscription" action ="index2arnaud.html">
+			<form id="inscription">
 
 				<label for="firstname"> Votre Prénom : </label><br /> <input
-					type="text" name="firstname" placeholder="Prénom" required /><br />
+					type="text" name="firstname" th:value="${utilisateur.prenomUtil}" placeholder="Prénom" required /><span th:errors="${utilisateur.prenomUtil}"></span><br />
 				<label for="surname"> Votre Nom : </label> <br />
-				<input type="text" name="surname" placeholder="NOM" required /> <br />
+				<input type="text" name="surname" th:value="${utilisateur.nomUtil}" placeholder="NOM" required /><span th:errors="${utilisateur.nomUtil}"></span> <br />
 				<label for="username"> Votre nom d'utilisateur : </label><br /> <input
-					type="text" name="username" placeholder="username" required /> <br />
+					type="text" name="username" th:value="${utilisateur.username}" placeholder="username" required /><span th:errors="${utilisateur.username}"></span> <br />
 				<label for="password"> Votre Mot de Passe : </label><br /> <input
-					type="password" name="password" placeholder="******" required /><br />
+					type="password" name="password" th:value="${utilisateur.password}" placeholder="******" required /><span th:errors="${utilisateur.password}"></span><br />
 				<label for="birthdate"> Votre Date de naissance : </label> <br />
-				<input type="date" name="birthdate" required /><br />
+				<input type="date" name="birthdate" th:value="${sopramon.dateNaissance}" required /><span th:errors="${utilisateur.dateNaissance}"></span><br />
 
 
 				<div class="bouton">
 					<input type="submit" value="S'inscrire" />
-					<a href = "index2arnaud.html">Retour</a>
+					<a th:href = "home">Retour</a>
 				</div>
 			</form>
 		</fieldset>
