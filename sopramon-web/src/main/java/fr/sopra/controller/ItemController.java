@@ -15,9 +15,6 @@ import fr.sopra.idao.IDAOItem;
 import fr.sopra.model.game.Capacite;
 import fr.sopra.model.game.Item;
 
-
-
-
 @Controller
 @RequestMapping("/item")
 public class ItemController {
@@ -44,13 +41,13 @@ public class ItemController {
 	}
 
 	@PostMapping({ "/create" })
-	public String createItemPost(@RequestParam String nom, @RequestParam float prix, @RequestParam int pv, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
+	public String createItemPost(@RequestParam String nom, @RequestParam float prix, @RequestParam int pointsDeVie, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
 			Model model) {
 		
 		Item myItem = new Item();
 		Capacite myCapacite = new Capacite();
 
-		myCapacite.setPointsDeVie(pv);
+		myCapacite.setPointsDeVie(pointsDeVie);
 		myCapacite.setAttaque(attaque);
 		myCapacite.setDefense(defense);
 		myCapacite.setVitesse(vitesse);
@@ -62,7 +59,7 @@ public class ItemController {
 		
 		daoItem.save(myItem);
 
-		return "redirect:http://localhost:8080/sopramon-web/item/read";
+		return "read";
 	}
 
 	@GetMapping({ "/delete" })
@@ -70,26 +67,25 @@ public class ItemController {
 
 		daoItem.deleteById(id);
 
-		return "redirect:http://localhost:8080/sopramon-web/item/read";
+		return "read";
 	}
 
 	@GetMapping("/update")
-	public String updateItemGet(@RequestParam int idItem, @RequestParam int idCap, Model model) {
+	public String updateItemGet(@RequestParam int id, Model model) {
 
-		model.addAttribute("item", daoItem.findById(idItem).get());
-		model.addAttribute("capacite", daoCapacite.findById(idCap).get());
+		model.addAttribute("item", daoItem.findById(id).get());
 
 		return "createItem";
 	}
 
 	@PostMapping({ "/update" })
-	public String updateItemPost (@RequestParam String nom, @RequestParam float prix, @RequestParam int pv, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
+	public String updateItemPost (@RequestParam String nom, @RequestParam float prix, @RequestParam int pointsDeVie, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
 			Model model) {
 
 		Item myItem = new Item();
 		Capacite myCapacite = new Capacite();
 
-		myCapacite.setPointsDeVie(pv);
+		myCapacite.setPointsDeVie(pointsDeVie);
 		myCapacite.setAttaque(attaque);
 		myCapacite.setDefense(defense);
 		myCapacite.setVitesse(vitesse);
@@ -101,6 +97,6 @@ public class ItemController {
 		
 		daoItem.save(myItem);
 
-		return "redirect:http://localhost:8080/sopramon-web/item/read";
+		return "read";
 	}
 }

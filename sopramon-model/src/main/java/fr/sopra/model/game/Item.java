@@ -28,13 +28,13 @@ public class Item {
 	private int id;
 	
 	@Column(name="ITE_NOM", length=50, nullable=false)
-	@NotEmpty
-	@Size(max=50)
+	@NotEmpty(message="Le nom est obligatoire.")
+	@Size(max=50, message="Le nom ne doit pas dépasser 50 caractères.")
 	private String nom;
 	
 	@Column(name="ITE_PRIX", nullable=false)
-	@Positive 
-	@NotEmpty
+	@Positive(message="Le prix doit être positif.")
+	@NotEmpty(message="Le prix est obligatoire.")
 	private double prix;
 	
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
