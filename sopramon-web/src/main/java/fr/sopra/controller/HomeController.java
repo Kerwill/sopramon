@@ -39,38 +39,45 @@ public class HomeController {
 		return new Administrateur();
 	}
 
-	@PostMapping("/home")
+	@GetMapping("/utilisateur")
 	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model) {
 
-		Utilisateur checkUser = daoUser.findByUsernameAndPassword(utilisateur.getUsername(),utilisateur.getPassword());
 		
-		if (checkUser == null) {
-		result.rejectValue("username.empty", "Nom ou mot de passe erronï¿½");
-		return "home";
-		}
+		System.out.println("yes");
 		
-		if (checkUser.getAccess() = 1)
-		{
-			result.reject("Nom ou mot de passe erronï¿½");
-			return "home";
-			}
-		
-		else
-		{
-			model.addAttribute("sopramon", daoSopramon.findById(utilisateur.getId()));
-			return "menuSopramon";
-		}
-
-		
-		
-		}
-
+		return "home";}
 	
-	 @GetMapping("/logout")
-	    public String logout(Model model) {
-	        return "logout";
-	    }
 }
+	
+//		Utilisateur checkUser = daoUser.findByUsernameAndPassword(utilisateur.getUsername(),utilisateur.getPassword());
+//		
+//		if (checkUser == null) {
+//		result.rejectValue("username.empty", "Nom ou mot de passe erroné");
+//		return "home";
+//		}
+//		
+//		if (checkUser.getAccess() == "1")
+//		{
+//			result.reject("Nom ou mot de passe erroné");
+//			return "home";
+//			}
+//		
+//		else
+//		{
+//			model.addAttribute("sopramon", daoSopramon.findById(utilisateur.getId()));
+//			return "menuSopramon";
+//		}
+//
+//		
+//		
+//		}
+//
+//	
+//	 @GetMapping("/logout")
+//	    public String logout(Model model) {
+//	        return "logout";
+//	    }
+
 
 //	if (bindingResult.hasErrors()) {
 //        model.addAttribute("form", form)
