@@ -1,3 +1,5 @@
+$('.overlay').hide();
+
 var slideIndex = 0;
 showSlides();
 

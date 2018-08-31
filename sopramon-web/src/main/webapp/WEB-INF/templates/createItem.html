@@ -3,7 +3,6 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layout.html">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -27,34 +26,34 @@
 				<input class="form-control" name="prix" type="text"
 					th:value="${ item?.prix}" id="prix" placeholder="Prix du item">
 			</div>
-			<label for="pv" class="col-2 col-form-label">Altération PV
+			<label for="pointsDeVie" class="col-2 col-form-label">Alteration PV
 				:</label>
 			<div class="col-10">
-				<input class="form-control" name="pv" type="text"
-					th:value="${ item?.capacite?.pv}" id="pv" placeholder="PV">
+				<input class="form-control" name="pointsDeVie" type="number"
+					th:value="${ item?.capacite?.pointsDeVie}" id="pointsDeVie" placeholder="PV">
 			</div>
-			<label for="attaque" class="col-2 col-form-label">Altération attaque
+			<label for="attaque" class="col-2 col-form-label">Alteration attaque
 				:</label>
 			<div class="col-10">
-				<input class="form-control" name="attaque" type="text"
+				<input class="form-control" name="attaque" type="number"
 					th:value="${ item?.capacite?.attaque}" id="attaque" placeholder="Attaque">
 			</div>
-			<label for="defense" class="col-2 col-form-label">Altération
+			<label for="defense" class="col-2 col-form-label">Alteration
 				defense :</label>
 			<div class="col-10">
-				<input class="form-control" name="defense" type="text"
-					th:value="${ item?.capacite?.defense}" id="prix" placeholder="Defense">
+				<input class="form-control" name="defense" type="number"
+					th:value="${ item?.capacite?.defense}" id="defense" placeholder="Defense">
 			</div>
-			<label for="esquive" class="col-2 col-form-label">Altération
+			<label for="esquive" class="col-2 col-form-label">Alteration
 				esquive :</label>
 			<div class="col-10">
-				<input class="form-control" name="esquive" type="text"
+				<input class="form-control" name="esquive" type="number"
 					th:value="${ item?.capacite?.esquive}" id="esquive" placeholder="Esquive">
 			</div>
-			<label for="vitesse" class="col-2 col-form-label">Altération
+			<label for="vitesse" class="col-2 col-form-label">Alteration
 				vitesse :</label>
 			<div class="col-10">
-				<input class="form-control" name="vitesse" type="text"
+				<input class="form-control" name="vitesse" type="number"
 					th:value="${ item?.capacite?.vitesse}" id="vitesse" placeholder="Vitesse">
 			</div>
 
