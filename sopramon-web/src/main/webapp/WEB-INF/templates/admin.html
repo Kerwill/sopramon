@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="layout.html">
+
+<head>
+<!--   <base href="/sopramon-html/" /> -->
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<base href="/sopramon-web/" />
+<link rel="stylesheet"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+
+<link rel="stylesheet" type="text/css" href="assets/css/admin.css" />
+<link href="https://fonts.googleapis.com/css?family=Righteous"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Anton"
+	rel="stylesheet">
+
+<title>Espace Administrateur !</title>
+</head>
+<body>
+
+<section layout:fragment="custom-content">
+
+	<div id="front">
+
+		<nav>
+			<section>
+				<span><a href="index2arnaud.html"> Page d'accueil</a></span>
+			</section>
+
+			<section>
+				<span>Menu 2</span>
+			</section>
+
+			<section>
+				<span>Menu 3</span>
+			</section>
+
+			<section id="credits">
+
+				<p>Powered by :</p>
+				<img src="assets/img/sopra.png" alt="Sopra Steria" width="300px"
+					height="100px" />
+			</section>
+		</nav>
+
+		<div class="grid">
+			<div class="row">
+				<div class="container">
+					<img src="assets/img/adminsopramon.jpg" alt="Administration des sopramons" class="image" />
+					<div class="overclick">
+						<div class="text">
+							<ul>
+								<li><a href="#popup1">&#9805; Liste des Sopramons</a></li>
+								<li><a href="#">&#9806; Bannir un Sopramon</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="menuimage"><span>&#9800; Sopramon</span></div>
+
+				</div>
+
+				<div class="container">
+					<img src="assets/img/boss.jpg" alt="Administration des boss" class="image" />
+					<div class="overclick">
+						<div class="text">
+							<ul>
+								<li><a href="#">&#9810; Ajouter un boss</a></li>
+								<li><a href="#">&#9811; Supprimer un boss</a></li>
+								<li><a href="#">&#9800; Modifier un boss</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="menuimage"><span>&#9801; Boss</span></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="container">
+					<img src="assets/img/adminshop.jpg" alt="Avatar" class="image" />
+					<div class="overclick">
+						<div class="text">
+							<ul>
+								<li><a href="#">&#9801; Ajouter Items</a></li>
+								<li><a href="#">&#9802; Afficher et modifier les items</a></li>
+								<li><a href="#">&#9803; Supprimer des items</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="menuimage"><span>&#9802; Item</span></div>
+				</div>
+
+				<div class="container">
+					<img src="assets/img/admincombat.jpg" alt="Avatar" class="image" />
+					<div class="overclick">
+						<div class="text">
+							<ul>
+								<li><a href="#">&#9808; Liste des combats</a></li>
+							</ul>
+						</div>
+
+					</div>
+					<div class="menuimage"><span>&#9804; Combat</span></div>
+				</div>
+			</div>
+
+			<div id="popup1" class="overlaye">
+				<div class="popupListSopramon">
+					<h2>Liste des Sopramons</h2>
+					<a class='close' href="#">&times;</a>
+					<div class="container">
+						<table id="listSopramon" class="table table-striped">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Prénom</th>
+									<th scope="col">Nom d'utilisateur</th>
+									<th scope="col">Expérience</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<aside>
+			<section>10 derniers messages sur le forum</section>
+
+			<section>Chat Administrateurs</section>
+
+			<section>Boite mail - Réclamations</section>
+
+		</aside>
+	</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script src="assets/js/admin.js"></script>
+</section>
+
+
+	
+
+</body>
+
+</html>

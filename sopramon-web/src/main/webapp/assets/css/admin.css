@@ -1,0 +1,177 @@
+#front {
+	min-height: 850px;
+	display: flex;
+	text-align: center;
+	justify-content: stretch;
+}
+
+li{
+	list-style-type: none;
+	border : 2px solid black;
+	text-align : left;
+	margin-left : 25px;
+	margin-bottom : 5px;
+}
+
+li a{
+	text-decoration : none;
+	color : black;
+}
+
+li a:hover{
+	color : #89672d;
+}
+
+ul{
+	margin :0;
+	padding:0;
+}
+
+#admin {
+	width: 100%;
+	min-width : 1200px;
+	flex-wrap: wrap;
+	display: flex;
+	height: 850px;
+}
+
+.row {
+	width: 100%;
+	margin: auto;
+	display: flex;
+	overflow: hidden;
+	justify-content: space-between;
+	font-family: 'Anton', sans-serif;
+}
+
+.grid {
+	flex: 4;
+	position : relative;
+}
+
+aside {
+	flex: 1.5;
+	background-color: #C09F80;
+}
+
+.container {
+	width: 45%;
+	margin-top: 35px;
+	padding: 0;
+	position: relative;
+}
+
+.overclick {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #395182;
+	opacity: 0.85;
+	overflow: hidden;
+	width: 0;
+	height: 100%;
+	transition: .5s ease;
+}
+
+.container:hover .overclick {
+	width: 80%;
+}
+
+.text {
+	color: black;
+	font-size : 1.2em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
+}
+
+.text ul li{
+	padding : 15px;
+}
+
+.menuimage {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20%;
+	height: 100%;
+	writing-mode: vertical-rl;
+	text-orientation: mixed;
+	background-color: rgba(0, 0, 0, 0.75);
+	color: white;
+	font-size: 1.6em;
+	display : flex;
+}
+
+.menuimage span{
+	display : block;
+	margin : auto;
+}
+
+.container img {
+	width: 100%;
+	height : 100%;
+}
+
+body {
+	background-color: #D7CEC7;
+}
+
+aside{
+	display : flex;
+	flex-direction : column;
+	justify-content: space-between;
+	  align-items: center;
+}
+
+aside section{
+	width : 80%;
+	text-align : center;
+	margin:auto;
+}
+
+.overlaye {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden; 
+	opacity: 0;
+	z-index : 300;
+	transition: all 0.8s ease-in-out;
+} 
+
+.overlaye:target {
+	visibility: visible;
+	opacity: 1;
+} 
+
+.popupListSopramon {
+	margin: 70px auto;
+	padding: 20px;
+	background: #C09F80;
+	border-radius: 5px;
+	width: 70%;
+	position: relative;
+	
+}
+
+a.close {
+	position: absolute;
+	top: 15px;
+	right: 40px;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+}
+
+a.close:hover {
+	color: #76323F;
+}
