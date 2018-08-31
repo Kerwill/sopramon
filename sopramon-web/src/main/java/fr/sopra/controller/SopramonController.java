@@ -57,7 +57,7 @@ public class SopramonController {
 	@PostMapping({ "/createSop" })
 	public String createSopramon(@RequestParam String nom, @RequestParam int niveau, @RequestParam Signe signe, 
 								@RequestParam int pv, @RequestParam int attaque,@RequestParam int defense, 
-								@RequestParam int esquive, @RequestParam int vitesse, Model model) {
+								@RequestParam int esquive, @RequestParam int vitesse) {
 		
 		Sopramon mySopramon = new Sopramon();
 		Capacite myCapacite = new Capacite();
@@ -88,14 +88,14 @@ public class SopramonController {
 	@GetMapping("/editerSopramon")
 	public String editerSopramon(@RequestParam int id, Model model) {
 		model.addAttribute("sopramon", daoSopramon.findById(id).get());
-		return "form-sopramon";
+		return "createSopramon";
 	}
 	
 	
 	@GetMapping("/bannirSopramon")
-	public String bannirSopramon(@RequestParam int id, Model model) {
+	public String bannirSopramon(@RequestParam int id, @RequestParam int access, Model model) {
 		model.addAttribute("sopramon", daoSopramon.findById(id).get());
-		return "form-sopramon";
+		return "redirect:sopramon";
 	}
 	
 //	@PostMapping("/editerSopramon")

@@ -43,6 +43,11 @@ public class Utilisateur {
 	@NotEmpty
 	private String password = "Unknown"; 
 	
+	@Column(name = "UTI_ACCESS", length = 30, nullable = false)
+	@Size(max=30)
+	@NotEmpty
+	private String access = "false";
+	
 	public int getId() {
 		return id;
 	}
@@ -73,6 +78,13 @@ public class Utilisateur {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getAccess() {
+		return access;
+	}
+	public void setAccess(String access) {
+		this.access = access;
+	}
+	
 	
 
 
