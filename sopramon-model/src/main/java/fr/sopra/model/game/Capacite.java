@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
 
 @Entity
@@ -19,18 +20,23 @@ public class Capacite {
 	private int id;
 	
 	@Column(name = "CAP_PV", nullable = true)
+	@PositiveOrZero(message="Le niveau doit être strictement supérieur ou égale à 0.")
 	private int pointsDeVie = 0;
 	
 	@Column(name = "CAP_ATTAQUE", nullable = true)
+	@PositiveOrZero(message="L'attaque doit être strictement supérieur ou égale à 0.")
 	private int attaque = 0;
 	
 	@Column(name = "CAP_DEFENSE", nullable = true)
+	@PositiveOrZero(message="Le défense doit être strictement supérieur ou égale à 0.")
 	private int defense = 0;
 	
 	@Column(name = "CAP_ESQUIVE", nullable = true)
+	@PositiveOrZero(message="L'esquive doit être strictement supérieur ou égale à 0.")
 	private int esquive = 0;
 	
 	@Column(name = "CAP_VITESSE", nullable = true)
+	@PositiveOrZero(message="La vitesse doit être strictement supérieure ou égale à 0.")
 	private int vitesse = 0;
 
 	public int getId() {

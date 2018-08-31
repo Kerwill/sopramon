@@ -100,21 +100,26 @@ public class SopramonController {
 	
 
 	@GetMapping("/bannirSopramon")
-	public String bannirSopramon(@RequestParam int access, Model model) {
-		
-		if (access == 0) {access = 1;} else {access = 0;}
+	public String bannirSopramon(@RequestParam int id, Model model) {
+		Sopramon bannedSopramon = daoSopramon.findById(id).get();
+		bannedSopramon.setAccess(1);
+		daoSopramon.save(bannedSopramon);
+		System.out.println(bannedSopramon.getAccess());
+//		model.addAttribute("sopramon", daoSopramon.findById(id).get());
 		
 		return "redirect:sopramon";
 	}
 	
-//	@PostMapping("/editerSopramon")
-//	public String editerSopramon(@ModelAttribute Sopramon sopramon) {
-//		Capacite myCapacite = new Capacite();
-//		
-//		myCapacite.setId(1);
-//		sopramon.setCapacite(myCapacite);
-//		
-//		daoSopramon.save(sopramon);
-//		return "redirect:sopramon";
-//	}
+	@GetMapping("/debannirSopramon")
+	public String debannirSopramon(@RequestParam int id, Model model) {
+		Sopramon bannedSopramon = daoSopramon.findById(id).get();
+		bannedSopramon.setAccess(0);
+		daoSopramon.save(bannedSopramon);
+		System.out.println(bannedSopramon.getAccess());
+//		model.addAttribute("sopramon", daoSopramon.findById(id).get());
+		
+		return "redirect:sopramon";
+	}
+	
+
 }

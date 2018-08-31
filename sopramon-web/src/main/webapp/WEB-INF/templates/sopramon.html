@@ -45,7 +45,8 @@
 						<a th:href="@{supprimerSopramon(id=${ sopramon.id })}" class="btn btn-outline-dark">Supprimer</a> 
 					</td>
 					<td>
-						<a th:href="@{bannirSopramon( access=${ sopramon.access })}" class="btn btn-outline-warning">Bannir</a>
+						<a th:href="@{bannirSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Bannir</a>
+						<a th:href="@{debannirSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Ne plus bannir</a>
 						
 						[[${ sopramon.access }]]
 					</td>
