@@ -2,10 +2,16 @@ package fr.sopra.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +31,11 @@ public class ItemController {
 	@Autowired
 	IDAOCapacite daoCapacite;
 	
+	@ModelAttribute("item")
+	public Item initItem() {
+		return new Item();
+	}
+	
 	@GetMapping("/read")
 	public String getItems(Model model) {
 		List<Item> items = daoItem.findAll();
@@ -33,33 +44,22 @@ public class ItemController {
 	}
 
 	@GetMapping({ "/create" })
-	public String createItemGet(Model model) {
-		List<Capacite> capacites = daoCapacite.findAll();
-		model.addAttribute("capacites", capacites);
-
+	public String createItemGet() {
+		
 		return "createItem";
 	}
 
 	@PostMapping({ "/create" })
-	public String createItemPost(@RequestParam String nom, @RequestParam float prix, @RequestParam int pointsDeVie, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
-			Model model) {
+	public String createItemPost(@Valid @ModelAttribute("item") Item item, BindingResult result, Model model)  {
 		
-		Item myItem = new Item();
-		Capacite myCapacite = new Capacite();
+		
+		if (result.hasErrors()) {
+			return "createItem";
+		}
+		
+		daoItem.save(item);
 
-		myCapacite.setPointsDeVie(pointsDeVie);
-		myCapacite.setAttaque(attaque);
-		myCapacite.setDefense(defense);
-		myCapacite.setVitesse(vitesse);
-		myCapacite.setEsquive(esquive);
-		
-		myItem.setNom(nom);
-		myItem.setPrix(prix);
-		myItem.setCapacite(myCapacite);
-		
-		daoItem.save(myItem);
-
-		return "read";
+		return "redirect:/item/read";
 	}
 
 	@GetMapping({ "/delete" })
@@ -67,8 +67,9 @@ public class ItemController {
 
 		daoItem.deleteById(id);
 
-		return "read";
+		return "redirect:/item/read";
 	}
+
 
 	@GetMapping("/update")
 	public String updateItemGet(@RequestParam int id, Model model) {
@@ -77,26 +78,20 @@ public class ItemController {
 
 		return "createItem";
 	}
-
+	
 	@PostMapping({ "/update" })
-	public String updateItemPost (@RequestParam String nom, @RequestParam float prix, @RequestParam int pointsDeVie, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
-			Model model) {
-
-		Item myItem = new Item();
-		Capacite myCapacite = new Capacite();
-
-		myCapacite.setPointsDeVie(pointsDeVie);
-		myCapacite.setAttaque(attaque);
-		myCapacite.setDefense(defense);
-		myCapacite.setVitesse(vitesse);
-		myCapacite.setEsquive(esquive);
+	public String updateItemPost (@Valid @ModelAttribute("item") Item item, BindingResult result, Model model) {
+		if (result.hasErrors()) {
+			return "createItem";
+		}
 		
-		myItem.setNom(nom);
-		myItem.setPrix(prix);
-		myItem.setCapacite(myCapacite);
-		
-		daoItem.save(myItem);
+		daoItem.save(item);
 
-		return "read";
+		return "redirect:/item/read";
 	}
 }
+
+
+
+//(@RequestParam String nom, @RequestParam float prix, @RequestParam int pointsDeVie, @RequestParam int attaque, @RequestParam int defense, @RequestParam int esquive, @RequestParam int vitesse,
+//		Model model)
