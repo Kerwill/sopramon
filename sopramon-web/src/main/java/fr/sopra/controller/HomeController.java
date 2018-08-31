@@ -1,5 +1,6 @@
 package fr.sopra.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import fr.sopra.idao.IDAOSopramon;
 import fr.sopra.idao.IDAOUtilisateur;
@@ -40,44 +40,63 @@ public class HomeController {
 	}
 
 	@GetMapping("/utilisateur")
-	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model) {
+	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model,
+			HttpSession session) {
 
-		
-		System.out.println("yes");
-		
-		return "home";}
-	
+		Utilisateur checkUser = daoUser.findByUsernameAndPassword(utilisateur.getUsername(), utilisateur.getPassword());
+
+		if (checkUser == null) {
+			result.rejectValue("username", "username.errone", "Nom ou mot de passe erroné");
+
+			return "home";
+		}
+
+		else if (checkUser.getAccess() == 1) {
+			result.rejectValue("username", "username.banni", "Vous êtes banni");
+
+			return "home";
+		}
+
+		else {
+			System.out.println("ok");
+			session.setAttribute("utilisateur", checkUser);
+			return "menuSopramon";
+		}
+
+	}
+
+	@GetMapping("/administrateur")
+	public String login(@Valid @ModelAttribute Administrateur administrateur, BindingResult result, Model model,
+			HttpSession session) {
+
+		Utilisateur checkAdmin = daoUser.findByUsernameAndPassword(administrateur.getUsername(),
+				administrateur.getPassword());
+
+
+		if (checkAdmin == null) {
+
+			result.rejectValue("username", "username.errone", "Nom ou mot de passe erroné");
+			return "home";
+		}
+
+		if (checkAdmin.getAccess() == 2) {
+			session.setAttribute("administrateur", checkAdmin);
+			return "admin";
+		}
+
+		else {
+			result.rejectValue("admin", "username.errone", "Nom ou mot de passe erroné");
+			return "home";
+		}
+	}
+
 }
-	
-//		Utilisateur checkUser = daoUser.findByUsernameAndPassword(utilisateur.getUsername(),utilisateur.getPassword());
-//		
-//		if (checkUser == null) {
-//		result.rejectValue("username.empty", "Nom ou mot de passe erroné");
-//		return "home";
-//		}
-//		
-//		if (checkUser.getAccess() == "1")
-//		{
-//			result.reject("Nom ou mot de passe erroné");
-//			return "home";
-//			}
-//		
-//		else
-//		{
-//			model.addAttribute("sopramon", daoSopramon.findById(utilisateur.getId()));
-//			return "menuSopramon";
-//		}
-//
-//		
-//		
-//		}
-//
+
 //	
 //	 @GetMapping("/logout")
 //	    public String logout(Model model) {
 //	        return "logout";
 //	    }
-
 
 //	if (bindingResult.hasErrors()) {
 //        model.addAttribute("form", form)

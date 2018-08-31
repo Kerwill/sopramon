@@ -32,7 +32,7 @@ public class Item {
 	private String nom;
 	
 	@Column(name="ITE_PRIX", nullable=false)
-	@Positive(message="Le prix doit Ãªtre positif.")
+	@Positive(message="Le prix doit être positif.")
 	@Min(1)
 	private double prix;
 	

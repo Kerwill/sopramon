@@ -43,10 +43,8 @@ public class Utilisateur {
 	@NotEmpty
 	private String password = "Unknown"; 
 	
-	@Column(name = "UTI_ACCESS", length = 30, nullable = false)
-	@Size(max=30)
-	@NotEmpty
-	private int access =0;
+	@Column(name = "UTI_ACCESS")
+	private int access = 0;
 	
 	public int getAccess() {
 		return access;

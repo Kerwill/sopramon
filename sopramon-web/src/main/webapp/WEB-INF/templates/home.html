@@ -22,6 +22,8 @@ layout:decorator="layout.html">
 <section layout:fragment="custom-content">
 	<div id="front">
 
+
+
 		<nav>
 			<section id="admin">
 				<fieldset>
@@ -32,7 +34,7 @@ layout:decorator="layout.html">
 			<section id="login">
 				<fieldset>
 					<legend> Espace utilisateur </legend>
-					<form id="connexion" action ="/sopramon-web/utilisateur" method = "get">
+					<form id="connexion" action ="/sopramon-web/utilisateur">
 						<label for="username"> Votre username : </label> <input
 							type="text" name="username" placeholder="username" required /> <label
 							for="password"><br/> Votre password : </label> <input type="password"
@@ -40,8 +42,8 @@ layout:decorator="layout.html">
 							type="submit" value="Connexion" /> <label> <input
 							type="checkbox" name="remember"> Se souvenir de moi
 						</label>
+						<span th:errors="${utilisateur.username}"></span>
 					</form>
-
 
 					<div>
 						<a href="signin.html">Créer un compte</a>
@@ -98,7 +100,7 @@ layout:decorator="layout.html">
 
 <!-- /*action = "/sopramon-web/administration"* -->
 
-			<form id="adminconnexion" method = "get" >
+			<form id="adminconnexion" method = "get" action = "/sopramon-web/administrateur">
 				<fieldset>
 					<legend>Connexion administrateur</legend>
 					<label for="username"> Votre username : </label> <br /> <input
@@ -106,9 +108,11 @@ layout:decorator="layout.html">
 					<label for="password"> Votre password : </label> <br /> <input
 						type="password" name="password" placeholder="*********" required /><br />
 
-					<input type="submit" value="utilisateur" /> <br /> <label>
+					<input type="submit" value="Validez" /> <br /> <label>
 						<input type="checkbox" name="remember"> Se souvenir de moi
-					</label> <br /> <a href="admin.html"> Connexion temporaire direct</a>
+					</label>
+					
+					<span th:errors="${administrateur.username}"></span>
 				</fieldset>
 			</form>
 		</div>
