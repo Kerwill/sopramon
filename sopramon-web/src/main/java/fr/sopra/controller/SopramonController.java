@@ -2,6 +2,8 @@ package fr.sopra.controller;
 
 import java.util.List;
 
+import javax.persistence.metamodel.SetAttribute;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.sopra.idao.IDAOCapacite;
 import fr.sopra.idao.IDAOSopramon;
+import fr.sopra.idao.IDAOUtilisateur;
 import fr.sopra.model.game.Capacite;
 import fr.sopra.model.game.Item;
 import fr.sopra.model.game.Signe;
@@ -23,6 +26,10 @@ public class SopramonController {
 	@Autowired
 	private IDAOSopramon daoSopramon;
 	 
+	@Autowired
+	private IDAOUtilisateur daoUtilisateur;
+	 
+	
 	@Autowired
 	private IDAOCapacite daoCapacite;
 	/*OK*/
@@ -91,10 +98,12 @@ public class SopramonController {
 		return "createSopramon";
 	}
 	
-	
+
 	@GetMapping("/bannirSopramon")
-	public String bannirSopramon(@RequestParam int id, @RequestParam int access, Model model) {
-		model.addAttribute("sopramon", daoSopramon.findById(id).get());
+	public String bannirSopramon(@RequestParam int access, Model model) {
+		
+		if (access == 0) {access = 1;} else {access = 0;}
+		
 		return "redirect:sopramon";
 	}
 	
