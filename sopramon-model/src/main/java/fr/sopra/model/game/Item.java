@@ -12,11 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
-
-import fr.sopra.model.game.Achat;
 
 @Entity
 @Table(name="item")
@@ -34,10 +33,10 @@ public class Item {
 	
 	@Column(name="ITE_PRIX", nullable=false)
 	@Positive(message="Le prix doit être positif.")
-	@NotEmpty(message="Le prix est obligatoire.")
+	@Min(1)
 	private double prix;
 	
-	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinColumn(name="ITE_CAPACITE_ID")
 	private Capacite capacite = new Capacite();
 

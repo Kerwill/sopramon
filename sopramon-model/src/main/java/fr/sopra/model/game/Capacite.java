@@ -19,23 +19,18 @@ public class Capacite {
 	private int id;
 	
 	@Column(name = "CAP_PV", nullable = true)
-	@NotEmpty(message="Ce champ est obligatoire.")
 	private int pointsDeVie = 0;
 	
 	@Column(name = "CAP_ATTAQUE", nullable = true)
-	@NotEmpty(message="Ce champ est obligatoire.")
 	private int attaque = 0;
 	
 	@Column(name = "CAP_DEFENSE", nullable = true)
-	@NotEmpty(message="Ce champ est obligatoire.")
 	private int defense = 0;
 	
 	@Column(name = "CAP_ESQUIVE", nullable = true)
-	@NotEmpty(message="Ce champ est obligatoire.")
 	private int esquive = 0;
 	
 	@Column(name = "CAP_VITESSE", nullable = true)
-	@NotEmpty(message="Ce champ est obligatoire.")
 	private int vitesse = 0;
 
 	public int getId() {
