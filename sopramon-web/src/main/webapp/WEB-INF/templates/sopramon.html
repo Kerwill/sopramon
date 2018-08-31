@@ -3,7 +3,6 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layout.html">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -19,11 +18,13 @@
 	<div layout:fragment="custom-content">
 		<a href="ajouterSopramon">Ajouter un sopramon</a>
 
-		<table class="table table-striped">
+		<table class="table table-dark">
 			<thead>
 				<tr>
 					<th>Id</th>
 					<th>Nom</th>
+					<th>PV</th>
+					<th>Attaque</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -32,7 +33,9 @@
 				<tr th:each="sopramon : ${ sopramons }">
 					<td>[[${ sopramon.id }]]</td>
 					<td>[[${ sopramon.nom }]]</td>
-					<td><a th:href="@{editerSopramon(id=${ sopramon.id })}" class="btn btn-outline-primary">Editer</a> 
+					<td>[[${ sopramon.capacite.pointsDeVie }]]</td>
+					<td>[[${ sopramon.capacite.attaque }]]</td>
+					<td><a th:href="@{createSop(id=${ sopramon.id })}" class="btn btn-outline-primary">Editer</a> 
 						<a th:href="@{supprimerSopramon(id=${ sopramon.id })}" class="btn btn-outline-dark">Supprimer</a> 
 						<a th:href="@{bannirSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Bannir</a>
 					</td>

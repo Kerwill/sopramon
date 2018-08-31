@@ -1,5 +1,7 @@
 package fr.sopra.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.sopra.idao.IDAOCapacite;
 import fr.sopra.idao.IDAOSopramon;
 import fr.sopra.model.game.Capacite;
+import fr.sopra.model.game.Item;
+import fr.sopra.model.game.Signe;
 import fr.sopra.model.game.Sopramon;
 
 
@@ -18,7 +23,9 @@ public class SopramonController {
 	@Autowired
 	private IDAOSopramon daoSopramon;
 	 
-	
+	@Autowired
+	private IDAOCapacite daoCapacite;
+	/*OK*/
 	@GetMapping("/sopramon")
 	public String findAll(Model model) {
 		model.addAttribute("sopramons", daoSopramon.findAll());
@@ -26,19 +33,50 @@ public class SopramonController {
 	}
 	
 	
-//	@GetMapping("/ajouterSopramon")
-//	public String ajouterSopramon(Model model) {
+//	@GetMapping("/createSopramon")
+//	public String createSopramon(Model model) {
 //		model.addAttribute("gammes", daoGamme.findAll());
 //		return "form-sopramon";
 //	}
 	
 	
-	@PostMapping("/ajouterSopramon")
-	public String ajouterSopramon(@ModelAttribute Sopramon sopramon) {
+	@PostMapping("/createSopramon")
+	public String createSopramon(@ModelAttribute Sopramon sopramon) {
 		daoSopramon.save(sopramon);
 		return "redirect:sopramon";
 	}
 	
+	@GetMapping("/createSop")
+	public String createSopramon(Model model) {
+		List<Capacite> capacites = daoCapacite.findAll();
+		model.addAttribute("capacites", capacites);
+	
+		return "createSopramon";
+	}
+	
+	@PostMapping({ "/createSop" })
+	public String createSopramon(@RequestParam String nom, @RequestParam int niveau, @RequestParam Signe signe, 
+								@RequestParam int pv, @RequestParam int attaque,@RequestParam int defense, 
+								@RequestParam int esquive, @RequestParam int vitesse, Model model) {
+		
+		Sopramon mySopramon = new Sopramon();
+		Capacite myCapacite = new Capacite();
+
+		mySopramon.setNom(nom);
+		mySopramon.setNiveau(niveau);
+		mySopramon.setSigne(signe);
+		mySopramon.setCapacite(myCapacite);
+		
+		myCapacite.setPointsDeVie(pv);
+		myCapacite.setAttaque(attaque);
+		myCapacite.setDefense(defense);
+		myCapacite.setVitesse(vitesse);
+		myCapacite.setEsquive(esquive);
+		
+		daoSopramon.save(mySopramon);
+
+		return "redirect:sopramon";
+	}
 	
 	@GetMapping("/supprimerSopramon")
 	public String supprimerSopramon(@RequestParam int id) {
