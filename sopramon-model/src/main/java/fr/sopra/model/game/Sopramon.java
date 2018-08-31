@@ -33,29 +33,25 @@ import fr.sopra.model.Utilisateur;
 public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss, Combat> {
 	
 	@Column(name = "SOP_NOM", length=30, nullable = false)
-	@NotEmpty
-	@Size(max = 30)
+	@NotEmpty(message="Le nom est obligatoire.")
+	@Size(max = 30, message="Le nom doit comporter moins de 30 caractères.")
 	private String nom = "Unknown";
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "SOP_DATE")
-	@NotEmpty
 	private Date dateNaissance = new Date();
 	
 	
 	@Column(name = "SOP_EXPERIENCE")
-	@PositiveOrZero
-	@NotEmpty
+	@PositiveOrZero(message="La valeur d'expérience est supérieure ou égale à 0.")
 	private int experience = 0;
 	
 	@Column(name = "SOP_NIVEAU", nullable = false)
-	@Positive
-	@NotEmpty
+	@Positive(message="Le niveau doit être strictement supérieur à 0.")
 	private int niveau = 1;
 	
 	@Column(name = "SOP_ARGENT")
-	@NotEmpty
-	@PositiveOrZero
+	@PositiveOrZero (message="La maison ne fait pas crédit !!")
 	private double argent = 0.00d;
 	
 	
@@ -65,12 +61,10 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "SOP_SIGNE")
-	@NotEmpty
 	private Signe signe = Signe.UNKNOWN;
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "SOP_TYPE")
-	@NotEmpty
 	private Type type = Type.UNKNOWN;
 	
 	
