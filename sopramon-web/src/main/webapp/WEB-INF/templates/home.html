@@ -32,7 +32,7 @@ layout:decorator="layout.html">
 			<section id="login">
 				<fieldset>
 					<legend> Espace utilisateur </legend>
-					<form id="connexion" action ="/sopramon-web/utilisateur">
+					<form id="connexion" action ="/sopramon-web/utilisateur" method = "get">
 						<label for="username"> Votre username : </label> <input
 							type="text" name="username" placeholder="username" required /> <label
 							for="password"><br/> Votre password : </label> <input type="password"
@@ -98,7 +98,7 @@ layout:decorator="layout.html">
 
 <!-- /*action = "/sopramon-web/administration"* -->
 
-			<form id="adminconnexion" >
+			<form id="adminconnexion" method = "get" >
 				<fieldset>
 					<legend>Connexion administrateur</legend>
 					<label for="username"> Votre username : </label> <br /> <input
