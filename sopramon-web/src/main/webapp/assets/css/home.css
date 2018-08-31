@@ -26,8 +26,19 @@ nav section {
 nav section:not(#credits){
 	
 	font-family: 'Righteous', Arial;
+<<<<<<< HEAD
 } 
   
+=======
+}
+ 
+ #slideshow {
+	flex: 6;
+	min-width: 1200px;
+}
+ 
+ 
+>>>>>>> master
 legend {
 	font-family: 'Righteous', Arial;
 }

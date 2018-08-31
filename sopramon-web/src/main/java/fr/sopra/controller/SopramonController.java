@@ -1,6 +1,5 @@
 package fr.sopra.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,6 +53,12 @@ public class SopramonController {
 		return "form-sopramon";
 	}
 	
+	
+	@GetMapping("/bannirSopramon")
+	public String bannirSopramon(@RequestParam int id, Model model) {
+		model.addAttribute("sopramon", daoSopramon.findById(id).get());
+		return "form-sopramon";
+	}
 	
 //	@PostMapping("/editerSopramon")
 //	public String editerSopramon(@ModelAttribute Sopramon sopramon) {
