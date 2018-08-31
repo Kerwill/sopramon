@@ -56,8 +56,8 @@ public class SopramonController {
 	
 	@PostMapping({ "/createSop" })
 	public String createSopramon(@RequestParam String nom, @RequestParam int niveau, @RequestParam Signe signe, 
-								@RequestParam int pv, @RequestParam int attaque,@RequestParam int defense, 
-								@RequestParam int esquive, @RequestParam int vitesse) {
+								 @RequestParam int pv, @RequestParam int attaque,@RequestParam int defense, 
+								 @RequestParam int esquive, @RequestParam int vitesse) {
 		
 		Sopramon mySopramon = new Sopramon();
 		Capacite myCapacite = new Capacite();

@@ -40,12 +40,13 @@
 					<td>[[${ sopramon.nom }]]</td>
 					<td>[[${ sopramon.capacite.pointsDeVie }]]</td>
 					<td>[[${ sopramon.capacite.attaque }]]</td>
-					<td><a th:href="@{createSop(id=${ sopramon.id })}" class="btn btn-outline-primary">Editer</a> 
+					<td>
+						<a th:href="@{createSop(id=${ sopramon.id })}" class="btn btn-outline-primary">Editer</a> 
 						<a th:href="@{supprimerSopramon(id=${ sopramon.id })}" class="btn btn-outline-dark">Supprimer</a> 
 					</td>
 					<td>
 						<a th:href="@{bannirSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Bannir</a>
-						[[${ utilisateur.acces }]]
+						[[${ sopramon.access }]]
 					</td>
 				</tr>
 			</tbody>
