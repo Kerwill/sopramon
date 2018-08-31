@@ -1,5 +1,5 @@
 #front {
-	min-height: 800px;
+	min-height: 700px;
 	display: flex;
 	text-align: center;
 	justify-content: stretch;
@@ -15,7 +15,7 @@
 }
 
 nav section {
-	padding-bottom: 35px;
+	padding-bottom: 25px;
 	padding-top: 15px;
 	margin-left : auto;
 	margin-right : auto;
@@ -26,10 +26,7 @@ nav section {
 nav section:not(#credits){
 	
 	font-family: 'Righteous', Arial;
-<<<<<<< HEAD
-} 
-  
-=======
+
 }
  
  #slideshow {
@@ -37,8 +34,7 @@ nav section:not(#credits){
 	min-width: 1200px;
 }
  
- 
->>>>>>> master
+
 legend {
 	font-family: 'Righteous', Arial;
 }
@@ -49,6 +45,7 @@ fieldset {
 	text-align: center;
 	display: inline-block;
 	margin : auto;
+	font-size : 0.8em;
 }
 
 #credits {
@@ -68,10 +65,7 @@ fieldset {
 	display: block;
 }
 
-#slideshow {
-	flex: 6;
-	min-width: 1200px;
-}
+
 
 /* Slideshow container */
 .slideshow-container {
