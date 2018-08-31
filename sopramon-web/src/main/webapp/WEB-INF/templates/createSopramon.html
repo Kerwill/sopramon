@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layout.html">
+    
+	<head>
+		<title>Ajouter un sopramon</title>
+	</head>
+	
+	<body>
+		<h1 layout:fragment="custom-title">Ajouter un sopramon</h1>
+		
+		<div layout:fragment="custom-content">
+			<form method="POST">
+				<div class="form-group row">
+					<label for="nom" class="col-sm-2 col-form-label">Nom du sopramon</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="nom" name="nom" th:value="${ sopramon?.nom }" placeholder="Nom du sopramon" />
+					</div>
+				</div>
+				
+				<div class="form-group row">
+					<label for="nom" class="col-sm-2 col-form-label">Niveau du sopramon</label>
+					<div class="col-sm-10">
+						<input type="number" class="form-control" id="niveau" name="niveau" th:value="${ sopramon?.prix }" placeholder="Niveau du sopramon" />
+					</div>
+				</div>
+				
+				
+<!-- Dropdown menu de tous les signes -->				
+				<!-- <div class="form-group row">
+					<label for="nom" class="col-sm-2 col-form-label">Signe du sopramon</label>
+					<select class="form-control col-sm-10" name="signe">
+						<option th:each="signe : ${ signes }"
+							th:value="${ signe }"
+							th:text="${ signe.nom }"
+							th:selected="${ signe == sopramon?.signe }">	
+						</option>
+					</select>
+				</div> -->
+				
+<!-- Champs pour les capacités à ajouter -->	
+<!-- .... -->		
+		
+				<div class="form-group row">
+					<div class="col-sm-2">
+						<a href="sopramon" class="btn btn-outline-warning">Annuler</a>
+					</div>
+					
+					<div class="col-sm-10">
+						<button type="submit" class="btn btn-outline-primary">Valider</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
