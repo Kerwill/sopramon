@@ -14,47 +14,21 @@
 		<h1 layout:fragment="custom-title">Consultez ici l'historique des achats !</h1>
 	</header>
 	<section layout:fragment="custom-content">
-		<td><a class="btn btn-secondary btn-lg"
-			href="http://localhost:8080/sopramon-web/item/create">Ajouter un
-				item</a></td>
 		<table class="table table-dark">
-
-
-			<col>
-			<col>
-			<col>
-			<colgroup span="5"></colgroup>
-			<col>
 			<thead>
 				<tr>
-					<th rowspan="2">ID</th>
-					<th rowspan="2">Nom</th>
-					<th rowspan="2">Prix</th>
-					<th colspan="5" scope="colgroup">Capacites</th>
-					<th rowspan="2">Action</th>
+					<th>Date d'achat</th>
+					<th>Prix d'achat</th>
+					<th>Item acheté</th>
+					<th>Sopramon acheteur</th>
 				</tr>
-				<tr>
-					<th>PV</th>
-					<th>Attaque</th>
-					<th>Defense</th>
-					<th>Esquive</th>
-					<th>Vitesse</th>
-				<tr>
 			</thead>
 			<tbody>
-				<tr th:each="item : ${items}">
-					<td th:text="${ item.id}"></td>
-					<td th:text="${ item.nom }"></td>
-					<td th:text="${ item.prix}"></td>
-					<td th:text="${ item.capacite.pointsDeVie}"></td>
-					<td th:text="${ item.capacite.attaque}"></td>
-					<td th:text="${ item.capacite.defense}"></td>
-					<td th:text="${ item.capacite.esquive}"></td>
-					<td th:text="${ item.capacite.vitesse}"></td>
-					<td><a class="btn btn-primary"
-						th:href="@{item/update(id=${item.id})}">Editer</a></td>
-					<td><a class="btn btn-warning"
-						th:href="@{item/delete(id=${item.id})}">Supprimer</a></td>
+				<tr th:each="achat : ${achats}">
+					<td th:text="${ achat.date}"></td>
+					<td th:text="${ achat.prix }"></td>
+					<td th:text="${ achat.item.nom}"></td>
+					<td th:text="${ achat.sopramon.nom}"></td>
 				</tr>
 			</tbody>
 		</table>
