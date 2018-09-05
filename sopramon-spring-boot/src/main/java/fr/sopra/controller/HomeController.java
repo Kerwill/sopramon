@@ -37,6 +37,15 @@ public class HomeController {
 	}
 	
 	
+	@GetMapping("/administrateur")
+	public String login(@Valid @ModelAttribute Administrateur administrateur, BindingResult result, Model model) {
+
+		
+
+			return "admin";
+		}
+
+	
 	//accueil
 	
 	@GetMapping("/home")
