@@ -28,14 +28,14 @@ public class UtilisateurPrincipal implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> myAuthorities = new ArrayList<GrantedAuthority>();
 		
-//		if (this.utilisateur.getAdmin()) {
+		if (this.utilisateur.isAdmin()) {
 			myAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-//			}
+			}
 		
-//		else {
-//				myAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-//		}
-//		
+		else {
+				myAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		}
+		
 		
 		return myAuthorities;
 
