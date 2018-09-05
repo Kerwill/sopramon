@@ -12,9 +12,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled=true, securedEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	
-
-	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	http
@@ -26,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	.formLogin()
 	.loginPage("/home")
 	.loginProcessingUrl("/perform_login")
-	.defaultSuccessUrl("/home", true)
+	.defaultSuccessUrl("/sopramon", true)
 	.failureUrl("/home?error=true")
 	.permitAll()
 	.and()

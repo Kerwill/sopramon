@@ -43,15 +43,12 @@ public class Utilisateur {
 	@NotEmpty
 	private String password = "Unknown"; 
 	
-	@Column(name = "UTI_ACCESS")
-	private int access = 0;
+	@Column(name = "UTI_IS_ADMIN")
+	private boolean admin;
 	
-	public int getAccess() {
-		return access;
-	}
-	public void setAccess(int access) {
-		this.access = access;
-	}
+	@Column(name = "UTI_IS_BANNED")
+	private boolean banned;
+	
 	public int getId() {
 		return id;
 	}
@@ -81,6 +78,18 @@ public class Utilisateur {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public boolean isAdmin() {
+		return admin;
+	}
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+	public boolean isBanned() {
+		return banned;
+	}
+	public void setBanned(boolean banned) {
+		this.banned = banned;
 	}
 
 	
