@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.metamodel.SetAttribute;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,7 @@ import fr.sopra.model.game.Sopramon;
 
 
 @Controller
+@PreAuthorize("hasRole('ROLE_ADMIN')")
 public class SopramonController {
 	@Autowired
 	private IDAOSopramon daoSopramon;
@@ -60,7 +62,7 @@ public class SopramonController {
 	
 		return "createSopramon";
 	}
-}
+
 //	@PostMapping({ "/createSop" })
 //	public String createSopramon(@RequestParam String nom, @RequestParam int niveau, @RequestParam Signe signe, 
 //								 @RequestParam int pv, @RequestParam int attaque,@RequestParam int defense, 
@@ -99,26 +101,29 @@ public class SopramonController {
 //	}
 //	
 //
-//	@GetMapping("/bannirSopramon")
-//	public String bannirSopramon(@RequestParam int id, Model model) {
-//		Sopramon bannedSopramon = daoSopramon.findById(id).get();
-//		bannedSopramon.setAccess(1);
-//		daoSopramon.save(bannedSopramon);
-//
-//		
-//		return "redirect:sopramon";
-//	}
-//	
-//	@GetMapping("/debannirSopramon")
-//	public String debannirSopramon(@RequestParam int id, Model model) {
-//		Sopramon debannedSopramon = daoSopramon.findById(id).get();
-//		debannedSopramon.setAccess(0);
-//		daoSopramon.save(debannedSopramon);
-//		System.out.println(debannedSopramon.getAccess());
-//
-//		
-//		return "redirect:sopramon";
-//	}
-//	
-//
-//}
+	@GetMapping("/bannirSopramon")
+	public String bannirSopramon(@RequestParam int id, Model model) {
+		Sopramon bannedSopramon = daoSopramon.findById(id).get();
+		if (bannedSopramon.isBanned() == false) {
+		bannedSopramon.setBanned(true);
+		
+		daoSopramon.save(bannedSopramon);
+		}
+		
+		return "redirect:sopramon";
+	}
+	
+	@GetMapping("/debannirSopramon")
+	public String debannirSopramon(@RequestParam int id, Model model) {
+		Sopramon debannedSopramon = daoSopramon.findById(id).get();
+		if (debannedSopramon.isBanned() == true) {
+		debannedSopramon.setBanned(false);
+		
+		daoSopramon.save(debannedSopramon);
+		}
+		
+		return "redirect:sopramon";
+	}
+	
+
+}
