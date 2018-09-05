@@ -3,7 +3,6 @@
 layout:decorator="layout.html">
 
 <head>
-<base href="/sopramon-web/" />
 <meta charset="UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -34,20 +33,20 @@ layout:decorator="layout.html">
 	<section id="signin">
 		<fieldset>
 			<legend>Inscrivez-vous et entrez dans la SopraZone</legend>
-			<form id="inscription">
+			<form id="inscription" method="POST">
 
-			<label for="firstname"> Votre Prénom : </label><br /> <input
-					type="text" name="prenomUtil" th:value="${sopramon.prenomUtil}" placeholder="Prénom" required /><span th:errors="${sopramon.prenomUtil}"></span><br />
+				<label for="firstname"> Votre Prénom : </label><br /> 
+					<input type="text" name="prenomUtil" th:value="${prenomUtil}" placeholder="Prénom" required /><!-- <span th:errors="${prenomUtil}"></span> --><br />
 				<label for="surname"> Votre Nom : </label> <br />
-				<input type="text" name="nomUtil" th:value="${sopramon.nomUtil}" placeholder="NOM" required /><span th:errors="${sopramon.nomUtil}"></span> <br />
-				<label for="username"> Votre nom d'utilisateur : </label><br /> <input
-					type="text" name="username" th:value="${sopramon.username}" placeholder="username" required /><span th:errors="${sopramon.username}"><span th:errors="${sopramon.username}"></span></span> <br />
-				<label for="username"> Le nom de votre sopramon : </label><br /> <input
-					type="text" name="nom" th:value="${sopramon.nom}" placeholder="username" required /><span th:errors="${sopramon.nom}"></span> <br />
-				<label for="password"> Votre Mot de Passe : </label><br /> <input
-					type="password" name="password" th:value="${sopramon.password}" placeholder="******" required /><span th:errors="${sopramon.password}"></span><br />
+					<input type="text" name="nomUtil" th:value="${nomUtil}" placeholder="NOM" required /><!-- <span th:errors="${nomUtil}"></span> --> <br />
+				<label for="username"> Votre nom d'utilisateur : </label><br /> 
+					<input type="text" name="username" th:value="${username}" placeholder="username" required /><!-- <span th:errors="${sopramon.username}"> --><!-- <span th:errors="${sopramon.username}"></span> </span>--> <br />
+				<label for="username"> Le nom de votre sopramon : </label><br /> 
+					<input type="text" name="nom" th:value="${nom}" placeholder="username" required /><!-- <span th:errors="${sopramon.nom}"></span> --> <br />
+				<label for="password"> Votre Mot de Passe : </label><br /> 
+					<input type="password" name="password" th:value="${password}" placeholder="******" required /><!-- <span th:errors="${sopramon.password}"></span> --><br />
 				<label for="birthdate"> Votre Date de naissance : </label> <br />
-				<input type="date" name="dateNaissance" th:value="${sopramon.dateNaissance}" required /><span th:errors="${sopramon.dateNaissance}"></span><br />
+					 <input type="date" name="dateNaissance" th:value="${dateNaissance}" required /><!-- <span th:errors="${sopramon.dateNaissance}"></span> --><br />
 
 				<div class="bouton">
 					<input type="submit" value="S'inscrire" />

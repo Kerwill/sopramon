@@ -52,9 +52,9 @@ public class HomeController {
 	public String getHome() {
 		return "home";
 	}
+
 }
 
-	
 
 //	@GetMapping("/utilisateur")
 //	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model) {
