@@ -1,130 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	layout:decorator="layout.html">
 <head>
 <title>Sopraworld</title>
 <meta charset="utf-8">
 <meta name="description" content="Partez explorer votre monde" />
 
-<link rel="stylesheet" href="menuSopramon.css">
-<link rel="stylesheet" href="spinner.css">
+
 </head>
+
 <body>
 
-	<ul>
-		<li><a href="menuSopramon.html">Expédition</a></li>
-		<li><a href="#">News</a></li>
-		<li><a href="#popup1">Mon Sopramon</a></li>
-		<li><a href="faitsdArmes.html">Faits d'armes</a></li>
-		<li class="dropdown"><a href="javascript:void(0)" class="dropbtn">Profil</a>
-			<div class="dropdown-content">
-				<a href="#">Mon Profil</a> <a href="#">Paramètres</a> <a href="#">Mes
-					messages</a> <a href="index.html">Déconnecter</a>
-			</div></li>
-		<li class="dropdown1"><a href="javascript:void(0)"
-			class="dropbtn">Gestion de l'inventaire</a>
-			<div class="dropdown-content1">
-				<a href="besace.html">Ma besace</a> <a href="echoppe.html">L'échoppe</a>
-			</div></li>
-	</ul>
 
-	<div id="popup1" class="overlay">
-		<div class="popupMonsopramon">
-			<h2>Nom de mon Sopramon</h2>
-			<a class="close" href="#">&times;</a>
-			<div class="content">
-				<img id="monster"
-					src="sopramon.png">
-				<form id="connexion">
-					<label for="username"> Votre nom d'utilisateur : </label> <input
-						type="text" name="username"
-						placeholder="Indiquer votre nom d'utilisateur" required /> <br/><label
-						for="password"> Votre Mot de Passe : </label> <input
-						type="password" name="password"
-						placeholder="Indiquer votre mot de passe" required />
-					<br/>
+	<header>
+		<h1 layout:fragment="custom-title">
+			<span id="zodiaque">&#9800; &#9801; &#9802; &#9803; &#9804;
+				&#9805;</span>Explorez le SopraWorld !<span id="zodiaque">&#9806;
+				&#9807; &#9808; &#9809; &#9810; &#9811;</span>
+		</h1>
+	</header>
 
-			
-						<input id="connexion" type="submit" value="Se connecter" />
-				
-				</form>
+	<section layout:fragment="custom-content">
+
+		<div id="front">
+
+			<nav>
+				<section id="admin">
+					<fieldset>
+						<legend> Espace Administrateur </legend>
+						<a th:href="@{administrateur}" class="btn btn-danger" role="button">Accéder</a>
+						</fieldset>
+						
+				</section>
 
 
+				<section id="credits">
+					<p>Powered by :</p>
+					<img src="assets/img/sopra.png" alt="explorer le sopraworld"
+						width="300px" height="100px" />
+				</section>
+			</nav>
+		</div>
 
-				<table id='sopramon'>
-					<thead>
-						<tr>
-							<th rowspan="2">Nom du Sopramon</th>
-							<th rowspan="2">Signe</th>
-							<th rowspan="2">Date de naissance</th>
-							<th rowspan="2">Experience</th>
-							<th rowspan="2">Niveau</th>
-							<th colspan="6">Capacite</th>
+		<div id="popup1" class="overlay">
+			<div class="popupMonsopramon">
+				<h2>Nom de mon Sopramon</h2>
+				<a class="close" href="#">&times;</a>
+				<div class="content">
+					<img id="monster" src="assets/img/sopramon.png">
+					<form id="connexion">
+						<label for="username"> Votre nom d'utilisateur : </label> <input
+							type="text" name="username"
+							placeholder="Indiquer votre nom d'utilisateur" required /> <br />
+						<label for="password"> Votre Mot de Passe : </label> <input
+							type="password" name="password"
+							placeholder="Indiquer votre mot de passe" required /> <br /> <input
+							id="connexion" type="submit" value="Se connecter" />
 
-						</tr>
-						<tr>
-							<th>Attaque</th>
-							<th>Defense</th>
-							<th>Esquive</th>
-							<th>Point de Vie</th>
-							<th>Vitesse</th>
+					</form>
 
-						</tr>
-					</thead>
 
-					<tbody>
 
-					</tbody>
+					<table id='sopramon'>
+						<thead>
+							<tr>
+								<th rowspan="2">Nom du Sopramon</th>
+								<th rowspan="2">Signe</th>
+								<th rowspan="2">Date de naissance</th>
+								<th rowspan="2">Experience</th>
+								<th rowspan="2">Niveau</th>
+								<th colspan="6">Capacite</th>
 
-				</table>
+							</tr>
+							<tr>
+								<th>Attaque</th>
+								<th>Defense</th>
+								<th>Esquive</th>
+								<th>Point de Vie</th>
+								<th>Vitesse</th>
+
+							</tr>
+						</thead>
+
+						<tbody>
+
+						</tbody>
+
+					</table>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div id="game">
-		<div class="spinner">
-			<div class="dot1"></div>
-			<div class="dot2"></div>
+		<div id="game">
+			<div class="spinner">
+				<div class="dot1"></div>
+				<div class="dot2"></div>
+			</div>
+			<div id="jeu">
+				<div id="exploresopramon"></div>
+				<div>
+					<img id="donjon" src="assets/img/donjon.png">
+				</div>
+				<div>
+					<img id="shop" src="assets/img/shopping.png"> <img
+						id="shopborne" src="assets/img/spp-shop.png">
+				</div>
+				<div>
+					<img id="arene" src="assets/img/arena.png">
+				</div>
+				<div>
+					<img id="home" src="assets/img/home.jpg"> <img id="homeborne"
+						src="assets/img/homeborne.png">
+				</div>
+			</div>
 		</div>
-		<div id="jeu">
-			<div id="exploresopramon"></div>
-			<div>
-				<img id="donjon" src="donjon.png">
-			</div>
-			<div>
-				<img id="shop" src="shopping.png"> <img id="shopborne"
-					src="spp-shop.png">
-			</div>
-			<div>
-				<img id="arene" src="arena.png">
-			</div>
-			<div>
-				<img id="home" src="home.jpg"> <img id="homeborne"
-					src="homeborne.png">
-			</div>
-		</div>
-	</div>
 
 
-
-
-	<!-- <div id="buttons">
-		<button class="btn-attaquer">Attaquer</button>
-		<button class="btn-item">Utiliser un item</button>
-	</div>
-	<br />
-	<br />
-	<div id="buttonsDirH">
-		<button class="btn-gauche">←</button>
-		<button class="btn-droite">→</button>
-	</div>
-	<div id="buttonsDirVb">
-		<button class="btn-bas">↓</button>
-	</div>
-	<div id="buttonsDirVh">
-		<button class="btn-haut">↑</button>
-	</div> -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="navigation.js"></script>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="assets/js/navigation.js"></script>
+	</section>
 </body>
 </html>
