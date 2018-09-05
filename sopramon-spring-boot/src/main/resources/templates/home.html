@@ -24,32 +24,11 @@ layout:decorator="layout.html">
 		<nav>
 			<section id="admin">
 				<fieldset>
-					<legend> Espace administrateur </legend>
-					<button id="boutonadminconnexion">Acceder</button>
+					<legend> Espace Connexion </legend>
+					<button id="boutonconnexion">Acceder</button>
 				</fieldset>
 			</section>
-			<section id="login">
-				<fieldset>
-					<legend> Espace utilisateur </legend>
-					<form id="connexion" action ="/sopramon-web/utilisateur">
-						<label for="username"> Votre username : </label> <input
-							type="text" name="username" placeholder="username" required /> <label
-							for="password"><br/> Votre password : </label> <input type="password"
-							name="password" placeholder="*********" required /><br/> <input
-							type="submit" value="Connexion" /> <label> <input
-							type="checkbox" name="remember"> Se souvenir de moi
-						</label>
-			
-					</form>
-
-					<div>
-						<a >Creer un compte</a>
-						
-						<!--  th:href="/inscription" -->
-					</div>
-
-				</fieldset>
-			</section>
+	
 
 			<section id="credits">
 				<p>Powered by :</p>
@@ -97,12 +76,13 @@ layout:decorator="layout.html">
 
 		<div class="overlay">
 
-			<form id="adminconnexion" method = "get" action = "/sopramon-web/administrateur">
+			<form id="userconnexion" method = "POST" action = "/perform_login">
+			<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />
 				<fieldset>
-					<legend>Connexion administrateur</legend>
-					<label for="username"> Votre username : </label> <br /> <input
+					<legend>Connexion</legend>
+					<label for="username"> Votre identifiant : </label> <br /> <input
 						type="text" name="username" placeholder="username" required /><br />
-					<label for="password"> Votre password : </label> <br /> <input
+					<label for="password"> Votre mot de passe : </label> <br /> <input
 						type="password" name="password" placeholder="*********" required /><br />
 
 					<input type="submit" value="Validez" /> <br /> <label>

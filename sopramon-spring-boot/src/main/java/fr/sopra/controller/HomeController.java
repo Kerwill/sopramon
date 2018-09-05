@@ -17,17 +17,15 @@ import fr.sopra.model.Utilisateur;
 @Controller
 public class HomeController {
 
+	//Déclaration des DAOS
+	
 	@Autowired
 	IDAOUtilisateur daoUser;
 
 	@Autowired
 	IDAOSopramon daoSopramon;
-
-	@GetMapping("/home")
-	public String getHome() {
-		return "home";
-	}
-
+	
+	//déclaration des model Attribute
 	@ModelAttribute("utilisateur")
 	public Utilisateur initUtilisateur() {
 		return new Utilisateur();
@@ -37,6 +35,16 @@ public class HomeController {
 	public Utilisateur initAdministrateur() {
 		return new Administrateur();
 	}
+	
+	
+	//accueil
+	
+	@GetMapping("/home")
+	public String getHome() {
+		return "home";
+	}
+
+	
 
 	@GetMapping("/utilisateur")
 	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model) {
@@ -44,7 +52,7 @@ public class HomeController {
 		Utilisateur checkUser = daoUser.findByUsernameAndPassword(utilisateur.getUsername(), utilisateur.getPassword());
 
 		if (checkUser == null) {
-			result.rejectValue("username", "username.errone", "Nom ou mot de passe erron�");
+			result.rejectValue("username", "username.errone", "Nom ou mot de passe errone");
 
 			return "home";
 		}

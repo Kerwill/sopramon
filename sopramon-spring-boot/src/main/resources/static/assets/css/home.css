@@ -160,7 +160,7 @@ to {
 }
 
 
-#adminconnexion {
+#userconnexion {
 	display: block;
 	margin: auto;
 	width: 35%;
@@ -171,14 +171,14 @@ to {
 	border-width: 10px;
 }
 
-#adminconnexion legend {
+#userconnexion legend {
 	margin-bottom: 15px;
 	font-family: 'Fredericka the Great', cursive;
 	color: #76323F;
 	font-weight : bold;
 }
 
-#adminconnexion input {
+#userconnexion input {
     margin-bottom : 35px;
 	margin-top : 10px;
 	
