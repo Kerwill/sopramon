@@ -22,13 +22,29 @@ layout:decorator="layout.html">
 	<div id="front">
 
 		<nav>
-			<section id="admin">
+		
+		<section id="login">
 				<fieldset>
-					<legend> Espace Connexion </legend>
-					<button id="boutonconnexion">Acceder</button>
+					<legend> Espace utilisateur </legend>
+					<form id="connexion" action ="/perform_login">
+						<label for="username"> Votre username : </label> <input
+							type="text" name="username" placeholder="username" required /> <label
+							for="password"><br/> Votre password : </label> <input type="password"
+							name="password" placeholder="*********" required /><br/> <input
+							type="submit" value="Connexion" /> <label> <input
+							type="checkbox" name="remember"> Se souvenir de moi
+						</label>
+			
+					</form>
+
+					<div>
+						<a >Creer un compte</a>
+						
+					</div>
+
 				</fieldset>
-			</section>
-	
+			</section> 
+			
 
 			<section id="credits">
 				<p>Powered by :</p>
@@ -74,27 +90,8 @@ layout:decorator="layout.html">
 
 		</section>
 
-		<div class="overlay">
-
-			<form id="userconnexion" method = "POST" action = "/perform_login">
-			<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />
-				<fieldset>
-					<legend>Connexion</legend>
-					<label for="username"> Votre identifiant : </label> <br /> <input
-						type="text" name="username" placeholder="username" required /><br />
-					<label for="password"> Votre mot de passe : </label> <br /> <input
-						type="password" name="password" placeholder="*********" required /><br />
-
-					<input type="submit" value="Validez" /> <br /> <label>
-						<input type="checkbox" name="remember"> Se souvenir de moi
-					</label>
-					
-	
-				</fieldset>
-			</form>
 		</div>
 
-	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

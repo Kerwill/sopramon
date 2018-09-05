@@ -148,7 +148,7 @@ to {
 }
 }
 
-.overlay {
+/* .overlay {
 	display: none;
 	position: absolute;
 	top: 0;
@@ -157,10 +157,10 @@ to {
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.7);
 	display: flex;
-}
+} */
 
 
-#userconnexion {
+/* #userconnexion {
 	display: block;
 	margin: auto;
 	width: 35%;
@@ -183,7 +183,7 @@ to {
 	margin-top : 10px;
 	
 }
-
+ */
 input[type="submit"], #admin button{
 	background: none;
 	box-sizing: border-box;
