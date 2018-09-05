@@ -3,6 +3,7 @@ package fr.sopra.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +37,10 @@ public class HomeController {
 	public Utilisateur initAdministrateur() {
 		return new Administrateur();
 	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/administrateur")
+	public String login(@Valid @ModelAttribute Administrateur administrateur, BindingResult result, Model model) {
 
 	@GetMapping("/menuSopramon")
 	public String login(@Valid @ModelAttribute Sopramon sopramon, BindingResult result, Model model) {
@@ -50,8 +55,8 @@ public class HomeController {
 		return "home";
 	}
 
-	@GetMapping("/administrateur")
-	public String login(@Valid @ModelAttribute Administrateur administrateur, BindingResult result, Model model) {
+}
+
 
 		return "admin";
 	}

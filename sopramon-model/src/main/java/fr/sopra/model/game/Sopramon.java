@@ -34,7 +34,7 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	
 	@Column(name = "SOP_NOM", length=30, nullable = false)
 	@NotEmpty(message="Le nom est obligatoire.")
-	@Size(max = 30, message="Le nom doit comporter moins de 30 caractères.")
+	@Size(max = 30, message="Le nom doit comporter moins de 30 caractÃ¨res.")
 	private String nom = "Unknown";
 	
 	@Temporal(TemporalType.DATE)
@@ -44,15 +44,15 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	
 	
 	@Column(name = "SOP_EXPERIENCE")
-	@PositiveOrZero(message="La valeur d'expérience est supérieure ou égale à 0.")
+	@PositiveOrZero(message="La valeur d'expÃ©rience est supÃ¨rieure ou Ã©gale Ã  0.")
 	private int experience = 0;
 	
 	@Column(name = "SOP_NIVEAU", nullable = false)
-	@Positive(message="Le niveau doit être strictement supérieur à 0.")
+	@Positive(message="Le niveau doit Ãªtre strictement supÃ¨rieur Ã  0.")
 	private int niveau = 1;
 	
 	@Column(name = "SOP_ARGENT")
-	@PositiveOrZero (message="La maison ne fait pas crédit !!")
+	@PositiveOrZero (message="La maison ne fait pas crÃ©dit !!")
 	private double argent = 0.00d;
 	
 	
