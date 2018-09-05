@@ -7,7 +7,6 @@ layout:decorator="layout.html">
 <meta charset="UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<base href="/sopramon-web/" />
 <link rel="stylesheet"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous"
@@ -29,7 +28,7 @@ layout:decorator="layout.html">
 
 		<nav>
 			<section>
-				<span><a href="index2arnaud.html"> Page d'accueil</a></span>
+				<span><a th:href="@{home}"> Page d'accueil</a></span>
 			</section>
 
 			<section>
@@ -55,8 +54,8 @@ layout:decorator="layout.html">
 					<div class="overclick">
 						<div class="text">
 							<ul>
-								<li><a href="#popup1">&#9805; Liste des Sopramons</a></li>
-								<li><a href="#">&#9806; Bannir un Sopramon</a></li>
+								<li><a th:href="@{sopramon}">&#9805; Liste des Sopramons</a></li>
+	<!-- 							<li><a th:href="">&#9806; Bannir un Sopramon</a></li> -->
 							</ul>
 						</div>
 					</div>
@@ -69,9 +68,9 @@ layout:decorator="layout.html">
 					<div class="overclick">
 						<div class="text">
 							<ul>
-								<li><a href="#">&#9810; Ajouter un boss</a></li>
-								<li><a href="#">&#9811; Supprimer un boss</a></li>
-								<li><a href="#">&#9800; Modifier un boss</a></li>
+<!-- 								<li><a th:href="#">&#9810; Ajouter un boss</a></li>
+								<li><a th:href="#">&#9811; Supprimer un boss</a></li>
+								<li><a th:href="#">&#9800; Modifier un boss</a></li> -->
 							</ul>
 						</div>
 					</div>
@@ -84,9 +83,10 @@ layout:decorator="layout.html">
 					<div class="overclick">
 						<div class="text">
 							<ul>
-								<li><a href="#">&#9801; Ajouter Items</a></li>
-								<li><a href="#">&#9802; Afficher et modifier les items</a></li>
-								<li><a href="#">&#9803; Supprimer des items</a></li>
+								<li><a th:href="@{item/create}">&#9801; Ajouter un item</a></li>
+								<li><a th:href="@{item/read}">&#9802; Afficher et modifier les items</a></li>
+								<li><a th:href="@{achat/read}">&#9811; Afficher les achats</a></li>
+		<!-- 						<li><a th:href="#">&#9803; Supprimer des items</a></li> -->
 							</ul>
 						</div>
 					</div>
@@ -98,7 +98,7 @@ layout:decorator="layout.html">
 					<div class="overclick">
 						<div class="text">
 							<ul>
-								<li><a href="#">&#9808; Liste des combats</a></li>
+								<li><a th:href="@{combat/read}">&#9808; Liste des combats</a></li>
 							</ul>
 						</div>
 
@@ -110,7 +110,7 @@ layout:decorator="layout.html">
 			<div id="popup1" class="overlaye">
 				<div class="popupListSopramon">
 					<h2>Liste des Sopramons</h2>
-					<a class='close' href="#">&times;</a>
+					<a class='close' th:href="@{sopramon}">&times;</a>
 					<div class="container">
 						<table id="listSopramon" class="table table-striped">
 							<thead>

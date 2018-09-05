@@ -60,7 +60,7 @@ public class SopramonController {
 	
 		return "createSopramon";
 	}
-}
+
 //	@PostMapping({ "/createSop" })
 //	public String createSopramon(@RequestParam String nom, @RequestParam int niveau, @RequestParam Signe signe, 
 //								 @RequestParam int pv, @RequestParam int attaque,@RequestParam int defense, 
@@ -99,26 +99,29 @@ public class SopramonController {
 //	}
 //	
 //
-//	@GetMapping("/bannirSopramon")
-//	public String bannirSopramon(@RequestParam int id, Model model) {
-//		Sopramon bannedSopramon = daoSopramon.findById(id).get();
-//		bannedSopramon.setAccess(1);
-//		daoSopramon.save(bannedSopramon);
-//
-//		
-//		return "redirect:sopramon";
-//	}
-//	
-//	@GetMapping("/debannirSopramon")
-//	public String debannirSopramon(@RequestParam int id, Model model) {
-//		Sopramon debannedSopramon = daoSopramon.findById(id).get();
-//		debannedSopramon.setAccess(0);
-//		daoSopramon.save(debannedSopramon);
-//		System.out.println(debannedSopramon.getAccess());
-//
-//		
-//		return "redirect:sopramon";
-//	}
-//	
-//
-//}
+	@GetMapping("/bannirSopramon")
+	public String bannirSopramon(@RequestParam int id, Model model) {
+		Sopramon bannedSopramon = daoSopramon.findById(id).get();
+		if (bannedSopramon.isBanned() == false) {
+		bannedSopramon.setBanned(true);
+		
+		daoSopramon.save(bannedSopramon);
+		}
+		
+		return "redirect:sopramon";
+	}
+	
+	@GetMapping("/debannirSopramon")
+	public String debannirSopramon(@RequestParam int id, Model model) {
+		Sopramon debannedSopramon = daoSopramon.findById(id).get();
+		if (debannedSopramon.isBanned() == true) {
+		debannedSopramon.setBanned(false);
+		
+		daoSopramon.save(debannedSopramon);
+		}
+		
+		return "redirect:sopramon";
+	}
+	
+
+}
