@@ -21,11 +21,11 @@ function showSlides() {
 }
 
 
-var myConnexionAdmin = $("#boutonadminconnexion");
+var myConnexionAdmin = $("#boutonconnexion");
 myConnexionAdmin.bind('click', function() {
 	$('.overlay').fadeIn("slow");
 	$(document).mouseup(function(e) {
-		var container = $('#adminconnexion');
+		var container = $('#userconnexion');
 
 		// if the target of the click isn't the container nor a descendant of
 		// the container
