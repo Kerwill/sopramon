@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout.html">
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>Ajouter et modifier</title>
+</head>
+<body>
+	<header>
+		<h1 layout:fragment="custom-title">Gerer ici vos items</h1>
+	</header>
+	<section layout:fragment="custom-content">
+		<form method="post">
+			<input type="hidden" name="capacite.id" th:value="${ item.capacite.id }" />
+		
+			<label for="nom" class="col-2 col-form-label">Nom de l'item :</label>
+			<div class="col-3">
+				<input class="form-control" name="nom" type="text"
+					th:value="${ item.nom }" id="nom" placeholder="Nom du item">
+					<span th:errors="${item.nom}"></span>
+			</div>
+			<label for="prix" class="col-2 col-form-label">Prix de l'item
+				:</label>
+			<div class="col-1">
+				<input class="form-control" name="prix" type="text"
+					th:value="${ item.prix}" id="prix" placeholder="Prix du item">
+					<span th:errors="${item.prix}"></span>
+			</div>
+			<label for="pointsDeVie" class="col-2 col-form-label">Alteration PV
+				:</label>
+			<div class="col-1">
+				<input class="form-control" name="capacite.pointsDeVie" type="number"
+					th:value="${ item.capacite.pointsDeVie}" id="pointsDeVie" placeholder="PV">
+					<span th:errors="${item.capacite.pointsDeVie}"></span>
+			</div>
+			<label for="attaque" class="col-2 col-form-label">Alteration attaque
+				:</label>
+			<div class="col-1">
+				<input class="form-control" name="capacite.attaque" type="number"
+					th:value="${ item.capacite.attaque}" id="attaque" placeholder="Attaque">
+					<span th:errors="${item.capacite.attaque}"></span>
+			</div>
+			<label for="defense" class="col-2 col-form-label">Alteration
+				defense :</label>
+			<div class="col-1">
+				<input class="form-control" name="capacite.defense" type="number"
+					th:value="${ item.capacite.defense}" id="defense" placeholder="Defense">
+					<span th:errors="${item.capacite.defense}"></span>
+			</div>
+			<label for="esquive" class="col-2 col-form-label">Alteration
+				esquive :</label>
+			<div class="col-1">
+				<input class="form-control" name="capacite.esquive" type="number"
+					th:value="${ item.capacite.esquive}" id="esquive" placeholder="Esquive">
+					<span th:errors="${item.capacite.esquive}"></span>
+			</div>
+			<label for="vitesse" class="col-2 col-form-label">Alteration
+				vitesse :</label>
+			<div class="col-1">
+				<input class="form-control" name="capacite.vitesse" type="number"
+					th:value="${ item.capacite.vitesse}" id="vitesse" placeholder="Vitesse">
+					<span th:errors="${item.capacite.vitesse}"></span>
+			</div>
+			<br>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</section>
+</body>
+</html>

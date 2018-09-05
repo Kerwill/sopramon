@@ -28,7 +28,7 @@ public class Item {
 	
 	@Column(name="ITE_NOM", length=50, nullable=false)
 	@NotEmpty(message="Le nom est obligatoire.")
-	@Size(max=50, message="Le nom ne doit pas dÃ©passer 50 caractères.")
+	@Size(max=50, message= "Le nom ne doit pas dÃ©passer 50 caractères.")
 	private String nom;
 	
 	@Column(name="ITE_PRIX", nullable=false)

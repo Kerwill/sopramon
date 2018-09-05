@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Sopramon-the-Game</title>
+
+
+<link rel="stylesheet" href="assets/css/layout.css" />
+<link rel="stylesheet" href="assets/css/animate.css" />
+
+<link href="https://fonts.googleapis.com/css?family=Anton"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Righteous"
+	rel="stylesheet">
+
+</head>
+<body>
+	<header>
+		<h1 layout:fragment="custom-title">
+			<span id="zodiaque">&#9800; &#9801; &#9802; &#9803; &#9804;
+				&#9805;</span>Plongez dans l'univers des Sopramons !<span id="zodiaque">&#9806;
+				&#9807; &#9808; &#9809; &#9810; &#9811;</span>
+		</h1>
+	</header>
+
+<section layout:fragment="custom-content">
+
+</section>
+
+	<footer layout:fragment="custom-footer">
+	
+		<div class="icon-bar">
+			Partage ta Sopralife sur les reseaux sociaux : <a href="#"
+				class="twitter"><img src="assets/img/twitter.png" width="25px"
+				height="25px" /></a> <a href="#" class="facebook"><img
+				src="assets/img/facebook.png" width="25px" height="25px" /></a> <a
+				href="#" class="instagram"><img src="assets/img/instagram.png"
+				width="25px" height="25px" /></a> <a href="#" class="youtube"><img
+				src="assets/img/youtube.png" width="25px" height="25px" /></a>
+
+		</div>
+		<div class="copyright">&copy; Copyright sopramon.sop</div>
+	</footer>
+</body>
+</html>

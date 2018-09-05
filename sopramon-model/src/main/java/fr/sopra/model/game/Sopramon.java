@@ -39,6 +39,7 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name = "SOP_DATE")
+	
 	private Date dateNaissance = new Date();
 	
 	

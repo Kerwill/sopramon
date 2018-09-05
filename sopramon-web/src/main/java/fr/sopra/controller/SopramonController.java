@@ -104,19 +104,18 @@ public class SopramonController {
 		Sopramon bannedSopramon = daoSopramon.findById(id).get();
 		bannedSopramon.setAccess(1);
 		daoSopramon.save(bannedSopramon);
-		System.out.println(bannedSopramon.getAccess());
-//		model.addAttribute("sopramon", daoSopramon.findById(id).get());
+
 		
 		return "redirect:sopramon";
 	}
 	
 	@GetMapping("/debannirSopramon")
 	public String debannirSopramon(@RequestParam int id, Model model) {
-		Sopramon bannedSopramon = daoSopramon.findById(id).get();
-		bannedSopramon.setAccess(0);
-		daoSopramon.save(bannedSopramon);
-		System.out.println(bannedSopramon.getAccess());
-//		model.addAttribute("sopramon", daoSopramon.findById(id).get());
+		Sopramon debannedSopramon = daoSopramon.findById(id).get();
+		debannedSopramon.setAccess(0);
+		daoSopramon.save(debannedSopramon);
+		System.out.println(debannedSopramon.getAccess());
+
 		
 		return "redirect:sopramon";
 	}

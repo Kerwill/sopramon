@@ -27,18 +27,19 @@ public class SigninController {
 	public String postLogin(@Valid @ModelAttribute Sopramon sopramon, BindingResult result, Model model) {
 		
 		
-		daoSopramon.save(sopramon);
+		
 		
 		Utilisateur checkSopramon = daoSopramon.findByNom(sopramon.getNom());
 		
 		if(checkSopramon != null) {
 			
-		result.rejectValue("username", "username.pris", "Nom d'utilisateur déjà pris");
+		result.rejectValue("username", "username.pris", "Nom d'utilisateur deja�pris");
 		
 		return "signin";}
 		
 		else {
 			
+			daoSopramon.save(sopramon);
 			return "home";
 		}
 	}

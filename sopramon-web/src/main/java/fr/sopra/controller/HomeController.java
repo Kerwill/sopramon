@@ -24,7 +24,7 @@ public class HomeController {
 	IDAOSopramon daoSopramon;
 
 	@GetMapping("/home")
-	public String getHome(Model model) {
+	public String getHome() {
 		return "home";
 	}
 
