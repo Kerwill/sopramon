@@ -12,18 +12,21 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled=true, securedEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
+	AuthFailureHandler authFailureHandler = new AuthFailureHandler();
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 	http
 	.authorizeRequests()
 	.antMatchers("/assets/**").permitAll()
-//	.antMatchers("/home").permitAll()
+	.antMatchers("/home").permitAll()
 	.antMatchers("/inscription").permitAll()
 	.antMatchers("/**").hasAnyRole("ADMIN", "USER")
 	.and()
 	.formLogin()
 	.loginPage("/home")
 	.loginProcessingUrl("/perform_login")
+	.failureHandler(authFailureHandler)
 	.defaultSuccessUrl("/menuSopramon", true)
 	.failureUrl("/home?error=true")
 	.permitAll()
