@@ -44,15 +44,15 @@ public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss,
 	
 	
 	@Column(name = "SOP_EXPERIENCE")
-	@PositiveOrZero(message="La valeur d'expérience est supèrieure ou égale à 0.")
+	@PositiveOrZero(message="La valeur d'experience est superieure ou egale à 0.")
 	private int experience = 0;
 	
 	@Column(name = "SOP_NIVEAU", nullable = false)
-	@Positive(message="Le niveau doit être strictement supèrieur à 0.")
+	@Positive(message="Le niveau doit etre strictement supèrieur à 0.")
 	private int niveau = 1;
 	
 	@Column(name = "SOP_ARGENT")
-	@PositiveOrZero (message="La maison ne fait pas crédit !!")
+	@PositiveOrZero (message="La maison ne fait pas credit !!")
 	private double argent = 0.00d;
 	
 	

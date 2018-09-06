@@ -41,6 +41,9 @@ public class HomeController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("/administrateur")
 	public String login(@Valid @ModelAttribute Administrateur administrateur, BindingResult result, Model model) {
+		return "admin";
+		}
+	
 
 	@GetMapping("/menuSopramon")
 	public String login(@Valid @ModelAttribute Sopramon sopramon, BindingResult result, Model model) {
@@ -55,11 +58,8 @@ public class HomeController {
 		return "home";
 	}
 
-}
 
-
-		return "admin";
-	}
+	
 }
 //	@GetMapping("/utilisateur")
 //	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model) {

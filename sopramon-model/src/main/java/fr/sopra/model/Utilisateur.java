@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
 @Table(name="utilisateur")
 @Inheritance(strategy=InheritanceType.JOINED)
 
+
 public class Utilisateur {
 	
 	@Id
@@ -38,8 +39,8 @@ public class Utilisateur {
 	@NotEmpty
 	private String username = "Unknown";
 	
-	@Column(name = "UTI_PASSWORD", length = 30, nullable = false)
-	@Size(max=30)
+	@Column(name = "UTI_PASSWORD", length = 500, nullable = false)
+	@Size(max=500)
 	@NotEmpty
 	private String password = "Unknown"; 
 	

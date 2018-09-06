@@ -21,45 +21,42 @@ import fr.sopra.model.game.Item;
 import fr.sopra.model.game.Signe;
 import fr.sopra.model.game.Sopramon;
 
-
 @Controller
 @PreAuthorize("hasRole('ROLE_ADMIN')")
 public class SopramonController {
 	@Autowired
 	private IDAOSopramon daoSopramon;
-	 
+
 	@Autowired
 	private IDAOUtilisateur daoUtilisateur;
-	 
-	
+
 	@Autowired
 	private IDAOCapacite daoCapacite;
-	/*OK*/
+
+	/* OK */
 	@GetMapping("/sopramon")
 	public String findAll(Model model) {
 		model.addAttribute("sopramons", daoSopramon.findAll());
 		return "sopramon";
 	}
-	
-	
+
 //	@GetMapping("/createSopramon")
 //	public String createSopramon(Model model) {
 //		model.addAttribute("gammes", daoGamme.findAll());
 //		return "form-sopramon";
 //	}
-	
-	
+
 	@PostMapping("/createSopramon")
 	public String createSopramon(@ModelAttribute Sopramon sopramon) {
 		daoSopramon.save(sopramon);
 		return "redirect:sopramon";
 	}
-	
+
 	@GetMapping("/createSop")
 	public String createSopramon(Model model) {
 		List<Capacite> capacites = daoCapacite.findAll();
 		model.addAttribute("capacites", capacites);
-	
+
 		return "createSopramon";
 	}
 
@@ -105,25 +102,25 @@ public class SopramonController {
 	public String bannirSopramon(@RequestParam int id, Model model) {
 		Sopramon bannedSopramon = daoSopramon.findById(id).get();
 		if (bannedSopramon.isBanned() == false) {
-		bannedSopramon.setBanned(true);
-		
-		daoSopramon.save(bannedSopramon);
+			bannedSopramon.setBanned(true);
+
+			daoSopramon.save(bannedSopramon);
 		}
-		
+
 		return "redirect:sopramon";
 	}
-	
+
 	@GetMapping("/debannirSopramon")
 	public String debannirSopramon(@RequestParam int id, Model model) {
 		Sopramon debannedSopramon = daoSopramon.findById(id).get();
+
 		if (debannedSopramon.isBanned() == true) {
-		debannedSopramon.setBanned(false);
-		
-		daoSopramon.save(debannedSopramon);
+			debannedSopramon.setBanned(false);
+
+			daoSopramon.save(debannedSopramon);
 		}
-		
+
 		return "redirect:sopramon";
 	}
-	
 
 }
