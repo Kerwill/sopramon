@@ -21,6 +21,7 @@
 	        	
 				<div class="form-group row">
 					<label for="username" class="col-sm-2 col-form-label">Nom d'utilisateur</label>
+					<span th:errors = "${sopramon.username}"></span>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="username" name="username" placeholder="Nom d'utilisateur" required />
 					</div>

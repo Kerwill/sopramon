@@ -34,11 +34,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	.permitAll();
 	}
 	
+	
+//	@Bean
+//	public PasswordEncoder passwordEncoder(String password) {
+//		 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//         String encodedPassword = passwordEncoder.encode(password);
+//         System.out.println(encodedPassword);
+//	    return new BCryptPasswordEncoder();
+//	}
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-	    return new BCryptPasswordEncoder();
+//		System.out.println(new BCryptPasswordEncoder().encode("123456"));
+		return new BCryptPasswordEncoder();
 	}
-	
-
 	
 }
