@@ -12,5 +12,5 @@ import fr.sopra.model.game.Sopramon;
 public interface IDAOCoup extends JpaRepository<Coup, Integer> {
 
 	List <Coup> findTop10BySopramonOrderByIdDesc(Sopramon sopramon);
-	
+	List <Coup> findByCombat(Combat combat);
 }
