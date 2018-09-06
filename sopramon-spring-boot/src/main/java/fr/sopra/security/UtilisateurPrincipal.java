@@ -68,9 +68,7 @@ public class UtilisateurPrincipal implements UserDetails {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.springframework.security.core.userdetails.UserDetails#isEnabled()
-	 */
+//	
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;

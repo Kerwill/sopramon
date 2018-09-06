@@ -7,12 +7,14 @@
 <title>Sopraworld</title>
 <meta charset="utf-8">
 <meta name="description" content="Partez explorer votre monde" />
+<link rel="stylesheet" type="text/css" href="assets/css/spinner.css" />
+<link rel="stylesheet" type="text/css"
+	href="assets/css/menuSopramon.css" />
 
 
 </head>
 
 <body>
-
 
 	<header>
 		<h1 layout:fragment="custom-title">
@@ -24,25 +26,48 @@
 
 	<section layout:fragment="custom-content">
 
-		<div id="front">
+		<nav>
 
-			<nav>
-				<section id="admin">
-					<fieldset>
-						<legend> Espace Administrateur </legend>
-						<a th:href="@{administrateur}" class="btn btn-danger" role="button">Accéder</a>
-						</fieldset>
-						
-				</section>
+			<section id="deconnexion">
+				<a th:href="@{deconnexion}" class="btn btn-danger" role="button">Deconnexion</a>
+
+			</section>
+
+			<section id="admin" sec:authorize="hasRole('ROLE_ADMIN')">
+
+				<fieldset>
+					<legend>Espace Administrateur</legend>
+					<span>Connexion</span> <a th:href="@{administrateur}"
+						class="btn btn-danger" role="button">Accéder</a>
+				</fieldset>
+
+			</section>
+
+			<section id="user">
+
+				<fieldset>
+					<span>Espace Utilisateur</span>
+					<legend>Connexion</legend>
+					<section>
+						<ul>
+							<li>Menu1</li>
+							<li>Menu2</li>
+							<li>Menu3</li>
+						</ul>
+					</section>
+				</fieldset>
+
+			</section>
 
 
-				<section id="credits">
-					<p>Powered by :</p>
-					<img src="assets/img/sopra.png" alt="explorer le sopraworld"
-						width="300px" height="100px" />
-				</section>
-			</nav>
-		</div>
+
+
+			<section id="credits">
+				<p>Powered by :</p>
+				<img src="assets/img/sopra.png" alt="explorer le sopraworld"
+					width="200px" height="50px" />
+			</section>
+		</nav>
 
 		<div id="popup1" class="overlay">
 			<div class="popupMonsopramon">

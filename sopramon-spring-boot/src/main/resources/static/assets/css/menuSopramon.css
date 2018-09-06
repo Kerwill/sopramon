@@ -139,6 +139,7 @@ tr:nth-child(odd) {
 }
 
 #game {
+
 	width: 800px;
 	height: 600px;
 	margin: 20px auto 40px;
@@ -306,22 +307,18 @@ table thead, table tbody tr {
 	position: absolute;
 }
 
-#front {
-	min-height: 700px;
-	width : 20%;
-	min-width : 300px;
-	display: flex;
-	text-align: center;
-	justify-content: stretch;
 
-}
 
-#front nav {
-	flex: 1;
-	background-color: black;
-	opacity: 0.7;
+nav {
+	float:left;
+	background-color: #565656;
 	display: flex;
+	margin-ledt : 25px;
 	flex-direction: column;
+	width : 20%;
+	min-height : 700px;
+	border : 5px solid #76323F;
+	border-style: inset;
 }
 
 nav section {
@@ -369,7 +366,9 @@ fieldset {
 	display: block;
 }
 
-input[type="submit"], #admin button{
+nav a{
+	text-decoration : none;
+	display:block;
 	background: none;
 	box-sizing: border-box;
 	margin: 1em;
@@ -379,9 +378,3 @@ input[type="submit"], #admin button{
 	border-radius: 5px;
 	font-family: 'Righteous', Arial;
 }
-
-input[type="submit"]:hover, #admin button:hover {
-	background-color: #3a3a3a;
-	animation: pulse 0.5s;
-}
-
