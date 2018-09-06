@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.sopra.dao.IDAOSopramon;
 import fr.sopra.dao.IDAOUtilisateur;
@@ -53,10 +54,22 @@ public class HomeController {
 
 	// accueil
 
-	@GetMapping("/home")
-	public String getHome() {
+	@GetMapping("/home/login")
+	public String getHome(@RequestParam(required=false) String error, Model model) {
+		if (error.equals("banned")) {
+			model.addAttribute("Votre compte est banni", error);
+		}
+		else if (error.equals("true")) {
+			model.addAttribute("Votre mot de passe est erroné", error);
+		}
 		return "home";
 	}
+	
+	@GetMapping("/home")
+	public String getHome() {
+	
+	return "home";
+}
 
 
 	
