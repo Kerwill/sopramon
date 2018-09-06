@@ -23,6 +23,7 @@
 					<th>Arene</th>
 					<th>Sopramon attaquant</th>
 					<th>Opposant</th>
+					<th>Coups</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,6 +34,7 @@
 					<td th:text="${ combat.sopramon1.nom}"></td>
 					<td><span th:if="${ combat.sopramon2 == null }">[[${ combat.boss.nom }]]</span><span
 						th:if="${ combat.boss == null}">[[${ combat.sopramon2.nom }]]</span></td>
+						<td><a class="btn btn-primary" th:href="@{coup(id=${combat.id})}" >Coups</a></td>
 				</tr>
 			</tbody>
 		</table>

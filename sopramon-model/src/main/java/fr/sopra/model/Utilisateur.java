@@ -25,22 +25,22 @@ public class Utilisateur {
 	
 	
 	@Column(name = "UTI_NOM", length = 30, nullable = false)
-	@Size(max=30)
+	@Size(max = 30, message="Le nom doit comporter moins de 30 caracteres.")
 	@NotEmpty
 	private String nomUtil = "Unknown";
 	
 	@Column(name = "UTI_PRENOM", length = 30, nullable = false)
-	@Size(max=30)
+	@Size(max = 30, message="Le prenom doit comporter moins de 30 caracteres.")
 	@NotEmpty
 	private String prenomUtil = "Unknown";
 	
 	@Column(name = "UTI_USERNAME", length = 30,  nullable = false)
-	@Size(max=30)
+	@Size(max = 30, message="Le username doit comporter moins de 30 caracteres.")
 	@NotEmpty
 	private String username = "Unknown";
 	
 	@Column(name = "UTI_PASSWORD", length = 500, nullable = false)
-	@Size(max=500)
+	@Size(min= 6, max=500, message="Le mot de passe doit etre compris entre 6 et 500 caracteres.")
 	@NotEmpty
 	private String password = "Unknown"; 
 	
