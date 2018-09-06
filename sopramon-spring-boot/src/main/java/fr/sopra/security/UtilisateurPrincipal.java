@@ -11,10 +11,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import fr.sopra.model.Utilisateur;
 
-
-
 public class UtilisateurPrincipal implements UserDetails {
-	
+
 	private static final long serialVersionUID = 1L;
 	private Utilisateur utilisateur;
 
@@ -27,16 +25,15 @@ public class UtilisateurPrincipal implements UserDetails {
 
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> myAuthorities = new ArrayList<GrantedAuthority>();
-		
+
 		if (this.utilisateur.isAdmin()) {
 			myAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-			}
-		
-		else {
-				myAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 		}
-		
-		
+
+		else {
+			myAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		}
+
 		return myAuthorities;
 
 	}
@@ -59,8 +56,9 @@ public class UtilisateurPrincipal implements UserDetails {
 	}
 
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
+		if (this.utilisateur.isBanned()){
+			return false;}
+		else {return true;}
 	}
 
 	public boolean isCredentialsNonExpired() {

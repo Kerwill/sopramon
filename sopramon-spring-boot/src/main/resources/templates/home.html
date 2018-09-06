@@ -36,7 +36,7 @@
 								placeholder="*********" required /><br /> <input type="submit"
 								value="Connexion" /> <label> <input type="checkbox"
 								name="remember"> Se souvenir de moi
-							</label>
+							</label> <span th:errors="${utilisateur.password}">Message d'erreur par défaut</span>
 
 						</form>
 
