@@ -122,5 +122,31 @@ public class SopramonController {
 
 		return "redirect:sopramon";
 	}
+	
+	
+	@GetMapping("/adminSopramon")
+	public String adminSopramon(@RequestParam int id, Model model) {
+		Sopramon adminSopramon = daoSopramon.findById(id).get();
+		if (adminSopramon.isAdmin() == false) {
+			adminSopramon.setAdmin(true);
+
+			daoSopramon.save(adminSopramon);
+		}
+
+		return "redirect:sopramon";
+	}
+
+	@GetMapping("/noadminSopramon")
+	public String noadminSopramon(@RequestParam int id, Model model) {
+		Sopramon noadminSopramon = daoSopramon.findById(id).get();
+
+		if (noadminSopramon.isAdmin() == true) {
+			noadminSopramon.setAdmin(false);
+
+			daoSopramon.save(noadminSopramon);
+		}
+
+		return "redirect:sopramon";
+	}
 
 }

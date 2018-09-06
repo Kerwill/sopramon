@@ -31,6 +31,7 @@
 					<th>Attaque</th>
 					<th>Actions</th>
 					<th>Banni ?</th>
+					<th>Admin ?</th>
 				</tr>
 			</thead>
 
@@ -51,6 +52,14 @@
 						<a th:href="@{debannirSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Ne plus bannir</a>
 						
 						[[${ sopramon.banned }]]
+					</td>
+					<td>
+					<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />
+					
+						<a th:href="@{adminSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Donner le statut d'administrateur</a>
+						<a th:href="@{noadminSopramon(id=${ sopramon.id })}" class="btn btn-outline-warning">Enlever le statut d'administrateur</a>
+						
+					<!-- 	[[${ sopramon.banned }]] -->
 					</td>
 				</tr>
 			</tbody>

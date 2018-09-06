@@ -1,5 +1,6 @@
 package fr.sopra.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,7 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableGlobalMethodSecurity(prePostEnabled=true, securedEnabled=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	AuthFailureHandler authFailureHandler = new AuthFailureHandler();
+	@Autowired
+	AuthFailureHandler authFailureHandler;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -28,7 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	.loginProcessingUrl("/perform_login")
 	.failureHandler(authFailureHandler)
 	.defaultSuccessUrl("/menuSopramon", true)
-	.failureUrl("/home?error=true")
 	.permitAll()
 	.and()
 	.logout()

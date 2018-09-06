@@ -27,6 +27,8 @@
 				<section id="login">
 					<fieldset>
 						<legend> Espace utilisateur </legend>
+						<span th:text =" ${error}" style ="color : red; font: Arial"> Test</span>
+						
 						<form id="connexion" action="/perform_login" method="POST">
 							<input type="hidden" th:name="${ _csrf.parameterName }"
 								th:value="${ _csrf.token }" /> <label for="username">
@@ -36,7 +38,7 @@
 								placeholder="*********" required /><br /> <input type="submit"
 								value="Connexion" /> <label> <input type="checkbox"
 								name="remember"> Se souvenir de moi
-							</label> <span th:errors="${utilisateur.password}">Message d'erreur par défaut</span>
+							</label> 
 
 						</form>
 

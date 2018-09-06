@@ -1,14 +1,20 @@
 package fr.sopra.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.sopra.dao.IDAOSopramon;
@@ -54,74 +60,35 @@ public class HomeController {
 
 	// accueil
 
-	@GetMapping("/home/login")
+	@GetMapping("/home")
 	public String getHome(@RequestParam(required=false) String error, Model model) {
-		if (error.equals("banned")) {
-			model.addAttribute("Votre compte est banni", error);
+		
+		if(error == null) {
+			System.out.println("null");
+			return "home";
 		}
-		else if (error.equals("true")) {
-			model.addAttribute("Votre mot de passe est erroné", error);
+		
+		if (error.equals("banned")) {
+			
+			model.addAttribute("error", "Votre compte est banni");
+			System.out.println("crapeau"+error);
+		}
+		else if (error.equals("identification")) {
+			model.addAttribute("error","Votre mot de passe ou votre username est erroné" );
+			System.out.println("crapabulle"+error);
 		}
 		return "home";
 	}
 	
-	@GetMapping("/home")
-	public String getHome() {
-	
-	return "home";
-}
 
-
+	@RequestMapping(value="/deconnexion", method = RequestMethod.GET)
+	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+	   org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null){    
+	        new SecurityContextLogoutHandler().logout(request, response, auth);
+	    }
+	    return "home";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+	}
 	
 }
-//	@GetMapping("/utilisateur")
-//	public String login(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, Model model) {
-//
-//		Utilisateur checkUser = daoUser.findByUsernameAndPassword(utilisateur.getUsername(), utilisateur.getPassword());
-//
-//		if (checkUser == null) {
-//			result.rejectValue("username", "username.errone", "Nom ou mot de passe errone");
-//
-//			return "home";
-//		}
-//
-//		else if (checkUser.getAccess() == 1) {
-//			result.rejectValue("username", "username.banni", "Vous �tes banni");
-//
-//			return "home";
-//		}
-//
-//		else {
-//			System.out.println("ok");
-////			session.setAttribute("utilisateur", checkUser);
-//			return "menuSopramon";
-//		}
-//
-//	}
-//
 //	
-//
-//		else {
-//			result.rejectValue("admin", "username.errone", "Nom ou mot de passe erron�");
-//			return "home";
-//		}
-//	}
-//
-//}
-//
-////	
-////	 @GetMapping("/logout")
-////	    public String logout(Model model) {
-////	        return "logout";
-////	    }
-//
-////	if (bindingResult.hasErrors()) {
-////        model.addAttribute("form", form)
-////        return "app/customers/create"
-//
-//
-//
-//
-//
-//
-//
