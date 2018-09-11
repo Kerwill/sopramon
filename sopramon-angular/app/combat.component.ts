@@ -10,7 +10,7 @@ import { CombatService } from './combat.service';
 export class CombatComponent {
     private combat: Combat = new Combat();
     // private combats: Array<Combat> = new Array<Combat>();
-    // private filtre: string = "";
+    private filtre: string = "";
 
     constructor(private combatService: CombatService) {
     }
@@ -23,10 +23,9 @@ export class CombatComponent {
     public addCombat() {
         this.combatService.save(this.combat);
         this.combat = new Combat();
-        this.isEditing = false;
 }
+
+    // public filtrerCombat(): Array<Combat> {
+    //     return this.combatService.findAllBySopramon1(this.filtre);
+    // }
 }
-//     public filtrerCombat(): Array<Combat> {
-//         return this.combatService.findAllByNom(this.filtre);
-//     }
-// }
