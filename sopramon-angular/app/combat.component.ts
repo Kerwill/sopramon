@@ -1,4 +1,4 @@
-combatsimport { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { Combat } from './combat';
 import { CombatService } from './combat.service';
 
@@ -25,7 +25,7 @@ export class CombatComponent {
         this.combat = new Combat();
         this.isEditing = false;
 }
-
+}
 //     public filtrerCombat(): Array<Combat> {
 //         return this.combatService.findAllByNom(this.filtre);
 //     }
