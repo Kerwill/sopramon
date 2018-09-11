@@ -55,7 +55,7 @@ public class SigninController {
 			
 			return "signin";
 
-//		return "redirect:inscription";
+
 			}
 		 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		 String encodedPassword = passwordEncoder.encode(sopramon.getPassword());

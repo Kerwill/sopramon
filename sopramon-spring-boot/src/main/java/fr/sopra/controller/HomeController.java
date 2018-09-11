@@ -71,11 +71,11 @@ public class HomeController {
 		if (error.equals("banned")) {
 			
 			model.addAttribute("error", "Votre compte est banni");
-			System.out.println("crapeau"+error);
+
 		}
 		else if (error.equals("identification")) {
 			model.addAttribute("error","Votre mot de passe ou votre username est erroné" );
-			System.out.println("crapabulle"+error);
+	
 		}
 		return "home";
 	}

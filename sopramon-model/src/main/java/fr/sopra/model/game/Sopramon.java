@@ -33,8 +33,8 @@ import fr.sopra.model.Utilisateur;
 public class Sopramon extends Utilisateur implements ICombattant<Sopramon, Boss, Combat> {
 	
 	@Column(name = "SOP_NOM", length=30, nullable = false)
-//	@NotEmpty(message="Le nom est obligatoire.")
-//	@Size(max = 30, message="Le nom doit comporter moins de 30 caracteres.")
+	@NotEmpty(message="Le nom est obligatoire.")
+	@Size(max = 30, message="Le nom doit comporter moins de 30 caracteres.")
 	private String nom = "Unknown";
 	
 	@Temporal(TemporalType.DATE)

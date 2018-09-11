@@ -39,20 +39,20 @@ layout:decorator="layout.html">
 				<input type="hidden" th:name="${ _csrf.parameterName }" th:value="${ _csrf.token }" />
 				
 				<label for="firstname"> Votre Prénom : </label><br /> 
-					<input type="text" name="prenomUtil" th:value="${prenomUtil}" placeholder="Prénom" required /> <span th:errors="${sopramon.prenomUtil}"></span> <br />
+					<input type="text" name="prenomUtil" placeholder="Prénom" required /> <span th:errors="${sopramon.prenomUtil}"></span> <br />
 				<label for="surname"> Votre Nom : </label> <br />
-					<input type="text" name="nomUtil" th:value="${nomUtil}" placeholder="NOM" required /> <span th:errors="${sopramon.nomUtil}"></span> <br />
+					<input type="text" name="nomUtil"  placeholder="NOM" required /> <span th:errors="${sopramon.nomUtil}"></span> <br />
 				<label for="username"> Votre nom d'utilisateur : </label><br /> 
-					<input type="text" name="username" th:value="${username}" placeholder="username" required />
+					<input type="text" name="username"  placeholder="username" required /> <br />
 					
 					<span th:errors="${sopramon.username}"> </span>
 					
 				<label for="username"> Le nom de votre sopramon : </label><br /> 
-					<input type="text" name="nom" th:value="${nom}" placeholder="nom sopramon" required /> <span th:errors="${sopramon.nom}"></span> <br />
+					<input type="text" name="nom" placeholder="nom sopramon" required /> <span th:errors="${sopramon.nom}"></span> <br />
 				<label for="password"> Votre Mot de Passe : </label><br /> 
-					<input type="password" name="password" th:value="${password}" placeholder="******" required /> <span th:errors="${sopramon.password}"></span> <br />
+					<input type="password" name="password"  placeholder="******" required /> <span th:errors="${sopramon.password}"></span> <br />
 				<label for="birthdate"> Votre Date de naissance : </label> <br />
-					 <input type="date" name="dateNaissance" th:value="${dateNaissance}" required /> <!-- <span th:errors="${sopramon.dateNaissance}"></span> --> <br />
+					 <input type="date" name="dateNaissance"  required /> <!-- <span th:errors="${sopramon.dateNaissance}"></span> --> <br />
 
 				<div class="bouton">
 					<input type="submit" value="S'inscrire" />
