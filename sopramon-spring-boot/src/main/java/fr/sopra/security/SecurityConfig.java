@@ -23,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	.antMatchers("/assets/**").permitAll()
 	.antMatchers("/home").permitAll()
 	.antMatchers("/inscription").permitAll()
+	.antMatchers("/api/**").permitAll()
 	.antMatchers("/**").hasAnyRole("ADMIN", "USER")
 	.and()
 	.formLogin()
@@ -35,21 +36,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	.logout()
 	.logoutUrl("/ma_page_de_deconnexion")
 	.logoutSuccessUrl("/ma_page_de_login")
-	.permitAll();
+	.permitAll()
+	.and()
+	.csrf().disable();
 	}
 	
 	
-//	@Bean
-//	public PasswordEncoder passwordEncoder(String password) {
-//		 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//         String encodedPassword = passwordEncoder.encode(password);
-//         System.out.println(encodedPassword);
-//	    return new BCryptPasswordEncoder();
-//	}
+
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
-//		System.out.println(new BCryptPasswordEncoder().encode("123456"));
 		return new BCryptPasswordEncoder();
 	}
 	

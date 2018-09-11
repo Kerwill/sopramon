@@ -4,19 +4,21 @@ export class Item {
     public getNom(): string {
         return this.nom;
     }
-    private prix : number = 0;
+    private prix : number;
     public getPrix(): number {
-        return this.number;
+        return this.prix;
     }
 
-  private Capacite: string;
-  private gamme: string;
+  private capacite: string;
+  private href: string;
+
 
 
     constructor(private json?: any) {
         if (json !== undefined) {
             this.nom = json.nom;
             this.prix = json.prix;
+            this.capacite = json.capacite;
 
             if (json._links !== undefined) {
                 this.href = json._links.self.href;
@@ -25,6 +27,10 @@ export class Item {
     }
     public setCapacite(capacite: string) {
         this.capacite = capacite;
+    }
+
+    public getCapacite() : string {
+        return this.capacite;
     }
 
 

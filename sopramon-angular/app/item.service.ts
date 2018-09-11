@@ -1,70 +1,43 @@
 import { Injectable } from '@angular/core';
 import { Item } from './item';
 /*import { Http, Headers, RequestOptions } from '@angular/http';*/
+import { Http } from '@angular/http';
 import { AppConfigService } from './app-config.service';
 
 
 
 @Injectable()
-export class ProduitService{
+export class ItemService{
 
-
-private produits: Array<Produit> = new Array<Produit>();
+private items: Array<Item> = new Array<Item>();
 /*private myOptions: RequestOptions;*/
 
-
-constructor(private http: Http, private apiConfigService : AppConfigService) {
-let myHeaders: Headers = new Headers();
+constructor( private http: Http, private apiConfigService : AppConfigService) {
+/*let myHeaders: Headers = new Headers();
 myHeaders.append('Authorization', this.apiConfigService.getApiBasic());
 this.myOptions = new RequestOptions({ headers: myHeaders });
-
+*/
       this.http
-           .get(this.apiConfigService.getUrlApi() + "produits", this.myOptions)
+           .get(this.apiConfigService.getUrlApi() + "items"/*, this.myOptions*/)
            .subscribe(resp => {
-               for (let p of resp.json()._embedded.produits) {
-                   this.produits.push(new Produit(p));
+               for (let i of resp.json()._embedded.items) {
+                   this.items.push(new Item(i));
                }
            });
-
-
 }
 
-
-
-public findAll() : Array<Produit>{
-  return this.produits;
+public findAll() : Array<Item>{
+  return this.items;
 }
 
-public findAllByNom(nom: string) : Array<Produit> {
+/*
+public findAllByNom(nom: string) : Array<Item> {
 
-  return this.produits.filter(p =>
-      p.nom
+  return this.produits.filter(i =>
+      i.getNom()
           .toLowerCase()
           .indexOf(nom.toLowerCase()) !== -1
   )
 }
-
-public save(produit){
-if (this.produits.indexOf(produit) === -1){
-  // this.produits.push(produit);
-
-  produit.gamme = this.apiConfigService.getUrlApi()+"gammes/1"
-this.http
-
-  .post(this.apiConfigService.getUrlApi()+"produits", produit, this.myOptions)
-  .subscribe(resp => this.produits.push(produit), err => alert("erreur dans le prix"));
-}
-else{
-  this.http
-      .put(produit.getHref(), produit, this.myOptions)
-    .subscribe(resp => alert("modif ok")/*this.produits.push(resp.json())*/, err => alert (err));
-}
-}
-public delete(produit){
-let myIndex: number = this.produits.indexOf(produit);
-this.http
-    .delete(produit.getHref(), this.myOptions)
-  .subscribe(resp => this.produits.splice(myIndex, 1));
-
-}
+*/
 }
