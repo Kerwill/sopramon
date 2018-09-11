@@ -23,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	.antMatchers("/assets/**").permitAll()
 	.antMatchers("/home").permitAll()
 	.antMatchers("/inscription").permitAll()
+	.antMatchers("/api/**").permitAll()
 	.antMatchers("/**").hasAnyRole("ADMIN", "USER")
 	.and()
 	.formLogin()
@@ -35,7 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	.logout()
 	.logoutUrl("/ma_page_de_deconnexion")
 	.logoutSuccessUrl("/ma_page_de_login")
-	.permitAll();
+	.permitAll()
+	.and()
+	.csrf()
+	.disable();
 	}
 	
 	

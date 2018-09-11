@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 
 
 @Component({
-    selector: 'eshop-app',
+    selector: 'sopramon-app',
     templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
-    private prenom: string = "Jérémy";
 }
