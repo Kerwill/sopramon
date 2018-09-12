@@ -1,7 +1,7 @@
 export class Combat {
     private tour:number;
-    private sopramon1: string;
-    private sopramon2: string;
+    private attaquant1: string;
+    private attaquant2: string;
     private boss: string;
     private coups: string;
     private href: string;
@@ -26,23 +26,23 @@ export class Combat {
     }
 
     public getSopramon1(): string {
-        return this.sopramon1;
+        return this.attaquant1;
     }
 
     public getSopramon2(): string {
-        return this.sopramon2;
+        return this.attaquant2;
     }
 
     public getBoss(): string {
         return this.boss;
     }
 
-    public setSopramon1(sopramon1: string) {
-        this.sopramon1 = sopramon1;
+    public setSopramon1(attaquant1: string) {
+        this.attaquant1 = attaquant1;
     }
 
-    public setSopramon2(sopramon2: string) {
-        this.sopramon2 = sopramon2;
+    public setSopramon2(attaquant2: string) {
+        this.attaquant2 = attaquant2;
     }
 
     public setBoss(boss: string) {
