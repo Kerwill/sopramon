@@ -33,5 +33,6 @@ private isBuying : boolean = false;
 
     public buy() {
       this.achatService.add(this.item);
+      this.isBuying = false;
     }
 }

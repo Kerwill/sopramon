@@ -17,7 +17,7 @@ constructor( private http: Http, private appConfigService : AppConfigService) {
 myHeaders.append('Authorization', this.apiConfigService.getApiBasic());
 this.myOptions = new RequestOptions({ headers: myHeaders });
 */
-      
+
 }
 
 public findAll() : Array<Achat>{
@@ -31,7 +31,7 @@ public add(item) {
 
 this.http
 .post(this.appConfigService.getUrlApi()+"achats", achat/*, this.myOptions*/)
-.subscribe(resp => this.achats.push(achat), err => alert(err));
+.subscribe(resp => alert("achat effectué"), err => alert(err));
 }
 
 }
