@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Combat } from './combat';
 import { CombatService } from './combat.service';
-import { UtilisateurService } from './utilisateur.service';
-import { Utilisateur } from './utilisateur';
+
 
 @Component({
     templateUrl: 'app/combat.component.html',
@@ -30,9 +29,9 @@ export class CombatComponent {
         return this.combatService.findAllByAttaquant(this.filtre);
     }
 
-    public connect() {
-        this.isConnecting = true;
-            this.CombtService.addUtilisateur();
-    }
+    // public connect() {
+    //     this.isConnecting = true;
+    //         this.CombatService.addUtilisateur();
+    // }
 
 }
