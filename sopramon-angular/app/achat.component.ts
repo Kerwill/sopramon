@@ -17,7 +17,6 @@ export class AchatComponent {
 private isBuying : boolean = false;
 
 
-
   @Input('item') private item: Item;
 
 

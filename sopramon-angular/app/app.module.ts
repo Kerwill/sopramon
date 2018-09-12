@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
+import { AchatComponent } from './achat.component';
+import { AchatService } from './achat.service';
 import { CombatComponent } from './combat.component';
 import { CombatService } from './combat.service';
 import { ItemComponent } from './item.component';
@@ -28,14 +30,16 @@ const routes: Routes = [
 
     providers: [
       AppConfigService,
+      AchatService,
       CombatService,
-      ItemService,
+      ItemService
     ],
 
     declarations: [
         AppComponent,
         CombatComponent,
-        ItemComponent,
+        AchatComponent,
+    ItemComponent,
     ],
 
     bootstrap: [ AppComponent ]
