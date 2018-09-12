@@ -1,33 +1,28 @@
-<!-- Nom du produit : <input type="text" [(ngModel)]="produit.nom" /><br />
-Prix du produit : <input type="number" [(ngModel)]="produit.prix" />
+Entrez votre username pour afficher vos combats : <input type="text" [(ngModel)]="combat.username" /><br/>
 
-<p *ngIf="produit.nom && produit.prix !=0"
-  [class.negatif]="produit.prix < 0">
-  Le produit {{produit.nom}} est à {{produit.prix}} euros.
-  <button class="btn btn-success" (click)="addProduit()">
-    <span *ngIf="!isEditing">AJOUTER</span>
-    <span *ngIf="isEditing">MODIFIER</span>
-  </button>
-</p> -->
+<p>Vous êtes {{ combat.username }} </p>
+
+<button class="btn btn-success" (click)="connect()">
+AFFICHER
+</button>
 
 <h1>Liste des combats</h1>
 
-Filtre : <input type="text" [(ngModel)]="filtre"/>
-
-<table class="table table-dark">
-  <thead>
-  <tr>
-    <td>Tour</td>
-    <td>Attaquant1</td>
-    <td>Attaquant2</td>
-    <td>Coups</td>
-  </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let c of getCombats()">
-        <td>{{ c.tour }}</td>
-        <td>{{ c.attaquant1.nom}}</td>
-        <td>{{ c.attaquant2.nom}}</td>
+<span *ngIf="isConnecting">
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <td>Tour</td>
+      <td>Attaquant1</td>
+      <td>Attaquant2</td>
     </tr>
-  </tbody>
-</table>
+  </thead>
+  <tbody>
+      <tr *ngFor="let c of filtrerCombat()">
+          <td>{{ c.tour }}</td>
+          <td>{{ c.attaquant1.nom}}</td>
+          <td>{{ c.attaquant2.nom}}</td>
+      </tr>
+    </tbody>
+  </table>
+</span>

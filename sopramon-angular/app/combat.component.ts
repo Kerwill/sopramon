@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Combat } from './combat';
 import { CombatService } from './combat.service';
-
+import { UtilisateurService } from './utilisateur.service';
+import { Utilisateur } from './utilisateur';
 
 @Component({
     templateUrl: 'app/combat.component.html',
@@ -12,6 +13,7 @@ export class CombatComponent {
     // private combats: Array<Combat> = new Array<Combat>();
     private filtre: string = "";
 
+
     constructor(private combatService: CombatService) {
     }
 
@@ -19,13 +21,18 @@ export class CombatComponent {
       return this.combatService.findAll();
     }
 
-
     public addCombat() {
         this.combatService.save(this.combat);
         this.combat = new Combat();
 }
 
-    // public filtrerCombat(): Array<Combat> {
-    //     return this.combatService.findAllBySopramon1(this.filtre);
-    // }
+    public filtrerCombat(): Array<Combat> {
+        return this.combatService.findAllByAttaquant(this.filtre);
+    }
+
+    public connect() {
+        this.isConnecting = true;
+            this.CombtService.addUtilisateur();
+    }
+
 }

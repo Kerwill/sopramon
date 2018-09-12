@@ -3,8 +3,8 @@ export class Combat {
     private attaquant1: string;
     private attaquant2: string;
     private boss: string;
-    private coups: string;
     private href: string;
+    private username : string;
 
     constructor(private json?: any) {
         if (json !== undefined) {
@@ -25,11 +25,11 @@ export class Combat {
         return this.href;
     }
 
-    public getSopramon1(): string {
+    public getAttaquant1(): string {
         return this.attaquant1;
     }
 
-    public getSopramon2(): string {
+    public getAttaquant2(): string {
         return this.attaquant2;
     }
 
@@ -37,11 +37,15 @@ export class Combat {
         return this.boss;
     }
 
-    public setSopramon1(attaquant1: string) {
+    public getUsername(): string {
+        return this.username;
+    }
+
+    public setAttaquant1(attaquant1: string) {
         this.attaquant1 = attaquant1;
     }
 
-    public setSopramon2(attaquant2: string) {
+    public setAttaquant2(attaquant2: string) {
         this.attaquant2 = attaquant2;
     }
 
@@ -49,7 +53,9 @@ export class Combat {
         this.boss = boss;
     }
 
-    public setCoups(coups: string) {
-        this.coups = coups;
+    public setUsername(username : string) {
+        this.username = username;
     }
+
+
 }

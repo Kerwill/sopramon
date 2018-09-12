@@ -28,19 +28,16 @@ export class CombatService {
         return this.combats;
     }
 
-    // public findAllBySopramon1(sopramon1: string): Array<Combat> {
-    //     return this.combats.filter(c =>
-    //         c.getSopramon1()
-    //             .indexOf(sopramon1) !== -1
-    //     );
-    // }
+    public findAllByAttaquant(attaquant1: string): Array<Combat> {
+        return this.combats.filter(c =>
+            c.getAttaquant1()
+                .indexOf(attaquant1) !== -1
+        );
+    }
 
 
     public save(combat: Combat) {
         if (this.combats.indexOf(combat) === -1) {
-            combat.setSopramon1(this.appConfigService.getUrlApi() + "sopramon1/4");
-            combat.setSopramon2(this.appConfigService.getUrlApi() + "sopramon2/5");
-            combat.setBoss(this.appConfigService.getUrlApi() + "boss/2");
             this.http
                 .post(this.appConfigService.getUrlApi() + "combats", combat)
                 .subscribe(resp => this.combats.push(new Combat(resp.json())));
@@ -59,5 +56,8 @@ export class CombatService {
         this.http
             .delete(combat.getHref())
             .subscribe(resp => this.combats.splice(myIndex, 1));
+    }
+
+    public fixUsername() {
     }
 }
