@@ -1,0 +1,15 @@
+ <td>
+
+    <button *ngIf="!isBuying" (click)="askAchat()" class="btn btn-warning">Acheter</button>
+ </td>
+
+
+<td colspan="2" *ngIf="isBuying">
+    Êtes-vous sûr de vouloir acheter cet item ?
+</td>
+
+
+<td *ngIf="isBuying">
+    <button (click)="buy()" class="btn btn-danger">OUI</button>
+    <button (click)="cancel()" class="btn btn-success">NON</button>
+</td>

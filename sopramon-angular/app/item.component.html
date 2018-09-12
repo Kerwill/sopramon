@@ -19,12 +19,12 @@
 <tr *ngFor = "let i of getItems()">
       <td >{{i.nom}}</td>
       <td >{{i.prix}}</td>
-      <td >{{i.capacite.pointsDeVie}}</td> 
+      <td >{{i.capacite.pointsDeVie}}</td>
       <td >{{i.capacite.attaque}}</td>
       <td >{{i.capacite.vitesse}}</td>
       <td >{{i.capacite.defense}}</td>
       <td >{{i.capacite.esquive}}</td>
-      <td >action</td>
+        <achat-row [item] = "i"></achat-row>
 </tr>
   </tbody>
 </table>

@@ -26,22 +26,18 @@ public class Achat {
 
 	@Column(name = "ACH_PRIX", nullable = false)
 	@Positive
-	@NotEmpty
 	private double prix;
 
 	@Column(name = "ACH_DATE")
 	@Temporal(TemporalType.TIMESTAMP)
-	@NotEmpty
 	private Date date;
 
 	@ManyToOne
 	@JoinColumn(name = "ACH_ITEM_ID")
-	@NotEmpty
 	private Item item;
 	
 	@ManyToOne
 	@JoinColumn(name = "ACH_SOPRAMON_ID")
-	@NotEmpty
 	private Sopramon sopramon;
 
 	public int getId() {
