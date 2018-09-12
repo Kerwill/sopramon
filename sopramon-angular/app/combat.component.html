@@ -1,0 +1,33 @@
+<!-- Nom du produit : <input type="text" [(ngModel)]="produit.nom" /><br />
+Prix du produit : <input type="number" [(ngModel)]="produit.prix" />
+
+<p *ngIf="produit.nom && produit.prix !=0"
+  [class.negatif]="produit.prix < 0">
+  Le produit {{produit.nom}} est à {{produit.prix}} euros.
+  <button class="btn btn-success" (click)="addProduit()">
+    <span *ngIf="!isEditing">AJOUTER</span>
+    <span *ngIf="isEditing">MODIFIER</span>
+  </button>
+</p> -->
+
+<h1>Liste des combats</h1>
+
+Filtre : <input type="text" [(ngModel)]="filtre"/>
+
+<table class="table table-dark">
+  <thead>
+  <tr>
+    <td>Tour</td>
+    <td>Attaquant1</td>
+    <td>Attaquant2</td>
+    <td>Coups</td>
+  </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let c of getCombats()">
+        <td>{{ c.tour }}</td>
+        <td>{{ c.attaquant1.nom}}</td>
+        <td>{{ c.attaquant2.nom}}</td>
+    </tr>
+  </tbody>
+</table>
