@@ -34,17 +34,14 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 	
 	@Column(name = "BOS_NIVEAU", nullable = false)
 	@Positive
-	@NotEmpty
 	private int niveau = 1;
 	
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "BOS_CAPACITE_ID")
-	@NotEmpty
 	private Capacite capacite = new Capacite();
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "BOS_SIGNE_ID")
-	@NotEmpty
 	private Signe signe = Signe.UNKNOWN;
 	
 	@OneToMany(mappedBy="boss")
@@ -52,7 +49,6 @@ public class Boss implements ICombattant<Sopramon,Boss, Combat> {
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "BOS_TYPE")
-	@NotEmpty
 	private Type type = Type.UNKNOWN;
 	
 
