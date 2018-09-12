@@ -31,7 +31,6 @@ public class Coup {
 	
 	@Column(name="COU_DEGATS")
 	@PositiveOrZero
-	@NotEmpty
 	private int degats;
 	
 	@Column(name="COU_PERSISTANCE")

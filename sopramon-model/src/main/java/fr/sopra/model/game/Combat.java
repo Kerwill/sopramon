@@ -49,7 +49,6 @@ public class Combat {
 	
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "COM_ARENE")
-	@NotEmpty
 	private Arene arene = Arene.AUNKNOWN;
 
 	public int getId() {

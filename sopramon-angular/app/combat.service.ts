@@ -6,6 +6,7 @@ import { AppConfigService } from './app-config.service';
 @Injectable()
 export class CombatService {
     private combats: Array<Combat> = new Array<Combat>();
+
     // private requestOptions: RequestOptions;
 
     constructor(private http: Http, private appConfigService: AppConfigService ) {
@@ -28,11 +29,16 @@ export class CombatService {
         return this.combats;
     }
 
-    public findAllByAttaquant(attaquant1: string): Array<Combat> {
-        return this.combats.filter(c =>
-            c.getAttaquant1()
-                .indexOf(attaquant1) !== -1
-        );
+    public findAllByAttaquant(attaquant1): Array<Combat> {
+
+return this.combats.filter(c =>
+    c.getAttaquant1().nom
+        .indexOf("Xavier") !== -1
+    ||
+    c.getAttaquant2().nom
+        .indexOf("Xavier") !== -1
+);
+
     }
 
 

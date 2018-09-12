@@ -2,7 +2,6 @@ export class Combat {
     private tour:number;
     private attaquant1: string;
     private attaquant2: string;
-    private boss: string;
     private href: string;
     private username : string;
 
@@ -25,17 +24,14 @@ export class Combat {
         return this.href;
     }
 
-    public getAttaquant1(): string {
+    public getAttaquant1(): any {
         return this.attaquant1;
     }
 
-    public getAttaquant2(): string {
+    public getAttaquant2(): any {
         return this.attaquant2;
     }
 
-    public getBoss(): string {
-        return this.boss;
-    }
 
     public getUsername(): string {
         return this.username;
@@ -49,9 +45,7 @@ export class Combat {
         this.attaquant2 = attaquant2;
     }
 
-    public setBoss(boss: string) {
-        this.boss = boss;
-    }
+
 
     public setUsername(username : string) {
         this.username = username;

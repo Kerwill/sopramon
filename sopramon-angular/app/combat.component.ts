@@ -26,7 +26,7 @@ export class CombatComponent {
 }
 
     public filtrerCombat(): Array<Combat> {
-        return this.combatService.findAllByAttaquant(this.filtre);
+        return this.combatService.findAllByAttaquant();
     }
 
     // public connect() {
